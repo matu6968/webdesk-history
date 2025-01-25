@@ -1,0 +1,56 @@
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<style>
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  display: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+  display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  height: 100%; 
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  user-select: none;
+}
+#uno {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: none;
+}
+#loading {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+</style>
+<div id="loading">Loading... if this is taking too long, please check your connection.</div>
+<iframe src="https://e.widgetbot.io/channels/984232373187125268/984232611406819358" id="uno"></iframe>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>

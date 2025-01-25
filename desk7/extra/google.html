@@ -1,0 +1,64 @@
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<style>
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+::-webkit-scrollbar-thumb:hover {
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  height: 100%; 
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  user-select: none;
+}
+#uno {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: none;
+  z-index: 99;
+}
+#loading {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+#back {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 3px;
+  margin-top: 3px;
+  top: 0;
+  transition: .25s;
+  color: #999;
+  border-radius: 8px;
+  z-index: 999;
+  transform: translate(-50%,);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+}
+#back:hover {
+  color: #777;
+}
+#back:active {
+  color: #555;
+}
+</style>
+<div id="back" onclick="window.location.reload();">Back To Search</div>
+<div id="loading">Loading... if this is taking too long, please check your connection.</div><iframe src="https://google.com/search?igu=1" id="uno"></iframe>

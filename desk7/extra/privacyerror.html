@@ -1,0 +1,43 @@
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="icon" type="image/x-icon" href="error.png"><title>Privacy Error</title>
+<style>
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  height: 100%; width: 100%;
+  margin: 0; padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  user-select: none;
+  background-color: #1a1a1a;
+}
+
+#desktop {
+  position: absolute;
+  min-height: 100%; min-width: 100%;
+  z-index: 0;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+}
+#center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+</style>
+<div id="desktop">
+<div id="center">
+<p>Error</p>
+<p>You have enabled Privacy Mode.</p>
+<p>Because this is an online service, it has been disabled.</p>
+<p>If you want to re-enable online services, go to:</p>
+<p>App Drawer > Preferences > Data And Privacy > Disable Privacy Mode</p>
+<p>Click "Disable Privacy Mode".</p></div>
+</div>

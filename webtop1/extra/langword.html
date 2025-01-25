@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--This is the iframe for the first setup screen, specifically the text.-->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap');
+
+    p {
+        padding: 0px !important;
+        margin: 0px !important;
+        font-family: 'Hind Siliguri', sans-serif;
+        color: #fff;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 22px;
+        z-index: 1;
+    }
+
+    body {
+        font-family: 'Hind Siliguri', sans-serif;
+        font-size: 16px;
+    }
+    #dont {
+        position: fixed; 
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        z-index: 99999;
+    }
+</style>
+
+<body>
+    <div id="dont"></div>
+    <p>Welcome</p>
+</body>
+<button id="bitchplease" onclick="english()" style="display: none;"></button>
+<script>
+    window.addEventListener('load', function () {
+        english();
+    })
+    function english() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'us', function () { }); setTimeout(latvian, 2000); }
+    function latvian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'lv', function () { }); setTimeout(spanish, 2000); }
+    function spanish() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'es', function () { }); setTimeout(polish, 2000); }
+    function polish() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'pl', function () { }); setTimeout(chinese, 2000); }
+    function chinese() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'zh', function () { }); setTimeout(romanian, 2000); }
+    function romanian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'ro', function () { }); setTimeout(french, 2000); }
+    function french() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'fr', function () { }); setTimeout(russian, 2000); }
+    function russian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'ru', function () { }); setTimeout(german, 2000); }
+    function german() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'de', function () { }); setTimeout(serbian, 2000); }
+    function serbian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'sr', function () { }); setTimeout(english, 2000); }
+</script>
+<script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=gtElInit&amp;hl=en&amp;client=wt"
+    type="text/javascript"></script>

@@ -1,0 +1,565 @@
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="icon" type="image/x-icon" href="images/icon/favicon.jpg">
+<script src = "battery/script2.js"> </script>
+<style>
+#desktop {
+  position: absolute;
+  min-height: 100%; min-width: 100%;
+  z-index: 0;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  text-align: center;
+  font-size: 30px;
+  color: #888;
+}
+
+.app {
+  background-color: #1d1d1d;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-family: 'Poppins';
+}
+
+.settings { 
+  width: 100% !important; 
+  padding: 4px !important; 
+  margin: 1px !important; 
+  border-radius: 10px !important; 
+}
+
+.app:hover {
+  opacity: 65%;
+}
+
+.app:active {
+  opacity: 25%;
+}
+.button1 {background-color: #1d1d1d;}
+.button2 {background-color: #da532c;}
+.button3 {background-color: #1e7145;}
+.color1 {background-color: #1d1d1d} 
+.color2 {background-color: #990000}
+.color3 {background-color: #d6d600} 
+.color4 {background-color:rgb(255, 196, 0)} 
+.color5 {background-color: #00ff00} 
+.color6 {background-color: #008000}
+.color7 {background-color: #0099cc} 
+.color8 {background-color: #0000cc}
+.color13 {background-color: #000088}
+.color14 {background-color: #880088}
+.color9 {background-color: #cc00cc}
+.color10 {background-color: #ff00ff}
+.color11 {background-color: #999999}
+.color12 {background-color: #bb0000}
+.app6 {}
+.app6:hover {
+  background-color:rgb(255, 196, 0)
+}
+.app2 {background-color: #da532c;}
+.app4 {padding: 4px 8px; background: rgb(255,0,0, 0.1); border-radius: 6px;}
+.app5 {background-color:rgb(50,50,50, .50);}
+.app3 {}
+.app3:hover {
+  background: #991111;
+  color: ffffff;
+}
+
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 12px;
+  display: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 12px;
+  display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  user-select: none;
+  background-image: url('images/404.jpg');
+  width: 100%;
+  height: 100%;
+  padding: 0;
+      }
+}
+@keyframes fade {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
+}
+@keyframes start {
+  0% {opacity: 100%; z-index: 99999;}
+  100% {opacity:  0%; z-index:  -10;}
+}
+</style>
+<div id="desktop" onclick="closedockstuff();prefout();">
+<h1 style="color: #900;">404 Not Found</h1>
+<p>If you want to go to DeskUtility, press the search icon or menu icon in the dock and click: "Go To DeskUtility"!</p>
+<script>
+function closedockstuff() {
+  var x = document.getElementById("search");
+  x.style.display = "none";
+  var x = document.getElementById("menu");
+  x.style.display = "none";
+}
+</script>
+</div>
+<style>
+#loading {
+  position: absolute; background-color: #000000;
+  min-height: 100%; min-width: 100%;
+  z-index: -10;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  animation: start 2s;
+  opacity: 0%;
+  pointer-events: none;
+}
+</style>
+<div id="loading">
+</div>
+</div>
+<style>
+#menubar {
+  position: fixed;
+  width: 100%;
+  max-height: 33px;
+  min-height: 32px;
+  background:rgb(0,0,0,.7);
+  z-index: 999;
+  backdrop-filter: blur(4px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 200px rgba(0,0,0,0.07 );
+}
+
+#notifstatus {
+  border: none;
+  color: white;
+  min-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#notifstatus:hover {
+  color: #666;
+}
+
+#notifstatus:active {
+  color: #555;
+}
+
+.barbutton {
+  border: none;
+  color: white;
+  min-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#menubar1 {
+  position: fixed;
+  display: none;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.bar0hover {
+  border: none;
+  color: white;
+  min-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+.barbutton:hover {
+  color: #666;
+}
+
+.barbutton:active {
+  color: #555;
+}
+
+.barbutton2 {right: 0%;}
+
+#cell {
+  border: none;
+  color: white;
+  min-height: 32px;
+  font-size: 16px;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#menubarlock {
+  border: none;
+  color: #999;
+  display: none;
+  min-height: 32px;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#rightmenubar {
+  position: fixed;
+  right: 0%;
+  top: 0%;
+}
+</style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      #context-menu {
+        position: fixed;
+        z-index: 10000;
+        width: 170px;
+        background-color:rgb(0,0,0,0.5);    
+        backdrop-filter: blur(12px); /* Chrome and Opera */
+        box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+        border-radius: 12px;
+        transform: scale(0);
+        transform-origin: top left;
+        padding: 6px;
+      }
+
+      #context-menu.visible {
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+      }
+
+      #context-menu .item {
+        padding: 4px 5px;
+        font-size: 15px;
+        color: #eee;
+        cursor: pointer;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      #context-menu .item:hover {
+        background-color:rgb(0,0,0,0.25);
+      }
+      #context-menu .item:active {
+        background-color:rgb(0,0,0,0.5);
+      }
+      #contexthidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="context-menu">
+      <div class="item" onclick="search();">Open Search</div>
+      <div class="item" onclick="menu();">Open Menu</div>
+    </div></div>
+
+    <script>
+      const contextMenu = document.getElementById("context-menu");
+      const scope = document.querySelector("body");
+
+      const normalizePozition = (mouseX, mouseY) => {
+        // ? compute what is the mouse position relative to the container element (scope)
+        let {
+          left: scopeOffsetX,
+          top: scopeOffsetY,
+        } = scope.getBoundingClientRect();
+        
+        scopeOffsetX = scopeOffsetX < 0 ? 0 : scopeOffsetX;
+        scopeOffsetY = scopeOffsetY < 0 ? 0 : scopeOffsetY;
+       
+        const scopeX = mouseX - scopeOffsetX;
+        const scopeY = mouseY - scopeOffsetY;
+
+        // ? check if the element will go out of bounds
+        const outOfBoundsOnX =
+          scopeX + contextMenu.clientWidth > scope.clientWidth;
+
+        const outOfBoundsOnY =
+          scopeY + contextMenu.clientHeight > scope.clientHeight;
+
+        let normalizedX = mouseX;
+        let normalizedY = mouseY;
+
+        // ? normalize on X
+        if (outOfBoundsOnX) {
+          normalizedX =
+            scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
+        }
+
+        // ? normalize on Y
+        if (outOfBoundsOnY) {
+          normalizedY =
+            scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
+        }
+
+        return { normalizedX, normalizedY };
+      };
+
+      scope.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+
+        const { clientX: mouseX, clientY: mouseY } = event;
+
+        const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
+
+        contextMenu.classList.remove("visible");
+
+        contextMenu.style.top = `${normalizedY}px`;
+        contextMenu.style.left = `${normalizedX}px`;
+
+        setTimeout(() => {
+          contextMenu.classList.add("visible");
+        });
+      });
+
+      scope.addEventListener("click", (e) => {
+        // ? close the menu if the user clicks outside of it
+        if (e.target.offsetParent != contextMenu) {
+          contextMenu.classList.remove("visible");
+        }
+      });
+    </script>
+<div id="menubar"><button class="barbutton barbutton1" onclick="window.location.reload();">Reload</button><meta charset = "utf-8"><title>404</title><div id="rightmenubar"><link rel = "stylesheet" href = "extra/clock/clock.css"><button id="cell"> </button><button id = "digital-clock"> </button></div><script src = "extra/clock/clock.js"> </script><script src="battery/script.js"> </script></div>
+</div>
+<style>
+#bugreport {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 60%;
+  width: 60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="bugreport" onclick="closebug();">
+<iframe src="https://docs.google.com/forms/d/1D1ocT9Mt_aEtleM2akOh2cFAOwO6ZbSvVchxWRUOdE4/viewform?embedded=true" width="100%;" height="100%;" frameborder="0" marginheight="0" marginwidth="0">Loading… please be patient.</iframe></div>
+<script>
+function bug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "block";
+}
+function closebug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "none";
+}
+</script>
+<html>
+<head>
+<style>
+#search {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 50%;
+  width: 55%;
+  left: 50%;
+  transform: translate(-50%);
+  bottom:  62px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+}
+</style>
+</head>
+<body>
+<div id="search">
+<style>
+#Searchleft {
+  border-radius: 12px;
+  padding: 4px;
+  overflow: scroll;
+  margin-top: 8px;
+  list-style-type: none;
+}
+#mySearch {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 75%;
+  text-align: center;
+  margin-bottom: 3px;
+  cursor: default !important;
+}
+#mySearch:hover {
+  opacity: 100%;
+}
+.p0 {margin: 0; padding: 0;}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+</style>
+
+
+<div id="Searchleft">
+  <input type="text" id="mySearch" class="app" onkeyup="myFunctionSearch()" placeholder="Search for literally anything... or scroll!" title="Type in a category"><p class="p0">
+    <li class="app"><a href="https://julianld3829.github.io">Go To DeskUtility</a></li><li class="app"><a href="https://discord.gg/tUS8ST5SrE">Join The Discord</a></li></p>
+</div>
+<script>
+function myFunctionSearch() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("Searchleft");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</div>
+</body>
+</html>
+<html>
+<head>
+<style>
+@keyframes dockup {
+  from {bottom:  -7.5%; opacity: 0%;}
+  to {bottom:  6px; opacity: 100%;}
+}
+#dock {
+  position: absolute;
+  max-height: 34px;
+  min-height: 34px;
+  background:rgb(0,0,0,.5);
+  z-index: 32;
+  bottom: 6px;
+  left:  50%;
+  transform: translate(-50%);
+  border-radius: 12px;
+  padding: 8px;
+  color: #fff;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  animation: dockup 0.5s;
+}
+.appicon {
+  border-radius: 5px;
+  width: 34px;
+  height: 34px;
+  background:rgb(0,0,0,0);
+  transition: 0.2s;
+}
+.appicon:hover {
+  opacity: 60%;
+}
+.appicon:active {
+  opacity: 35%;
+}
+@keyframes up {
+  from {bottom:  -10%; opacity: 0%;}
+  to {bottom:  62px; opacity: 100%;}
+}
+</style>
+<style>
+#menu {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 50%;
+  width: 55%;
+  left: 50%;
+  transform: translate(-50%);
+  bottom:  62px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+}
+
+.marginleft5px {margin-left: 5px;}
+</style>
+</head>
+<body>
+<div id="menu"><h2>Control Center</h2><p>This is a small taste of DeskUtility!</p><li class="app"><a href="https://julianld3829.github.io">Go To DeskUtility</a></li></div>
+<script>
+function search() {
+  var x = document.getElementById("search");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("menu");
+  x.style.display = "none";
+}
+function menu() {
+  var x = document.getElementById("menu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("search");
+  x.style.display = "none";
+}
+  
+</script>
+<div id="dock"><img onclick="myFunctionSearch();search();document.getElementById('mySearch').value = ''" src="images/icon/search.png" class="appicon"></img><img onclick="menu();" src="images/icon/menu.png" class="appicon marginleft5px"></img></div>

@@ -1,0 +1,379 @@
+/* WebtopUI Main CSS, kept updated because it serves WebTop too. */
+:root {
+    /* Use --accent like this: rgba(var(--accent), transparencyvalue) for self-made menus, buttons, etc. */
+    --accent: 35, 60, 60;
+    /* --lightdark, the solid dark/light mode variable. Use it on any surfaces that can be light/dark. */
+    --lightdark: #1a1a1a;
+    /* Same as --lightdark but transparent, meant for transparent apps/blurred surfaces. */
+    --lightdarkb: rgb(20, 20, 20, 0.5);
+    /* I forgot what --lightdark2 does, try it I guess*/
+    --lightdark2: #000000;
+    /* Font color, use it in conjunction with --lightdark or --lightdarkb. If you wanna be safe, use it everywhere. */
+    --font: #f2f2f2;
+    /* Normal UI colors, use as you wish! */
+    --red: 255, 59, 48;
+    --orange: 255, 149, 0;
+    --yellow: 255, 204, 0;
+    --green: 52, 199, 89;
+    --mint: 0, 199, 190;
+    --blue: 0, 122, 255;
+    --indigo: 88, 86, 214;
+    --purple: 175, 82, 222;
+    --pink: 255, 45, 85;
+    /* Set font size, would recommend using it but not required*/
+    --font-size: 16px;
+}
+/* Font face, to keep the experince in line with WebTop don't modify this in your code. */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap');
+
+body {
+    /* Font face note 2: Use this with all UI elements. */
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 16px;
+}
+    /* to be completed */
+#loading {
+    z-index: 14;
+}
+
+#loading,
+#loading2 {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    background-color: var(--lightdark);
+    display: block;
+    text-align: center;
+}
+
+#loading2 {
+    z-index: -3;
+    opacity: 0%;
+    display: none;
+    animation: fadein 1s;
+}
+/* A class to hide things, use it to save space. */
+.hidden {
+    display: none;
+}
+/* Loading screen code*/
+@keyframes fadein {
+    0% {
+        opacity: 100%;
+        z-index: 9;
+    }
+
+    99% {
+        opacity: 1%;
+        z-index: 9;
+    }
+
+    100% {
+        opacity: 0%;
+        z-index: -3;
+    }
+}
+/* Old code from a previous prototype (Dec 2022) kept incase redesign*/
+#taskbar {
+    position: fixed;
+    left: 50%;
+    bottom: 8px;
+    border-radius: 20px;
+    padding: 6px;
+    background-color: var(--lightdarkb);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--lightdark);
+    display: none;
+    animation: taskbar .5s;
+    transform: translate(-50%);
+    z-index: 12;
+}
+
+@keyframes taskbar {
+    0% {
+        bottom: -50px;
+        opacity: 10%;
+    }
+
+    100% {
+        bottom: 8px;
+        opacity: 100%;
+    }
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+}
+/* Buttons, apply this to normal UI buttons via class="app" */
+.app {
+    padding: 6px 12px;
+    border: none;
+    margin: 1px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+    background: rgba(var(--accent), 1.0);
+    font-family: 'Hind Siliguri', sans-serif;
+    transition: .1s;
+    color: #fff;
+}
+
+.app:hover {
+    background: rgba(var(--accent), 0.7);
+}
+
+#language {
+    overflow: scroll;
+}
+
+.app:active {
+    background: rgba(var(--accent), 0.4);
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f6f6f6;
+    opacity: 1;
+    /* Firefox */
+}
+
+.h1 {
+    font-size: 24px;
+}
+
+.textbox {
+    width: 99%;
+}
+
+.textbox:hover {
+    background: rgba(var(--accent), 1.0) !important;
+}
+
+.textbox:active {
+    background: rgba(var(--accent), 1.0) !important;
+}
+
+.wider {
+    width: 99%;
+    border-radius: 4px;
+}
+
+.widerstop {
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+    border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+.widersbottom {
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+}
+
+.widers0 {
+    width: 99%;
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+
+}
+
+.widertop {
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+    border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+.widerbottom {
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+}
+
+.wider0 {
+    width: 99%;
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+
+}
+
+/* Setup code, don't use it lmfao */
+#howtouse,
+#devicesetup,
+#setupmain,
+#setupdone,
+#setuppref {
+    display: none;
+}
+/* Apply padding to the sides, idk why this is here */
+.sidepad {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* Hyperlinks */
+a {
+    color: #fff;
+    transition: 0.05;
+    font-size: 16px;
+    transition: .1s;
+    text-decoration: underline;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    color: rgba(var(--accent), 1.0);
+}
+
+a:active {
+    color: rgba(var(--accent), 0.5);
+}
+/* More load code */
+.line-wobble {
+    --uib-size: 120px;
+    --uib-speed: 1.55s;
+    --uib-color: rgba(var(--accent), 1.0);
+    --uib-line-weight: 6px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--uib-line-weight);
+    width: var(--uib-size);
+    border-radius: calc(var(--uib-line-weight) / 2);
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.line-wobble::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--uib-color);
+    opacity: 0.1;
+}
+
+.line-wobble::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: calc(var(--uib-line-weight) / 2);
+    animation: wobble var(--uib-speed) ease-in-out infinite;
+    transform: translateX(-90%);
+    background-color: var(--uib-color);
+}
+
+@keyframes wobble {
+
+    0%,
+    100% {
+        transform: translateX(-90%);
+    }
+
+    50% {
+        transform: translateX(90%);
+    }
+}
+/* Center an element */
+.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* This is obvious */
+.forcewhitefont {
+    color: #fff !important;
+}
+/* Position in the middle horizontally*/
+.middle {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.paddedload {
+    padding-top: 8px;
+}
+
+#settings {
+    width: 320px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+/* Feel free to use as an app setup experince, might need to change this code by modding styles in your code with !important */
+#setup {
+    width: 570px;
+    height: 370px;
+    max-width: 80%;
+    max-height: 70%;
+    border-radius: 12px;
+    border: 1px solid var(--lightdarkb);
+    background: var(--lightdark);
+    padding: 14px;
+    color: var(--font);
+    z-index: 2;
+    text-align: center;
+    box-shadow: 0 0 48px 48px rgba(0, 0, 0, 0.50);
+    display: block;
+}
+/* Blurred background */
+.blurbg {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+}
+/* Use for big text */
+.h1 {
+    font-size: 28px;
+}
+/* Use for small text */
+.h2 {
+    font-size: 22px;
+}
+
+.setupq {
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(var(--accent), .3)
+}
+
+#setupq1 {
+    display: block;
+}
+
+#terms {
+    position: flex;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    height: 260px;
+    border: none;
+}

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<body style="background-color:lightgrey;">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+<body>
+<html lang="en">
+<head>
+  <title>DeskUtility</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	font-family: Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<style>
+#mydiv6 {
+	position: absolute;
+	z-index: 9;
+	background-color: #000000;
+	text-align: center;
+	border: 1px solid #d3d3d3;
+	border-radius: 7px;
+}
+
+#mydivheader6 {
+	padding: 10px;
+	cursor: move;
+	z-index: 10;
+	background-color: #ff0000;
+	color: #000000;
+	border-radius: 7px;
+}
+</style>
+<body>
+<div id="mydiv6">
+	<div id="mydivheader6">Calculator</div>
+	<p><html>
+<head>
+	<script>
+		//function that display value
+		function dis(val)
+		{
+			document.getElementById("result").value+=val
+		}
+		
+		//function that evaluates the digit and return result
+		function solve()
+		{
+			let x = document.getElementById("result").value
+			let y = eval(x)
+			document.getElementById("result").value = y
+		}
+		
+		//function that clear the display
+		function clr()
+		{
+			document.getElementById("result").value = ""
+		}
+	</script>
+	<!-- for styling -->
+	<style>
+		.title{
+		margin-bottom: 10px;
+		text-align:center;
+		width: 200px;
+		color:green;
+		border: solid black 1px;
+		}
+
+		input[type="button"]
+		{
+		background-color:white;
+		color: black;
+		border: solid black 2px;
+		width:100%
+		}
+
+		input[type="text"]
+		{
+		background-color:white;
+		border: solid black 2px;
+		width:100%
+		}
+	</style>
+</head>
+<!-- create table -->
+<body>
+	<table border="1">
+		<tr>
+			<td colspan="3"><input type="text" id="result"/></td>
+			<!-- clr() function will call clr to clear all value -->
+			<td><input type="button" value="c" onclick="clr()"/> </td>
+		</tr>
+		<tr>
+			<!-- create button and assign value to each button -->
+			<!-- dis("1") will call function dis to display value -->
+			<td><input type="button" value="1" onclick="dis('1')"/> </td>
+			<td><input type="button" value="2" onclick="dis('2')"/> </td>
+			<td><input type="button" value="3" onclick="dis('3')"/> </td>
+			<td><input type="button" value="/" onclick="dis('/')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="dis('4')"/> </td>
+			<td><input type="button" value="5" onclick="dis('5')"/> </td>
+			<td><input type="button" value="6" onclick="dis('6')"/> </td>
+			<td><input type="button" value="-" onclick="dis('-')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" onclick="dis('7')"/> </td>
+			<td><input type="button" value="8" onclick="dis('8')"/> </td>
+			<td><input type="button" value="9" onclick="dis('9')"/> </td>
+			<td><input type="button" value="+" onclick="dis('+')"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="." onclick="dis('.')"/> </td>
+			<td><input type="button" value="0" onclick="dis('0')"/> </td>
+			<!-- solve function call function solve to evaluate value -->
+			<td><input type="button" value="=" onclick="solve()"/> </td>
+			<td><input type="button" value="*" onclick="dis('*')"/> </td>
+		</tr>
+	</table>
+</body>
+</html></p>
+</div>
+
+</p>
+
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mydiv6"));
+
+function dragElement(elmnt) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (document.getElementById(elmnt.id + "header6")) {
+		/* if present, the header is where you move the DIV from:*/
+		document.getElementById(elmnt.id + "header6").onmousedown = dragMouseDown;
+	} else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+		elmnt.onmousedown = dragMouseDown;
+	}
+
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
+
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	font-family: Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<style>
+#mydiv {
+	position: absolute;
+	z-index: 9;
+	background-color: #000000;
+	text-align: center;
+	border: 2px solid #f0f0f0;
+	border-radius: 7px;
+	width: 100px;
+}
+#mydivheader {
+	padding: 8px;
+	cursor: move;
+	z-index: 10;
+	background-color: #f00000;
+	color: #000000;
+	border-radius: 7px;
+}
+</style>
+<body>
+<div id="mydiv">
+	<div id="mydivheader">Clock</div>
+	<p><iframe src="https://free.timeanddate.com/clock/i80bpbwo/n159/fcfff/tc000/tt0/tw0/tm1/tb4" frameborder="0" width="84" height="33"></iframe>
+</p>
+</div>
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mydiv"));
+
+function dragElement(elmnt) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (document.getElementById(elmnt.id + "header")) {
+		/* if present, the header is where you move the DIV from:*/
+		document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+	} else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+		elmnt.onmousedown = dragMouseDown;
+	}
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
+</script>
+</body>
+</html>
+<button onclick="myFunction3()">Open/close Clock</button>
+<script>
+function myFunction3() {
+	var x = document.getElementById("mydiv");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+</script>
+</body>
+</html>
+<button onclick="myFunction27()">Open/close Top Bar Color</button>
+<script>
+function myFunction27() {
+	var x = document.getElementById("mydiv4");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+</script>
+
+</body>
+</html>
+</body>
+</html>
+<!DOCTYPE HTML>
+<html>
+<style>
+#mydiv2 {
+	position: absolute;
+	z-index: 5000;
+	background-color: #000000;
+	text-align: center;
+	border: 2px solid #f0f0f0;
+	border-radius: 7px;
+	width: 200;
+}
+#mydivheader2 {
+	padding: 8px;
+	cursor: move;
+	z-index: 5000;
+	background-color: #f00000;
+	color: #000000;
+	border-radius: 7px;
+}
+</style>
+<body>
+<div id="mydiv2">
+	<div id="mydivheader2">Preferences</div>
+	<p><!DOCTYPE html>
+<html>
+<body>
+<button type="button" onclick="myFunction()">Dark</button>
+<script>
+function myFunction() {
+	document.body.style.backgroundColor = "black";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+<button type="button" onclick="myFunction2()">Light</button>
+<script>
+function myFunction2() {
+	document.body.style.backgroundColor = "lightgrey";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+}
+</style>
+</head>
+<body>
+<p><button onclick="openFullscreen();">Open Fullscreen</button><p>
+<button onclick="closeFullscreen();">Close Fullscreen</button><p>
+<button onClick="window.location.reload();">Fix Issues</button><p>
+
+<script>
+var elem = document.documentElement;
+function openFullscreen() {
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.webkitRequestFullscreen) { /* Safari */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) { /* IE11 */
+		elem.msRequestFullscreen();
+	}
+}
+
+function closeFullscreen() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.webkitExitFullscreen) { /* Safari */
+		document.webkitExitFullscreen();
+	} else if (document.msExitFullscreen) { /* IE11 */
+		document.msExitFullscreen();
+	}
+}
+</script>
+</p>
+</body>
+</html>
+</p>
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+<body>  
+<script>
+var elem = document.documentElement;
+function openFullscreen() {
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.webkitRequestFullscreen) { /* Safari */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) { /* IE11 */
+		elem.msRequestFullscreen();
+	}
+}
+
+function closeFullscreen() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.webkitExitFullscreen) { /* Safari */
+		document.webkitExitFullscreen();
+	} else if (document.msExitFullscreen) { /* IE11 */
+		document.msExitFullscreen();
+	}
+}
+</script>
+</body>
+</html>
+</p>
+</div>
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mydiv2"));
+
+function dragElement(elmnt) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (document.getElementById(elmnt.id + "heade2r")) {
+		/* if present, the header is where you move the DIV from:*/
+		document.getElementById(elmnt.id + "header2").onmousedown = dragMouseDown;
+	} else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+		elmnt.onmousedown = dragMouseDown;
+	}
+
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
+
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
+</script>
+</body>
+</html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<button onclick="myFunction4()">Open/close Preferences</button>
+<script>
+function myFunction4() {
+	var x = document.getElementById("mydiv2");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<button onclick="myFunction52()">Open/close Calculator</button>
+<script>
+function myFunction52() {
+	var x = document.getElementById("mydiv6");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<style>
+#mydiv3 {
+	position: absolute;
+	z-index: 0;
+	background-color: #000000;
+	text-align: center;
+	border: 2px solid #f0f0f0;
+	border-radius: 7px;
+}
+#mydivheader3 {
+	padding: 8px;
+	cursor: move;
+	z-index: 10;
+	background-color: #f00000;
+	color: #000000;
+	border-radius: 7px;
+}
+</style>
+<body>
+<div id="mydiv3">
+	<div id="mydivheader3">Weather</div>
+	<p><iframe src="https://www.meteoblue.com/en/weather/widget/daily/ip_romania_675514?geoloc=fixed&days=4&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&precipunit=INCH&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 216px; height: 260px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/en/weather/week/ip_romania_675514?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget"></a></div></p>
+</div>
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mydiv3"));
+
+function dragElement(elmnt) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (document.getElementById(elmnt.id + "header3")) {
+		/* if present, the header is where you move the DIV from:*/
+		document.getElementById(elmnt.id + "header3").onmousedown = dragMouseDown;
+	} else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+		elmnt.onmousedown = dragMouseDown;
+	}
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<button onclick="myFunction5()">Open/close Weather</button>
+<script>
+function myFunction5() {
+	var x = document.getElementById("mydiv3");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<style>
+#mydiv4 {
+	position: absolute;
+	z-index: 9;
+	background-color: #ffffff;
+	text-align: center;
+	border: 2px solid #fff000;
+	border-radius: 6px;
+}
+#mydivheader4 {
+	padding: 5px;
+	cursor: move;
+	z-index: 10;
+	background-color: #fff000;
+	color: #000000;
+	border-radius: 5px;
+}
+</style>
+<body>
+<div id="mydiv4">
+	<div id="mydivheader4">Top Bar Color</div>
+	<p>Clock &nbsp Calculator &nbsp Preferences &nbsp Weather<p><!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction6()">White</button>
+<script>
+function myFunction6() {
+	document.getElementById("mydivheader").style.backgroundColor = "white";
+}
+</script>
+</style>
+</head>
+<body>
+<button onclick="myFunction43()">White</button>
+<script>
+function myFunction43() {
+	document.getElementById("mydivheader6").style.backgroundColor = "white";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction7()">White</button>
+<script>
+function myFunction7() {
+	document.getElementById("mydivheader2").style.backgroundColor = "white";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction8()">White</button>
+<script>
+function myFunction8() {
+	document.getElementById("mydivheader3").style.backgroundColor = "white";
+}
+</script>
+
+</body>
+</html><p>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction9()">Red</button>
+<script>
+function myFunction9() {
+	document.getElementById("mydivheader").style.backgroundColor = "#ff0000";
+}
+</script>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction44()">Red</button>
+<script>
+function myFunction44() {
+	document.getElementById("mydivheader6").style.backgroundColor = "#ff0000";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction10()">Red</button>
+<script>
+function myFunction10() {
+	document.getElementById("mydivheader2").style.backgroundColor = "#ff0000";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction11()">Red</button>
+<script>
+function myFunction11() {
+	document.getElementById("mydivheader3").style.backgroundColor = "#ff0000"
+}
+</script>
+
+</body>
+</html><p><!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction12()">Orange</button>
+<script>
+function myFunction12() {
+	document.getElementById("mydivheader").style.backgroundColor = "#ff471a";
+}
+</script>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction45()">Orange</button>
+<script>
+function myFunction45() {
+	document.getElementById("mydivheader6").style.backgroundColor = "#ff471a";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction13()">Orange</button>
+<script>
+function myFunction13() {
+	document.getElementById("mydivheader2").style.backgroundColor = "#ff471a";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction14()">Orange</button>
+<script>
+function myFunction14() {
+	document.getElementById("mydivheader3").style.backgroundColor = "#ff471a";
+}
+</script>
+
+</body>
+</html><p><!DOCTYPE HTML>
+</style>
+</head>
+<body>
+<button onclick="myFunction15()">Yellow</button>
+<script>
+function myFunction15() {
+	document.getElementById("mydivheader").style.backgroundColor = "#e6e600";
+}
+</script>
+<!DOCTYPE HTML>
+</style>
+</head>
+<body>
+<button onclick="myFunction46()">Yellow</button>
+<script>
+function myFunction46() {
+	document.getElementById("mydivheader6").style.backgroundColor = "#e6e600";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction16()">Yellow</button>
+<script>
+function myFunction16() {
+	document.getElementById("mydivheader2").style.backgroundColor = "#e6e600";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction17()">Yellow</button>
+<script>
+function myFunction17() {
+	document.getElementById("mydivheader3").style.backgroundColor = "#e6e600";
+}
+</script>
+
+</body>
+</html><p><!DOCTYPE HTML>
+</style>
+</head>
+<body>
+<button onclick="myFunction18()">Green</button>
+<script>
+function myFunction18() {
+	document.getElementById("mydivheader").style.backgroundColor = "#006600";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction19()">Green</button>
+<script>
+function myFunction19() {
+	document.getElementById("mydivheader2").style.backgroundColor = "#006600";
+}
+</script>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction47()">Green</button>
+<script>
+function myFunction47() {
+	document.getElementById("mydivheader6").style.backgroundColor = "#006600";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction20()">Green</button>
+<script>
+function myFunction20() {
+	document.getElementById("mydivheader3").style.backgroundColor = "#006600";
+}
+</script>
+
+</body>
+</html></p><p><!DOCTYPE HTML>
+</style>
+</head>
+<body>
+<button onclick="myFunction21()">Blue</button>
+<script>
+function myFunction21() {
+	document.getElementById("mydivheader").style.backgroundColor = "#0000cc";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction22()">Blue</button>
+<script>
+function myFunction22() {
+	document.getElementById("mydivheader2").style.backgroundColor = "#0000cc";
+}
+</script>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction48()">Blue</button>
+<script>
+function myFunction48() {
+	document.getElementById("mydivheader6").style.backgroundColor = "#0000cc";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction23()">Blue</button>
+<script>
+function myFunction23() {
+	document.getElementById("mydivheader3").style.backgroundColor = "#0000cc";
+}
+</script>
+
+</body>
+</html><p><!DOCTYPE HTML>
+</style>
+</head>
+<body>
+<button onclick="myFunction24()">Purple</button>
+<script>
+function myFunction24() {
+	document.getElementById("mydivheader").style.backgroundColor = "#990099";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction50()">Purple</button>
+<script>
+function myFunction50() {
+	document.getElementById("mydivheader6").style.backgroundColor = "#990099";
+}
+</script>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction25()">Purple</button>
+<script>
+function myFunction25() {
+	document.getElementById("mydivheader2").style.backgroundColor = "#990099";
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+</style>
+</head>
+<body>
+<button onclick="myFunction26()">Purple</button>
+<script>
+function myFunction26() {
+	document.getElementById("mydivheader3").style.backgroundColor = "#990099";
+}
+</script>
+
+</body>
+</html><p>
+</div>
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mydiv4"));
+
+function dragElement(elmnt) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (document.getElementById(elmnt.id + "header4")) {
+		/* if present, the header is where you move the DIV from:*/
+		document.getElementById(elmnt.id + "header4").onmousedown = dragMouseDown;
+	} else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+		elmnt.onmousedown = dragMouseDown;
+	}
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+</script>
+</body>
+</html>
+<html>
+<style>
+#mydiv5 {
+	position: absolute;
+	z-index: 0;
+	background-color: #ffffff;
+	text-align: center;
+	border: 2px solid #fff000;
+	border-radius: 6px;
+}
+#mydivheader5 {
+	padding: 5px;
+	cursor: move;
+	z-index: 10;
+	background-color: #fff000;
+	color: #000000;
+	border-radius: 5px;
+}
+</style>
+<body>
+<div id="mydiv5">
+	<div id="mydivheader5">htmlOS.html&nbsp&nbsp&nbsp&nbsp<!DOCTYPE html>
+<html>
+<head>
+<style>
+a:link, a:visited {
+	background-color: #f44336;
+	color: white;
+	padding: 2px 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+a:hover, a:active {
+	background-color: red;
+}
+</style>
+</head>
+<body>
+
+<button onclick="myFunction28()">x</a>
+
+</body>
+</html>
+
+
+</div>
+<p>You are running</p>
+<p>htmlOS Ver. 2.1</p>
+<p>By: (redacted for privacy)</p>
+<p>CD Copy. No specials.</p>
+<title>Please close htmlOS Block.</title>
+</p></body>
+</html>
+</p>
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mydiv5"));
+
+function dragElement(elmnt) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (document.getElementById(elmnt.id + "header5")) {
+		/* if present, the header is where you move the DIV from:*/
+		document.getElementById(elmnt.id + "header5").onmousedown = dragMouseDown;
+	} else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+		elmnt.onmousedown = dragMouseDown;
+	}
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
+</script>
+</body>
+</html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script>
+function myFunction28() {
+	var x = document.getElementById("mydiv5");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+</script>
+</script>
+</body>
+</html>

@@ -1,0 +1,2746 @@
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="icon" type="image/x-icon" href="./images/icon/favicon.jpg">
+<script src = "./battery/script2.js"> </script>
+<style>
+#desktop {
+  position: absolute;
+  min-height: 100%; min-width: 100%;
+  z-index: 0;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+}
+.tabbed {
+  background: transparent !important;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Poppins';
+  height: 10%;
+}
+
+.tabbed:hover {
+  color: #999;
+}
+
+.tabbed:active {
+  color: #555;
+}
+
+.app {
+  background-color: #1d1d1d;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-family: 'Poppins';
+}
+
+.settings { 
+  width: 100% !important; 
+  padding: 4px !important; 
+  margin: 1px !important; 
+  border-radius: 10px !important; 
+}
+.backbutton {
+  width: 50%;
+}
+.app:hover {
+  opacity: 65%;
+}
+
+.app:active {
+  opacity: 25%;
+}
+.button1 {background-color: #1d1d1d;}
+.button2 {background-color: #da532c;}
+.button3 {background-color: #1e7145;}
+.color1 {background-color: #1d1d1d} 
+.color2 {background-color: #990000}
+.color3 {background-color: #d6d600} 
+.color4 {background-color:rgb(255, 196, 0)} 
+.color5 {background-color: #00ff00} 
+.color6 {background-color: #008000}
+.color7 {background-color: #0099cc} 
+.color8 {background-color: #0000cc}
+.color13 {background-color: #000088}
+.color14 {background-color: #880088}
+.color9 {background-color: #cc00cc}
+.color10 {background-color: #ff00ff}
+.color11 {background-color: #999999}
+.color12 {background-color: #bb0000}
+.thicc {width:90%;}
+.app6 {}
+.app6:hover {
+  background-color:rgb(255, 196, 0)
+}
+.context {position: fixed; padding: 4px 6px; background: rgb(255,255,255, 0.1); border-radius: 6px;}
+ {background-color: #1d1d1d;}
+.app2 {background-color: #da532c;}
+.app4 {padding: 4px 8px; background: rgb(255,0,0, 0.1); border-radius: 6px;}
+.app5 {background-color:rgb(50,50,50, .50);}
+.app3 {}
+.app3:hover {
+  background: #991111;
+  color: ffffff;
+}
+
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 12px;
+  display: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 12px;
+  display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+  background-image: url('./images/wr4.jpg');
+  width: 100%;
+  height: 100%;
+  padding: 0;
+      }
+}
+@keyframes fade {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
+}
+@keyframes start {
+  0% {opacity: 100%; z-index: 99999;}
+  100% {opacity:  0%; z-index:  -10;}
+}
+</style>
+<div id="desktop" onclick="closedockstuff();prefout();">
+<script>
+function closedockstuff() {
+  var x = document.getElementById("search");
+  x.style.display = "none";
+  var x = document.getElementById("google");
+  x.style.display = "none";
+  var x = document.getElementById("dockmenu");
+  x.style.display = "none";
+  var x = document.getElementById("wallpaper");
+  x.style.display = "none";
+  var x = document.getElementById("accent");
+  x.style.display = "none";
+  var x = document.getElementById("appdrawer");
+  x.style.display = "none";
+  var x = document.getElementById("bugreport");
+  x.style.display = "none";
+  var x = document.getElementById("notifpanel");
+  x.style.display = "none";
+  var x = document.getElementById("deeves");
+  x.style.display = "none";
+}
+</script>
+</div>
+<style>
+#loading {
+  position: absolute; background-color: #000000;
+  min-height: 100%; min-width: 100%;
+  z-index: -10;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  animation: start 2s;
+  opacity: 0%;
+  pointer-events: none;
+}
+</style>
+<div id="loading">
+</div>
+</div>
+<style>
+#menubar {
+  position: fixed;
+  width: 100%;
+  max-height: 33px;
+  min-height: 32px;
+  background:rgb(0,0,0,.7);
+  z-index: 999;
+  backdrop-filter: blur(4px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 200px rgba(0,0,0,0.07 );
+}
+
+#notifstatus {
+  border: none;
+  color: white;
+  min-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#notifstatus:hover {
+  color: #666;
+}
+
+#notifstatus:active {
+  color: #555;
+}
+
+.barbutton {
+  border: none;
+  color: white;
+  min-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#menubar1 {
+  position: fixed;
+  display: none;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.bar0hover {
+  border: none;
+  color: white;
+  min-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+.barbutton:hover {
+  color: #666;
+}
+
+.barbutton:active {
+  color: #555;
+}
+
+.barbutton2 {right: 0%;}
+
+#cell {
+  border: none;
+  color: white;
+  min-height: 32px;
+  font-size: 16px;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#menubarlock {
+  border: none;
+  color: #999;
+  display: none;
+  min-height: 32px;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#rightmenubar {
+  position: fixed;
+  right: 0%;
+  top: 0%;
+}
+</style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      #context-menu {
+        position: fixed;
+        z-index: 10000;
+        width: 170px;
+        background-color:rgb(0,0,0,0.5);    
+        backdrop-filter: blur(12px); /* Chrome and Opera */
+        box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+        border-radius: 12px;
+        transform: scale(0);
+        transform-origin: top left;
+        padding: 6px;
+      }
+
+      #context-menu.visible {
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+      }
+
+      #context-menu .item {
+        padding: 4px 5px;
+        font-size: 15px;
+        color: #eee;
+        cursor: pointer;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      #context-menu .item:hover {
+        background-color:rgb(0,0,0,0.25);
+      }
+      #context-menu .item:active {
+        background-color:rgb(0,0,0,0.5);
+      }
+      #contexthidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="context-menu">
+      <div class="item" onclick="wallpaper();">Change Wallpaper</div>
+      <div class="item" onclick="window.location.reload();">Reset (Reload)</div>
+      <div id="contexthidden">
+      <div class="item" onclick="quitmetro();">Quit Metro Apps</div>
+    </div></div>
+
+    <script>
+      const contextMenu = document.getElementById("context-menu");
+      const scope = document.querySelector("body");
+
+      const normalizePozition = (mouseX, mouseY) => {
+        // ? compute what is the mouse position relative to the container element (scope)
+        let {
+          left: scopeOffsetX,
+          top: scopeOffsetY,
+        } = scope.getBoundingClientRect();
+        
+        scopeOffsetX = scopeOffsetX < 0 ? 0 : scopeOffsetX;
+        scopeOffsetY = scopeOffsetY < 0 ? 0 : scopeOffsetY;
+       
+        const scopeX = mouseX - scopeOffsetX;
+        const scopeY = mouseY - scopeOffsetY;
+
+        // ? check if the element will go out of bounds
+        const outOfBoundsOnX =
+          scopeX + contextMenu.clientWidth > scope.clientWidth;
+
+        const outOfBoundsOnY =
+          scopeY + contextMenu.clientHeight > scope.clientHeight;
+
+        let normalizedX = mouseX;
+        let normalizedY = mouseY;
+
+        // ? normalize on X
+        if (outOfBoundsOnX) {
+          normalizedX =
+            scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
+        }
+
+        // ? normalize on Y
+        if (outOfBoundsOnY) {
+          normalizedY =
+            scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
+        }
+
+        return { normalizedX, normalizedY };
+      };
+
+      scope.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+
+        const { clientX: mouseX, clientY: mouseY } = event;
+
+        const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
+
+        contextMenu.classList.remove("visible");
+
+        contextMenu.style.top = `${normalizedY}px`;
+        contextMenu.style.left = `${normalizedX}px`;
+
+        setTimeout(() => {
+          contextMenu.classList.add("visible");
+        });
+      });
+
+      scope.addEventListener("click", (e) => {
+        // ? close the menu if the user clicks outside of it
+        if (e.target.offsetParent != contextMenu) {
+          contextMenu.classList.remove("visible");
+        }
+      });
+    </script>
+<style>
+#notifpanel {
+  top: 36px;
+  position: absolute;
+  background:rgb(0,0,0,.5);
+  z-index: 8;
+  left: 50%;
+  padding: 6px;
+  transform: translate(-50%);
+  border-radius: 12px;
+  color: #fff;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.05);
+  animation-name: barflyout;
+  animation-duration: 0.25s;
+}
+@keyframes barflyout {
+  from {top: -2%;}
+  to {top: 36px;}
+}
+</style>
+<div id="notifpanel"><button onclick="disableMute();changetonotify();" class="app settings">Notify</button><button onclick="enableMute();changetosilent();" class="app settings">Silent</button><button onclick="notifclose();" class="app settings">Close</button></div>
+<script>
+function notifopen() {
+  var x = document.getElementById("notifpanel");
+  x.style.display = "block"
+}
+
+function notifclose() {
+  var x = document.getElementById("notifpanel");
+  x.style.display = "none"
+}
+</script>
+  </body>
+</html>
+<div id="menubar"><button id="menubarlock" onclick="yeetlock();unlock();">Click background to unlock</button>
+<div id="menubar0"><button class="barbutton barbutton1" onclick="window.location.reload();">Reload</button><button id="setupinbar" onclick="setupdone();load();"><strong>Skip Setup</strong></button><a class="barbutton barbutton1" href="https://iconicidiot3829.github.io">Go To Latest Version (recommended)</a></div><div id="menubar1"><button id="notifstatus" onclick="notifopen();">Notify</button></div><meta charset = "utf-8"><title>DeskUtility 6.8</title><div id="rightmenubar"><link rel = "stylesheet" href = "./extra/clock/clock.css"><button id="cell"> </button><button id = "digital-clock"> </button></div><script src = "./extra/clock/clock.js"> </script><script src="./battery/script.js"> </script></div>
+</div>
+<script>
+function changetosilent() {
+  document.getElementById("notifstatus").innerHTML = "Silent";
+}
+
+function changetonotify() {
+  document.getElementById("notifstatus").innerHTML = "Notify";
+}
+
+</script>
+<div id="yeetlock">
+<div id="yeetmigrate">
+<style>
+.close {
+  position: absolute;
+  max-height: 16px;
+  min-height: 16px;
+  max-width: 16px;
+  min-width: 16px;
+  font-size: 16px;
+  left: 0%;
+  color: #fff;
+  font-family: 'Poppins';
+  border: none;
+  background: transparent !important;
+  margin-left: 8px;
+}
+.close:hover {
+  color: #900;
+}
+</style>
+<style>
+#mcode {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background-color: #1a1a1a;
+  text-align: center;
+  width: 250px;
+  height: 200px;
+  left: 30%;
+  border: 1px solid #1a1a1a;
+  top: 33px;
+  display: none;
+}
+
+#mcodeheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+}
+
+#mcode:hover {
+  z-index: 10;
+}
+</style>
+<body>
+<div id="mcode">
+  <div id="mcodeheader"><button class="close" onclick="mcodeclose();">X</button>Migration Code</div><button id="mig1" class="app app1">4</button><button id="mig2" class="app app1">0</button><button id="mig3" class="app app1">0</button><button id="mig4" class="app app1">0</button></div>
+<script>
+function mcodeopen() {
+  var x = document.getElementById("mcode");
+  x.style.display = "block"
+}
+
+function mcodeclose() {
+  var x = document.getElementById("mcode");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("mcode"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#setupinbar {
+  border: none;
+  color: white;
+  min-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+#setupinbar:hover {
+  color: #666;
+}
+
+#setupinbar:active {
+  color: #555;
+}
+
+.line {
+  border-right: 2px solid #888;
+}
+
+#setup {
+  top: 8%;
+  position: fixed;
+  width: 90%;
+  max-height: 80%;
+  min-height: 80%;
+  background:rgb(0,0,0,.5);
+  z-index: 8;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 12px;
+  color: #fff;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.05);
+}
+#setup1 {
+  position: fixed;
+  z-index: 8;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setup2 {
+  display:  none;
+  position: fixed;
+  z-index: 7;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setup3 {
+  display:  none;
+  position: fixed;
+  z-index: 6;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setup4 {
+  display:  none;
+  position: fixed;
+  z-index: 5;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setup5 {
+  display:  none;
+  position: fixed;
+  z-index: 4;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+.pgbarsetup {
+  position: absolute;;
+  border-radius: 8px;
+  width: 50%;
+  height: 12px;
+  background-color: #555;
+  margin: 2px;
+  padding:  4px;
+  margin-bottom: 6px;
+}
+.pgbarsetup2 {
+  height: 12px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.width0 {width: 0%;}
+.width25 {width: 25%;}
+.width50 {width: 50%;}
+.width75 {width: 75%;}
+.width100 {width: 100%;}
+.down {bottom: 0%;}
+.green {background-color: #009900;}
+.none{display: none;}
+</style>
+<div id="setup">
+  <div id="setup1"><h1>Hi there! Let's get you set up.<div class="pgbarsetup"><div class="pgbarsetup2 width0"></div></div></h1><p>Note: Some things have been removed for my own privacy.</p><p>The last time this was updated was June 2022, there aren't many modifications to this, only what's needed for privacy.</p><button class="app app1" onclick="setup1();load();">Let's go!</button><button class="app app1" onclick="fullscreen();">Fullscreen Mode</button><button class="app app1 none" onclick="yeetmigrate();migrateopen();">Migrate</button></div>
+  <div id="setup2"><h1>How to use and terms<div class="pgbarsetup"><div class="pgbarsetup2 width25"></div></div></h1><p>This site uses Google product embeds in order to display content that you may need.</p><p>These Google product embeds store cookies, but you have not used any yet so you should be fine.</p><p>Also, DeskUtility can perform badly on lower-end devices.</p></p><p>To quit apps that open fullscreen, right-click the dock or menu bar, and click "Quit Metro Apps".<p><button class="app app1" onclick="setup2();">I agree</button><button class="app app1" onclick="idontagree();">I do not agree</button><button class="app app1" onclick="setup2();privacymodeon();document.getElementById('mapsframe').src = './extra/privacyerror.html'">Enable Privacy Mode and agree</button><button class="app app1 none" onclick="migrateopen();yeetmigrate();">Migrate</button><button class="app app1" onclick="window.location.reload();">Back</button></p></div>
+  <div id="setup3"><h1>Let's start with personalization.<div class="pgbarsetup"><div class="pgbarsetup2 width50"></div></div></h1><button class="app app1" onclick="wallpaper();">Wallpapers</button><button class="app app1" onclick="accent();">Accent Colors</button><button class="app app1" onclick="setup3();">Done!</button><button class="app app1" onclick="setupb2();">Back</button></div>
+  <div id="setup4"><h1>Anything else?<div class="pgbarsetup"><div class="pgbarsetup2 width75"></div></div></h1>
+<button class="app app1" onclick="fullscreen();">Enter Full Screen</button><button class="app app1" onclick="preferencesopen();">Open Preferences</button><p style="margin: 0; padding: 0;"><button class="app app1" onclick="setup4();">Let's go!</button><button class="app app1" onclick="setupb3();">Back</button></p></div>
+  <div id="setup5"><h1>All done!<div class="pgbarsetup"><div class="pgbarsetup2 width100 green"></div></div></h1><button class="app app1" onclick="setupdone();">Go To DeskUtility Desktop</button><button class="app app1" onclick="setupb4();">Back</button></div>
+</div>
+<script>
+function idontagree() {
+  notify()
+  document.getElementById('notification').innerHTML = "You cannot use DeskUtility if you don't agree to the terms and conditions"; 
+}
+
+  var elem = document.documentElement;
+function fullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+    notify()
+    document.getElementById('notification').innerHTML = "Entered fullscreen successfully";
+  }
+}
+
+function windowscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+    notify()
+    document.getElementById('notification').innerHTML = "Left fullscreen successfully"; 
+  }
+}
+
+function setup1() {
+  var x = document.getElementById("setup1");
+  x.style.display = "none";
+  var x = document.getElementById("setup2");
+  x.style.display = "block";
+}
+function setup2() {
+  var x = document.getElementById("setup2");
+  x.style.display = "none";
+  var x = document.getElementById("setup3");
+  x.style.display = "block";
+}
+function setup3() {
+  var x = document.getElementById("setup3");
+  x.style.display = "none";
+  var x = document.getElementById("setup4");
+  x.style.display = "block";
+}
+function setup4() {
+  var x = document.getElementById("setup4");
+  x.style.display = "none";
+  var x = document.getElementById("setup5");
+  x.style.display = "block";
+}
+function setupb1() {
+  var x = document.getElementById("setup2");
+  x.style.display = "none";
+  var x = document.getElementById("setup1");
+  x.style.display = "block";
+}
+function setupb2() {
+  var x = document.getElementById("setup3");
+  x.style.display = "none";
+  var x = document.getElementById("setup2");
+  x.style.display = "block";
+}
+function setupb3() {
+  var x = document.getElementById("setup4");
+  x.style.display = "none";
+  var x = document.getElementById("setup3");
+  x.style.display = "block";
+}
+function setupb4() {
+  var x = document.getElementById("setup5");
+  x.style.display = "none";
+  var x = document.getElementById("setup4");
+  x.style.display = "block";
+}
+function setupdone() {
+  var x = document.getElementById("setup5");
+  x.style.display = "none";
+  var x = document.getElementById("setup");
+  x.style.display = "none";
+  var x = document.getElementById("setupinbar");
+  x.style.display = "none";
+  var x = document.getElementById("dock");
+  x.style.display = "block";
+  var x = document.getElementById("menubar1");
+  x.style.display = "block"
+  var x = document.getElementById("contexthidden");
+  x.style.display = "block"
+  var x = document.getElementById("search");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<style>
+#wallpaper {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 72.5%;
+  width: 75%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+
+.wallicon {
+  border-radius: 5px;
+  width: 12.1%;
+  height: 12.1%;
+  background:rgb(0,0,0,0);
+  transition: 0.2s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  margin: 3px;
+  object-fit: cover;
+  background-color:  #111;
+}
+.margin4px {margin-right: 4px;}
+.marginleft5px {margin-left: 5px;}
+.marginleft3px {margin-left: 3px;}
+.wallicon:hover {
+  opacity: 60%;
+}
+.wallicon:active {
+  opacity: 35%;
+}
+.colors {
+  border: none;
+  color: white;
+  width: 20px; height: 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.25s;
+}
+
+.colors:hover {
+  background-color:rgb(0,0,0,.65)
+}
+
+.colors:active {
+  background-color:rgb(120,120,120,.25);
+}
+</style>
+<div id="wallpaper"><h2>Wallpapers</h2><p>
+<p>All wallpapers besides the current were removed, due to metadata/privacy reasons.</p>
+<p><button class="app color1" onclick="wallpaperclose();">I'm done!</button></p>
+</div>
+<script>
+function hidemenubarright() {
+  var x = document.getElementById("rightmenubar");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function wr1() {
+  document.body.style.backgroundImage = "url('./images/wr1.jpg')"; 
+}
+function wr2() {
+  document.body.style.backgroundImage = "url('./images/wr2.jpg')";
+}
+function wr3() {
+  document.body.style.backgroundImage = "url('./images/wr3.jpg')"; 
+}
+function wr4() {
+  document.body.style.backgroundImage = "url('./images/wr4.jpg')"; 
+}
+function wr6() {
+  document.body.style.backgroundImage = "url('./images/wr6.jpg')"; 
+}
+function wr7() {
+  document.body.style.backgroundImage = "url('./images/wr7.jpg')"; 
+}
+function wr8() {
+  document.body.style.backgroundImage = "url('./images/wr8.png')"; 
+  document.body.style.backgroundColor = "#111111";
+}
+function wr9() {
+  document.body.style.backgroundImage = "url('./images/wr9.png')"; 
+}
+function wr10() {
+  document.body.style.backgroundImage = "url('./images/wr10.jpg')"; 
+}
+function wr11() {
+  document.body.style.backgroundImage = "url('./images/404.jpg')"; 
+}
+function myFunctionc() {
+  document.body.style.backgroundColor = "#111111";
+  document.body.style.backgroundImage = "url('')"; 
+}
+function myFunction2c() {
+  document.body.style.backgroundColor = "#990000";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction3c() {
+  document.body.style.backgroundColor = "rgb(255, 196, 0)";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction4c() {
+  document.body.style.backgroundColor = "#e6e600";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction5c() {
+  document.body.style.backgroundColor = "#00ff00";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction6c() {
+  document.body.style.backgroundColor = "#008000";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction7c() {
+  document.body.style.backgroundColor = "#0099cc";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction8c() {
+  document.body.style.backgroundColor = "#0000cc";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction9c() {
+  document.body.style.backgroundColor = "#cc00cc";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction10c() {
+  document.body.style.backgroundColor = "#ff00ff";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction11c() {
+  document.body.style.backgroundColor = "#999999";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction12c() {
+  document.body.style.backgroundColor = "#fc0000";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction13c() {
+  document.body.style.backgroundColor = "#000088";
+  document.body.style.backgroundImage = "url('')";
+}
+function myFunction14c() {
+  document.body.style.backgroundColor = "#880088";
+  document.body.style.backgroundImage = "url('')";
+}
+
+function wallpaper() {
+  var x = document.getElementById("wallpaper");
+  x.style.display = "block";
+}
+function wallpaperclose() {
+  var x = document.getElementById("wallpaper");
+  x.style.display = "none";
+}
+</script>
+<style>
+#newspref {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 55%;
+  width: 65%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="newspref"><h1>Lock Screen News</h1>
+<p style="color: #999;"><strong>Note:</strong> This does nothing in Privacy Mode or if Lock Screen News is disabled.</p>
+<p style="color: #999;">The choices are bland because most news sites reject embedding.</p>
+<button class="app app1" onclick="document.getElementById('locknews').src = 'https://bbc.com'">BBC</button>
+<p><button class="app app1" onclick="newsperclose();">Done!</button></p>
+</div>
+<script>
+function newsper() {
+  var x = document.getElementById("newspref");
+  x.style.display = "block";
+}
+function newsperclose() {
+  var x = document.getElementById("newspref");
+  x.style.display = "none";
+}
+</script>
+<style>
+#accent {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 72.5%;
+  width: 70%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="accent"><h1>Accent Colors</h1>
+<button class="colors color1" onclick="accent1d1d1d();"></button>
+<button class="colors color2" onclick="accent990000();"></button>
+<button class="colors color12" onclick="accentbb0000();"></button>
+<button class="colors color4" onclick="accentffc400();"></button>
+<button class="colors color3" onclick="accentd6d600();"></button>
+<button class="colors color5" onclick="accent00ff00();"></button>
+<button class="colors color6" onclick="accent008000();"></button>
+<button class="colors color7" onclick="accent0099cc();"></button>
+<button class="colors color8" onclick="accent0000cc();"></button>
+<button class="colors color13" onclick="accent000088();"></button>
+<button class="colors color14" onclick="accent880088();"></button>
+<button class="colors color9" onclick="accentcc00cc();"></button>
+<button class="colors color10" onclick="accentff00ff();"></button>
+<button class="colors color11" onclick="accent999999();"></button>
+<p><button class="app app1" onclick="accentclose();">Done!</button></p>
+</div>
+<script>
+function accent1d1d1d() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#1d1d1d';
+   box.style.color = '#ffffff';
+ });
+}
+function accent990000() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#990000';
+   box.style.color = '#ffffff';
+ });
+}
+function accentd6d600() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#d6d600';
+   box.style.color = '#000000';
+ });
+}
+function accentffc400() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#ffc400';
+   box.style.color = '#000000';
+ });
+}
+function accent00ff00() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#00ff00';
+   box.style.color = '#000000';
+ });
+}
+function accent008000() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#008000';
+   box.style.color = '#ffffff';
+ });
+}
+function accent0099cc() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#0099cc';
+   box.style.color = '#ffffff';
+ });
+}
+function accent0000cc() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#0000cc';
+   box.style.color = '#ffffff';
+ });
+}
+function accent000088() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#000088';
+   box.style.color = '#ffffff';
+ });
+}
+function accent880088() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#880088';
+   box.style.color = '#ffffff';
+ });
+}
+function accentcc00cc() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#cc00cc';
+   box.style.color = '#ffffff';
+ });
+}
+function accentff00ff() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#ff00ff';
+   box.style.color = '#ffffff';
+ });
+}
+function accent999999() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#999999';
+   box.style.color = '#ffffff';
+ });
+}
+function accentbb0000() {
+const boxes = document.querySelectorAll('.app');
+ boxes.forEach(box => {
+   box.style.backgroundColor = '#bb0000';
+   box.style.color = '#ffffff';
+ });
+}
+function accent() {
+  var x = document.getElementById("accent");
+  x.style.display = "block";
+}
+function accentclose() {
+  var x = document.getElementById("accent");
+  x.style.display = "none";
+}
+</script>
+<script>
+function searchopen() {
+  var x = document.getElementById("search");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("dockmenu");
+  x.style.display = "none";
+  var x = document.getElementById("google");
+  x.style.display = "none";
+  var x = document.getElementById("appdrawer");
+  x.style.display = "none";
+}
+</script>
+<style>
+#bugreport {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 60%;
+  width: 60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="bugreport" onclick="closebug();">
+<iframe src="https://docs.google.com/forms/d/1D1ocT9Mt_aEtleM2akOh2cFAOwO6ZbSvVchxWRUOdE4/viewform?embedded=true" width="100%;" height="100%;" frameborder="0" marginheight="0" marginwidth="0">Loading… please be patient.</iframe></div>
+<script>
+function bug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "block";
+}
+function closebug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "none";
+}
+</script>
+<style>
+#deeves {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 10px;
+  background-image: url('./images/icon/deeves.jpg');
+  text-align: center;
+  color: #000;
+  height: 70%;
+  width: 70%;
+  left: 50%;
+  top: 50%;
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div id="deeves"><p>For my aunt! This is my aunt's cat!</p><button class="app color1" onclick="wrdeeves();">Set As Wallpaper</button><button class="app color1" onclick="closedeeves();">Close</button></div>
+<script>
+function wrdeeves() {
+  document.body.style.backgroundImage = "url('./images/icon/deeves.jpg')"; 
+}
+function deeves() {
+  var x = document.getElementById("deeves");
+  x.style.display = "block";
+}
+function closedeeves() {
+  var x = document.getElementById("deeves");
+  x.style.display = "none";
+}
+</script>
+<html>
+<head>
+<style>
+#search {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 50%;
+  width: 55%;
+  left: 50%;
+  transform: translate(-50%);
+  bottom:  62px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+}
+</style>
+</head>
+<body>
+<div id="search">
+<style>
+#Searchleft {
+  border-radius: 12px;
+  padding: 4px;
+  overflow: scroll;
+  margin-top: 8px;
+  list-style-type: none;
+}
+#mySearch {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 75%;
+  text-align: center;
+  margin-bottom: 3px;
+  cursor: default !important;
+}
+#mySearch:hover {
+  opacity: 100%;
+}
+.p0 {margin: 0; padding: 0;}
+</style>
+
+
+<div id="Searchleft">
+  <input type="text" id="mySearch" class="app" onkeyup="myFunctionSearch()" placeholder="Search for literally anything... or scroll!" title="Type in a category"><p class="p0">
+      <li class="app"><a onclick="search();">Close Search Menu</a></li>
+      <li class="app"><a onclick="preferencesopen();search();">Preferences</a></li>
+      <li class="app"><a onclick="window.location.reload()">Reload DeskUtility</a
+   </li>
+      <li class="app"><a onclick="wallpaper();">Change Wallpaper</a></li>
+      <li class="app"><a onclick="accent();">Change Accent Color</a></li>
+      <li class="app"><a onclick="appdrawer();">Open App Drawer</a></li>
+      <li class="app"><a onclick="google();">Perform Web Search</a></li>
+      <li class="app"><a onclick="dockmenu();">Open Quick Options</a></li>
+    <li class="app"><a onclick="lock();yeetlock();hidefromlock();">Lock DeskUtility</a></li>
+    <li class="app"><a onclick="deeves();">Deeves</a></li></p>
+</div>
+<script>
+function myFunctionSearch() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("Searchleft");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</div>
+</body>
+</html>
+</script>
+<script>
+function dockmenu() {
+  var x = document.getElementById("dockmenu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("appdrawer");
+  x.style.display = "none";
+  var x = document.getElementById("search");
+  x.style.display = "none";
+  var x = document.getElementById("google");
+  x.style.display = "none";
+}
+</script>
+<html>
+<head>
+<style>
+.line {
+  position: fixed;
+  width: 90%;
+  height: 5px;
+  border-radius: 3px;
+  left:  50%;
+  transform: translate(-50%);
+  background-color: #999;
+}
+@keyframes up {
+  from {bottom:  -10%; opacity: 0%;}
+  to {bottom:  62px; opacity: 100%;}
+}
+@keyframes dockup {
+  from {bottom:  -7.5%; opacity: 0%;}
+  to {bottom:  6px; opacity: 100%;}
+}
+#dock {
+  position: absolute;
+  max-height: 34px;
+  min-height: 34px;
+  background:rgb(0,0,0,.5);
+  z-index: 32;
+  bottom: 6px;
+  left:  50%;
+  transform: translate(-50%);
+  border-radius: 12px;
+  padding: 8px;
+  color: #fff;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  display: none;
+  animation: dockup 0.5s;
+}
+
+#docktray1 {
+  position: absolute;
+  max-height: 34px;
+  min-width: 150px;
+  max-width: 150px;
+  min-height: 34px;
+  background:rgb(0,0,0,0.5);
+  bottom: 0px;
+  left: 0%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 8px;
+  color: #fff;
+}
+.appicon {
+  border-radius: 5px;
+  width: 34px;
+  height: 34px;
+  background:rgb(0,0,0,0);
+  transition: 0.2s;
+}
+.margin4px {margin-right: 4px;}
+.marginleft5px {margin-left: 5px;}
+.marginleft3px {margin-left: 3px;}
+.appicon:hover {
+  opacity: 60%;
+}
+.appicon:active {
+  opacity: 35%;
+}
+.minecraft{margin-left: 1px; margin-right: 1px; width: 32px; height: 32px; padding: 2px;}
+.googleisspecial{width:32px;height:32px;margin-bottom:0px;}
+.menuisspecial{width:32px;height:40px;margin-bottom:0px;}
+
+#dockmenu {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 55%;
+  width: 55%;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 62px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+  padding: 8px;
+}
+
+#appdrawer {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 40%;
+  width: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 62px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+}
+.norightborderradius {border-top-right-radius: 0px; border-bottom-right-radius: 0px;}
+.noleftborderradius {border-top-left-radius: 0px; border-bottom-left-radius: 0px;}
+.norightmargin {margin-right: 0;}
+.noleftmargin {margin-left: 0;}
+.pillfirst {border-right: #222 solid 2px;}
+.pillfirst:hover {
+  
+}
+
+.quickopt {
+  background-color:rgb(0,0,0,.85);
+  border: none;
+  color: white;
+  padding: 20px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.10s;
+  font-family: 'Poppins';
+}
+
+.quickopt:hover {
+  background-color:rgb(0,0,0,.25)
+}
+
+.quickopt:active {
+  background-color:rgb(0,0,0,.60)
+}
+</style>
+<script>
+function appdrawer() {
+  var x = document.getElementById("appdrawer");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+ }
+  var x = document.getElementById("dockmenu");
+  x.style.display = "none";
+  var x = document.getElementById("google");
+  x.style.display = "none";
+  var x = document.getElementById("search");
+  x.style.display = "none";
+}
+</script>
+<div id="appdrawer"><h2>App Drawer</h2><img onclick="calcopen();appdrawer();" src="./images/icon/deskcalc.png" class="appicon"></img><img onclick="mapsopen();appdrawer();" src="./images/icon/maps.png" class="appicon"></img><img onclick="calenderopen();appdrawer();" src="./images/icon/deskcal.png" class="appicon"></img><img onclick="textopen();appdrawer();" src="./images/icon/textedit.png" class="appicon"></img><img onclick="script();appdrawer();" src="./images/icon/scriptmod.png" class="appicon"></img><img onclick="appdrawer();preferencesopen();" src="./images/icon/pref.png" class="appicon"></img><img onclick="appdrawer();mineopen();" src="./images/icon/mine.png" class="appicon minecraft"></img></div>
+
+<style>
+.controlbutton {
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  background:rgb(0,0,0,0);
+  transition: 0.2s;
+  margin: 10px;
+}
+.controlbutton:hover {
+  opacity: 60%;
+}
+.controlbutton:active {
+  opacity: 35%;
+}
+.controlmenuleft {
+  position: absolute;
+  left: 0%;
+  text-align: center;
+}   
+.controlmenuleftbutton {
+  position: absolute;
+  left: 0%;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+} 
+.controlmenuleftbutton:hover { 
+  color: #999;
+}
+.controlmenuleftbutton:active { 
+  color: #555;
+}
+</style>
+<style>
+#nightlight {
+  position: absolute;
+  background: #ff9900;
+  min-height: 100%; min-width: 100%;
+  z-index: 999999;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  animation: nightlight 1s;
+  opacity: 30%;
+  transition: 2s;
+  pointer-events: none;
+  display: none;
+}
+@keyframes nightlight {
+  from {opacity: 0%;}
+  to {}
+}
+</style>
+<div id="nightlight">
+</div>
+<script>
+function nightlight() {
+  var x = document.getElementById("lightbutton");
+  if (x.innerHTML === "Enable Night Light") {
+    x.innerHTML = "Disable Night Light";
+  } else {
+    x.innerHTML = "Enable Night Light";
+  }
+  var x = document.getElementById("nightlight");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<div id="dockmenu"><h2>Control Center</h2><p><div class="line"></div></p><img class="controlbutton" src="./images/icon/timetoggle.png" onclick="hidemenubarright();"></img><img class="controlbutton" src="./images/icon/lock.png" onclick="lock();yeetlock();hidefromlock();locksound();"></img>
+  <img id="btnFullscreen" src="./images/icon/fullscreen.png" class="controlbutton" type="button"></img><button onclick="bug();dockmenu();" class="app settings">Report Bug</button><button onclick="notifopen();dockmenu();" class="app settings">Notification Options</button><button onclick="nightlight();" id="lightbutton" class="app settings">Enable Night Light</button><button onclick="preferencesopen();dockmenu();" class="app settings">Open Preferences</button>
+<script>
+function nightsetup() {
+  var x = document.getElementById("nightlight");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function toggleFullscreen(elem) {
+  elem = elem || document.documentElement;
+
+  if (!document.fullscreenElement && !document.mozFullScreenElement &&
+    !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    }
+  }
+}
+
+document.getElementById('btnFullscreen').addEventListener('click', function() {
+  toggleFullscreen();
+});
+</script></div>
+
+<script>
+function google() {
+  var x = document.getElementById("google");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("search");
+  x.style.display = "none";
+  var x = document.getElementById("dockmenu");
+  x.style.display = "none";
+  var x = document.getElementById("appdrawer");
+  x.style.display = "none";
+}
+function load() {
+  nightsetup();google();search();dockmenu();wallpaper();appdrawer();
+}
+</script>
+<html>
+<head>
+<style>
+#google {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 80%;
+  width: 80%;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 62px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: hidden;
+  z-index: 32;
+  animation: up 0.5s;
+  padding: 0%;
+}
+.marginright5px {margin-right: 5px;}
+#privacymode {
+  display: none;
+}
+#offlinegoogle {
+  display: none;
+}
+</style>
+<div id="google"><div id="onlinegoogle"><iframe src="./extra/google.html" style="border: none;" width="100%" height="90%" style="" id="googleframe" title="Google"></iframe><button class="tabbed" onclick="document.getElementById('googleframe').src = './extra/google.html'">Back To Google</button><button class="tabbed" onclick="document.getElementById('googleframe').src = './extra/sitecrashes.html'">Why are some sites crashing?</button><button class="tabbed" onclick="document.getElementById('googleframe').src = './extra/chat.html'">Open DeskChat</button></div><div id="offlinegoogle"><p>Exit offline mode to use the "Online" menu.</p></div><div id="privacymode"><p>Privacy Mode or Google products were disabled.</p><p>Please use the menu below to troubleshoot.</p><button class="app app1 settings" onclick="privacymodeoff();document.getElementById('mapsframe').src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21001.804495909837!2d2.282596631147625!3d48.85390902434949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701f7e8337b5%3A0xa2cb58dd28914524!2sEiffel%20Tower%2C%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1653803120151!5m2!1sen!2sus'">Disable Privacy Mode (Enables online services)</button><button class="app app1 settings" onclick="google();">OK</button></div></div>
+
+<div id="dock"><img onclick="appdrawer();" src="./images/icon/apps.png" class="appicon marginright5px"></img><img onclick="myFunctionSearch();searchopen();document.getElementById('mySearch').value = ''" src="./images/icon/search.png" class="appicon"></img><img src="./images/icon/lock.png" onclick="yeetlock();lock();hidefromlock();locksound();" class="appicon marginleft3px"></img><img src="./images/icon/googlewhite.png" onclick="google();" class="appicon googleisspecial marginleft5px"></img><img src="./images/icon/menu.png" onclick="dockmenu();" class="appicon marginleft5px"></img></div>
+</body></div></div>
+
+</div>
+<audio id="locksound">
+  <source src="./extra/audio/lock.mp3" type="audio/mpeg">
+</audio>
+<style>
+#locked {
+  position: absolute; background-color: #000000;
+  min-height: 100%; min-width: 100%;
+  z-index: 99; padding: 8px;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  text-align: center;
+  display: none;
+  cursor: none;
+}
+
+#celllocked {
+  border: none;
+  color: white;
+  min-height: 32px;
+  font-size: 64px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+.alignup{left: 50%;transform: translate(-50%);}
+</style>
+<script>
+function quitmetro() {
+  var x = document.getElementById("mine");
+  x.style.display = "none"
+}
+
+function lock() {
+  var x = document.getElementById("locked");
+  x.style.display = "block";
+  var x = document.getElementById("menubarlock");
+  x.style.display = "block";
+}
+function unlock() {
+  var x = document.getElementById("locked");
+  x.style.display = "none";
+  var x = document.getElementById("menubarlock");
+  x.style.display = "none";
+
+}
+function yeetlock() {
+  var x = document.getElementById("yeetlock");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    document.title = "DeskUtility 6.8";
+  } else {
+    document.title = "DeskUtility (Locked)";
+    x.style.display = "none";
+  }
+ var x = document.getElementById("menubar0");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+ var x = document.getElementById("menubar1");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+ }
+}
+
+function showfromlock() {
+  var x = document.getElementById("menubar0");
+  x.style.display = "block"
+}
+
+function hidefromlock() {
+  var x = document.getElementById("menubar0");
+  x.style.display = "none"
+}
+
+function enableMute() { 
+  x.volume = 0.0;
+} 
+
+function disableMute() { 
+  x.volume = 1.0;
+}  
+
+var x = document.getElementById("locksound"); 
+function locksound() { 
+  x.play(); 
+} 
+</script>
+<div id="locked" onclick="unlock();yeetlock();showfromlock();document.getElementById('locknews').src = 'https://bbc.com'">
+<div id="celllocked"> </div><style>
+#locknews {
+  position: absolute;
+  border-radius: 8px;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+<iframe id="locknews" width="70%" height="60%" src="https://bbc.com" frameborder="0"></iframe>
+</div>
+<style>
+#notification {
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 12px;
+  position: fixed;
+  z-index: 999;
+  right: 0%;
+  margin: 4px;
+  font-size: 17px;
+  background-color:rgb(0,0,0,0.5);  
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  top: 32px;
+}
+
+#notification.show {
+  visibility: visible;
+  animation: fadein1 0.5s, fadeout1 0.5s 3.5s;
+}
+
+@keyframes fadein1 {
+  from {right: -20%; opacity: 0;}
+  to {opacity: 1; right: 0%;}
+}
+
+@keyframes fadeout1 {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+</style>
+</head>
+<body>
+<div id="notification">There is no notification. Either you tested it, or something's wrong.<p style="margin-bottom:0%;">Error ID #002</p></div>
+
+<script>
+function notify() {
+  var x = document.getElementById("notification");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
+}
+</script>
+<style>
+#doesnotexist {
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  padding: 12px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  background-color:rgb(0,0,0,0.5);  
+  transform: translate(-50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+}
+
+#doesnotexist.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
+</head>
+<body>
+<div id="doesnotexist">Sorry, that does not exist yet. It may in the future!<p style="margin-bottom:0%;">Error ID #001</p></div>
+
+<script>
+function error001() {
+  var x = document.getElementById("doesnotexist");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+<style>
+#calc {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background-color: #1a1a1a;
+  text-align: center;
+  border: 1px solid #1a1a1a;
+  padding: 8px;
+  display: none;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#calcheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+#calc:hover {
+  z-index: 10;
+}
+</style>
+<body>
+<div id="calc">
+  <div id="calcheader"><button class="close" onclick="calcclose();">X</button>Calculator</div><style>
+#calculator {
+}
+</style>
+</head>
+<body>
+<div id="calculator">
+<html>
+   <head>
+      <script>
+         //function that display value
+         function dis(val)
+         {
+             document.getElementById("result").value+=val
+         }
+           
+         //function that evaluates the digit and return result
+         function solve()
+         {
+             let x = document.getElementById("result").value
+             let y = eval(x)
+             document.getElementById("result").value = y
+         }
+           
+         //function that clear the display
+         function clr()
+         {
+             document.getElementById("result").value = ""
+         }
+      </script>
+      <!-- for styling -->
+      <style>
+  
+         input[type="button"]
+         {
+         background-color: #1d1d1d;
+         color: white;
+         width:100%;
+         border-radius: 7px;
+         border: none;
+         width: 88px;
+         height: 88px;
+         max-width: 88px;
+         max-height: 88px;
+         }
+  
+         input[type="button"]:hover {
+         background-color: #222;
+         color: white;
+         width:100%;
+         border-radius: 7px;
+         border: none;
+         }
+
+
+         input[type="button"]:active {
+         background-color: #111;
+         color: white;
+         width:100%;
+         border-radius: 7px;
+         border: none;
+         }
+
+         input[type="text"]
+         {
+         background-color: #1d1d1d;
+         padding: 8px;
+         border-radius: 8px;
+         color: #fff;
+         }
+      </style>
+   </head>
+   <!-- create table -->
+   <body>
+      <table border="0">
+         <tr>
+            <p><input class="app" type="text" id="result" value="" placeholder="Click me to clear" onclick="clr()" readonly onfocus="this.blur();"/></ps>
+            <!-- clr() function will call clr to clear all value -->
+            <td></td>
+         </tr>
+         <tr>
+            <!-- create button and assign value to each button -->
+            <!-- dis("1") will call function dis to display value -->
+            <td><input class="app" type="button" value="1" onclick="dis('1')"/> </td>
+            <td><input class="app" type="button" value="2" onclick="dis('2')"/> </td>
+            <td><input class="app" type="button" value="3" onclick="dis('3')"/> </td>
+            <td><input class="app" type="button" value=":|:" onclick="dis('/')"/> </td>
+         </tr>
+         <tr>
+            <td><input class="app" type="button" value="4" onclick="dis('4')"/> </td>
+            <td><input class="app" type="button" value="5" onclick="dis('5')"/> </td>
+            <td><input class="app" type="button" value="6" onclick="dis('6')"/> </td>
+            <td><input class="app" type="button" value="-" onclick="dis('-')"/> </td>
+         </tr>
+         <tr>
+            <td><input class="app" type="button" value="7" onclick="dis('7')"/> </td>
+            <td><input class="app" type="button" value="8" onclick="dis('8')"/> </td>
+            <td><input class="app" type="button" value="9" onclick="dis('9')"/> </td>
+            <td><input class="app" type="button" value="+" onclick="dis('+')"/> </td>
+         </tr>
+         <tr>
+            <td><input class="app" type="button" value="." onclick="dis('.')"/> </td>
+            <td><input class="app" type="button" value="0" onclick="dis('0')"/> </td>
+            <!-- solve function call function solve to evaluate value -->
+            <td><input class="app" type="button" value="=" onclick="solve()"/> </td>
+            <td><input class="app" type="button" value="x" onclick="dis('*')"/> </td>
+         </tr>
+      </table>
+   </body>
+</html>   
+</div>
+</body>
+</html>
+</div>
+<script>
+function calcopen() {
+  var x = document.getElementById("calc");
+  x.style.display = "block"
+}
+function calcclose() {
+  var x = document.getElementById("calc");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("calc"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#mine {
+  position: absolute;
+  z-index: 11;
+  background-color: transparent !important;
+  text-align: center;
+  border: 1px solid #1a1a1a;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+<body>
+<div id="mine">
+  <iframe src="https://classic.minecraft.net" width="100%;" height="100%;" style="z-index:1;border:0;border-radius:0px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mineframe"></iframe>
+</div>
+<script>
+function mineopen() {
+  var x = document.getElementById("mine");
+  x.style.display = "block"
+}
+function mineclose() {
+  var x = document.getElementById("mine");
+  x.style.display = "none"
+}
+</script>
+<style>
+#maps {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background-color: #1a1a1a;
+  text-align: center;
+  border: 1px solid #1a1a1a;
+  display: none;
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#mapsheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+#maps:hover {
+  z-index: 10;
+}
+</style>
+<body>
+<div id="maps">
+  <div id="mapsheader"><button class="close" onclick="mapsclose();">X</button>Google Maps (Lite)</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21001.804495909837!2d2.282596631147625!3d48.85390902434949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701f7e8337b5%3A0xa2cb58dd28914524!2sEiffel%20Tower%2C%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1653803120151!5m2!1sen!2sus" width="700px;" height="300x;" style="border:0;border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapsframe"></iframe>
+</div>
+<script>
+function mapsopen() {
+  var x = document.getElementById("maps");
+  x.style.display = "block"
+}
+function mapsclose() {
+  var x = document.getElementById("maps");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("maps"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // mapsulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#text {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background-color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  width:  35%;
+  height: 40%;
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#textheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  border-bottom: 1px solid #777;
+}
+
+#text:hover {
+  z-index: 10;
+}
+
+.textedit {
+  border: none;
+  color: white;
+  min-height: 28px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+.textedit:hover {
+  color: #666;
+}
+
+.textedit:active {
+  color: #555;
+}
+
+.nopaddingleft {
+  padding-left: 0;
+}
+#textjail {
+  
+}
+</style>
+<body>
+<div id="text">
+  <div id="textheader"><button class="close" onclick="textclose();">X</button>TextEdit</div><button class="textedit nopaddingleft" onclick="document.getElementById('text-val').value = ''">Delete</button><button class="textedit" id="dwn-btn"/>Download .txt</button><button class="textedit" onclick="copy();">Copy All</button><div id="textjail"><textarea placeholder="Start typing..." type="text" style="width:100%;border-radius:8px;max-height:90%;max-width:100%;min-width:100%;padding:6px;color:#fff;margin-top:2px;border:0px solid black; background:#2b2b2b;" id="text-val"></textarea></div>
+ <script>
+function copy() {
+  var copyText = document.getElementById("text-val");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  navigator.clipboard.writeText(copyText.value);
+}
+
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+       element.style.display = 'none';
+       document.body.appendChild(element);
+       element.click();
+       document.body.removeChild(element);
+   }
+
+   // Start file download.
+   document.getElementById("dwn-btn").addEventListener("click", function(){
+       var text = document.getElementById("text-val").value;
+       var filename = "filename.txt";
+       download(filename, text);
+   }, false);
+</script>
+</div></div>
+<script>
+function textopen() {
+  var x = document.getElementById("text");
+  x.style.display = "block"
+}
+function textclose() {
+  var x = document.getElementById("text");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("text"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // textl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // textulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#stext {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background-color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  width:  40%;
+  height: 40%;
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#stextheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  border-bottom: 1px solid #777;
+}
+
+#stext:hover {
+  z-index: 10;
+}
+
+.stextedit {
+  border: none;
+  color: white;
+  min-height: 28px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+.stextedit:hover {
+  color: #666;
+}
+
+.stextedit:active {
+  color: #555;
+}
+
+.nopaddingleft {
+  padding-left: 0;
+}
+#stextjail {
+  
+}
+</style>
+<body>
+<div id="stext">
+  <div id="stextheader"><button class="close" onclick="stextclose();">X</button>JavaScript Editor</div><button class="stextedit nopaddingleft" onclick="document.getElementById('stext-val').value = ''">Delete</button><button class="stextedit" id="dwn-btnjs"/>Download .js</button><button class="stextedit" id="dwn-btn2"/>Download .txt</button><button class="stextedit" onclick="copy2();">Copy All</button><button class="stextedit" onclick="doIt();">Run Code</button><div id="stextjail"><textarea placeholder="Start typing..." type="stext" style="width:100%;border-radius:8px;max-height:90%;max-width:100%;min-width:100%;padding:6px;color:#fff;margin-top:2px;border:0px solid black; background:#2b2b2b;" id="stext-val"></textarea></div>
+ <script>
+function copy2() {
+  var copyText = document.getElementById("stext-val");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  navigator.clipboard.writeText(copyText.value);
+}
+
+    function download(filename, stext) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:stext/plain;charset=utf-8,' + encodeURIComponent(stext));
+        element.setAttribute('download', filename);
+       element.style.display = 'none';
+       document.body.appendChild(element);
+       element.click();
+       document.body.removeChild(element);
+   }
+
+   // Start file download.
+   document.getElementById("dwn-btn2").addEventListener("click", function(){
+       var stext = document.getElementById("stext-val").value;
+       var filename = "filename.txt";
+       download(filename, stext);
+   }, false);
+
+function doIt() {
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement("script");
+    newScript.type = "text/javascript";
+    newScript.innerHTML = document.getElementById("stext-val").value;
+    headID.appendChild(newScript);
+}
+</script>
+<script>function download(filename, stext) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:stext/plain;charset=utf-8,' + encodeURIComponent(stext));
+        element.setAttribute('download', filename);
+       element.style.display = 'none';
+       document.body.appendChild(element);
+       element.click();
+       document.body.removeChild(element);
+   }
+
+   // Start file download.
+   document.getElementById("dwn-btnjs").addEventListener("click", function(){
+       var stext = document.getElementById("stext-val").value;
+       var filename = "filename.js";
+       download(filename, stext);
+   }, false);</script>
+</div></div>
+<script>
+function script() {
+  var x = document.getElementById("stext");
+  x.style.display = "block"
+}
+function stextclose() {
+  var x = document.getElementById("stext");
+  x.style.display = "none"
+}
+</script>
+<script>
+dragElement(document.getElementById("stext"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // stextl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // stextulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#calender {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background-color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#calenderheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  border-bottom: 1px solid #777;
+}
+
+#calender:hover {
+  z-index: 10;
+}
+
+</style>
+<body>
+<div id="calender">
+  <div id="calenderheader"><button class="close" onclick="calenderclose();">X</button>Calender</div><iframe style="border-radius:8px;background-color: #1a1a1a;" src="https://widget.calendarlabs.com/v1/calendar.php?cid=1001&ver=1.2&uid=6134683183&c=8&l=en&cbg=1a1a1a&cfg=fff&hfg=fff&hfg1=fff&ct=1&cb=1&cbc=1a1a1a&cf=verdana&cp=bottom&sw=0&hp=t&ib=0&ibc=&i=./images/"frameborder=no scrolling=no allowtransparency='true'>Loading...</iframe></div>
+<script>
+function calenderopen() {
+  var x = document.getElementById("calender");
+  x.style.display = "block"
+}
+function calenderclose() {
+  var x = document.getElementById("calender");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("calender"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // calenderl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calenderulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#preferences {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background-color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  padding: 2px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+  display: none;
+  width: 25%;
+}
+
+#preferencesheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -2px;
+  margin-left: -2px;
+  margin-right: -2px;
+  border-bottom: 1px solid #777;
+  margin-bottom: 2px;
+}
+
+#preferences:hover {
+  z-index: 10;
+}
+#preferencespopout {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 65%;
+  width: 55%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 10;
+  padding: 1%;
+  display: none;
+  resize: both;
+  overflow: auto;
+}
+#personalize {
+  display: none;
+}
+#dataprivacy {
+  display: none;
+}
+#generaloptions {
+  display: none;
+}
+#others {
+  display: none;
+}
+</style>
+<body>
+<div id="preferences">
+  <div id="preferencesheader"><button class="close" onclick="preferencesclose();">X</button>DeskUtility Preferences</div><button onclick="personalizeopen();" class="app settings">Personalize</button><button onclick="dataprivacyopen();" class="app settings">Data & Privacy</button><button onclick="generaloptionsopen();" class="app settings">General Options</button><button onclick="othersopen();" class="app settings">All Others</button></div>
+  <div id="preferencespopout">
+  <div id="personalize"><h1>Personalize</h1><button class="app app1 settings" onclick="wallpaper();">Wallpapers</button><button class="app app1 settings" onclick="accent();">Accent Colors</button><button class="app app1 settings" onclick="newsper();">Personalize Lock Screen News</button><button class="app app1 settings" onclick="prefout();">Close</button></div>
+  <div id="dataprivacy"><h1>Data & Privacy</h1><button class="app app1 settings" onclick="privacymodeon();document.getElementById('mapsframe').src = './extra/privacyerror.html'">Enable Privacy Mode (Disables online services)</button><button class="app app1 settings" onclick="window.location.reload();">Reset DeskUtility (Reloading)</button><button class="app app1 settings" onclick="prefout();">Close</button></div>
+  <div id="generaloptions"><h1>General Options</h1><button class="app app1 settings" onclick="locknewson();">Enable Lock Screen News (Default)</button><button class="app app1 settings" onclick="locknewsoff();">Disable Lock Screen News</button><button class="app app1 settings" onclick="prefout();">Close</button></div>
+  <div id="others"><h1>Other Options</h1><button class="app app1 settings" onclick="fullscreen();">Enter Full Screen</button><button class="app app1 settings" onclick="windowscreen();">Exit Full Screen</button><button onclick="nightlight();" class="app settings">Toggle Night Light</button><button class="app app1 settings" onclick="prefout();">Close</button></div>
+  </div>
+<script>
+function locknewson() {
+  var x = document.getElementById("locknews");
+  x.style.display = "block"
+}
+function locknewsoff() {
+  var x = document.getElementById("locknews");
+  x.style.display = "none"
+}
+function privacymodeon() {
+  var x = document.getElementById("privacymode");
+  x.style.display = "block"
+  var x = document.getElementById("onlinegoogle");
+  x.style.display = "none"
+  var x = document.getElementById("locknews");
+  x.style.display = "none"
+}
+function privacymodeoff() {
+  var x = document.getElementById("onlinegoogle");
+  x.style.display = "block"
+  var x = document.getElementById("privacymode");
+  x.style.display = "none"
+  var x = document.getElementById("locknews");
+  x.style.display = "block"
+}
+</script>
+<script>
+function prefout() {
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "none"
+  var x = document.getElementById("others");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+}
+function personalizeopen() {
+  var x = document.getElementById("personalize");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("othersopen");
+  x.style.display = "none"
+}
+function dataprivacyopen() {
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("others");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+}
+function generaloptionsopen() {
+  var x = document.getElementById("generaloptions");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("others");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+}
+function othersopen() {
+  var x = document.getElementById("others");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+}
+function preferencesopen() {
+  var x = document.getElementById("preferences");
+  x.style.display = "block"
+}
+function preferencesclose() {
+  var x = document.getElementById("preferences");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("preferences"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // preferencesl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // preferencesulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>

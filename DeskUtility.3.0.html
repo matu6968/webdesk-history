@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8" />
+</html> 
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Poppins';
+    background-color: #999999;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    overflow: hidden;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Poppins'; 
+}
+</style>
+</head>
+<!DOCTYPE html>
+<html>
+<style>
+#mychat {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  position: absolute;
+  background-color: #f1f1f1;
+  text-align: center;
+  border-radius: 12px;
+  color: #000;
+  top: 70%;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the
+  color or opacity to make the text pop! */
+  box-shadow : inset 0 0 0 200px rgb(255 255 255 / 8%);
+  height: 451px;
+  display: none;
+}
+
+#mychatheader {
+  padding: 12px;
+  background-color: #f6f6f6;
+  text-size: 50px;
+  color: #999999;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-bottom: 1px solid #d2d2d2;
+}
+#mychat:hover {
+z-index: 9999999999999999999999999;
+}
+</style>
+<body>
+<div id="mychat">
+  <div id="mychatheader"><button class="close"onClick="myFunctionm4()">x</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<iframe src="https://minnit.chat/Public321?embed&&nickname=" style="border-bottom-left-radius:12px;border-bottom-right-radius:12px;border:none;width:100%;height:400px;" allowTransparency="true"></iframe>
+</div>
+
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mychat"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<style>
+#myupdater {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  position: absolute;
+  background-color: #f1f1f1;
+  text-align: center;
+  border-radius: 14px;
+  color: #000;
+  left: 50%;
+  top: 70%;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the
+  color or opacity to make the text pop! */
+  box-shadow : inset 0 0 0 200px rgb(255 255 255 / 8%);
+  display: none;
+  height: 251px;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  padding-bottom: 1px;
+}
+
+#myupdaterheader {
+  padding: 12px;
+  background-color: #f6f6f6;
+  text-size: 50px;
+  color: #999999;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-bottom: 1px solid #d2d2d2;
+}
+#myupdater:hover {
+z-index: 999999999999999;
+}
+</style>
+<body>
+<div id="myupdater">
+  <div id="myupdaterheader"><button class="close"onClick="myFunctionm7()">x</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Updater&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</body>
+</html></div><widgetbot
+  server="927017499579518976"
+  channel="927017554080321586"
+  width="400"
+  height="200"
+></widgetbot>
+<script src="./html-embed.js"></script>
+</div>
+
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("myupdater"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<html>
+<style>
+#mysettings {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  position: absolute;
+  background-color: #f1f1f1;
+  text-align: center;
+  border-radius: 12px;
+  color: #000;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the
+  color or opacity to make the text pop! */
+  box-shadow : inset 0 0 0 200px rgb(255 255 255 / 8%);
+  height: 451px;
+  top: 5%;
+  display: none;
+}
+
+#mysettingsheader {
+  padding: 12px;
+  background-color: #f6f6f6;
+  text-size: 50px;
+  color: #999999;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-bottom: 1px solid #d2d2d2;
+}
+#mysettings:hover {
+z-index: 999999999999999;
+}
+</style>
+<body>
+<div id="mysettings">
+  <div id="mysettingsheader"><button class="close"onClick="myFunctionm6()">x</button><button class="minimize"onClick="myFunctionm1()">-</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preferences&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><button class="dialog button14"onClick="myFunctionm2()">Personalize</button><button class="dialog button14"onClick="myFunctionm7()">Updater (Beta)</button><button class="dialog button14"onClick="myFunctionm3()">About</button></div>
+
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("mysettings"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeskUtility Version 3.0</title>
+
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #context-menu {
+        border: 2px outset #000000;
+        position: fixed;
+        z-index: 999999999999999999999999;
+        width: 150px;
+        background-color: ;
+        border-radius:  7px;
+        transform: scale(0);
+        transform-origin: top left;
+        text-align: center;
+      }
+
+      #context-menu.visible {
+        transform: scale(1);
+        transition: transform 400ms ease-in-out;
+        background-color: #f6f6f6;
+      }
+
+      #context-menu .item {
+        padding: 8px 10px;
+        font-size: 15px;
+        color: #000;
+        cursor: pointer;
+        border-radius: inherit;
+      }
+
+      #context-menu .item:hover {
+        background: #000000;
+        color:  fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="context-menu">
+ <p><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<button class="button button1"onclick="myFunctionc()">o</button>
+<button class="button button2"onclick="myFunction2c()">o</button>
+<button class="button button12"onclick="myFunction12c()">o</button>
+<button class="button button3"onclick="myFunction3c()">o</button>
+<button class="button button4"onclick="myFunction4c()">o</button>
+<button class="button button5"onclick="myFunction5c()">o</button>
+<p>
+<button class="button button6"onclick="myFunction6c()">o</button>
+<button class="button button7"onclick="myFunction7c()">o</button>
+<button class="button button8"onclick="myFunction8c()">o</button>
+<button class="button button9"onclick="myFunction9c()">o</button>
+<button class="button button10"onclick="myFunction10c()">o</button>
+<button class="button button11"onclick="myFunction11c()">o</button>
+</html>
+</head>
+</style>
+      <div class="item"onClick="location.reload()">RESET</div>
+      <script>
+</script>
+    </div>
+
+    <script>
+      const contextMenu = document.getElementById("context-menu");
+      const scope = document.querySelector("body");
+
+      const normalizePozition = (mouseX, mouseY) => {
+        // ? compute what is the mouse position relative to the container element (scope)
+        let {
+          left: scopeOffsetX,
+          top: scopeOffsetY,
+        } = scope.getBoundingClientRect();
+        
+        scopeOffsetX = scopeOffsetX < 0 ? 0 : scopeOffsetX;
+        scopeOffsetY = scopeOffsetY < 0 ? 0 : scopeOffsetY;
+       
+        const scopeX = mouseX - scopeOffsetX;
+        const scopeY = mouseY - scopeOffsetY;
+
+        // ? check if the element will go out of bounds
+        const outOfBoundsOnX =
+          scopeX + contextMenu.clientWidth > scope.clientWidth;
+
+        const outOfBoundsOnY =
+          scopeY + contextMenu.clientHeight > scope.clientHeight;
+
+        let normalizedX = mouseX;
+        let normalizedY = mouseY;
+
+        // ? normalize on X
+        if (outOfBoundsOnX) {
+          normalizedX =
+            scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
+        }
+
+        // ? normalize on Y
+        if (outOfBoundsOnY) {
+          normalizedY =
+            scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
+        }
+
+        return { normalizedX, normalizedY };
+      };
+
+      scope.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+
+        const { clientX: mouseX, clientY: mouseY } = event;
+
+        const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
+
+        contextMenu.classList.remove("visible");
+
+        contextMenu.style.top = `${normalizedY}px`;
+        contextMenu.style.left = `${normalizedX}px`;
+
+        setTimeout(() => {
+          contextMenu.classList.add("visible");
+        });
+      });
+
+      scope.addEventListener("click", (e) => {
+        // ? close the menu if the user clicks outside of it
+        if (e.target.offsetParent != contextMenu) {
+          contextMenu.classList.remove("visible");
+        }
+      });
+    </script>
+  </body>
+</html>
+<html>
+<script>
+function myFunctionD1() {
+  document.getElementById("mydockheader").style.backgroundColor = "#111111";
+}
+</script>
+<script>
+function myFunctionD2() {
+  document.getElementById("mydockheader").style.backgroundColor = "#cc0000";
+}
+</script>
+<script>
+function myFunctionD12() {
+  document.getElementById("mydockheader").style.backgroundColor = "#fc0000";
+}
+</script>
+<script>
+function myFunctionD3() {
+  document.getElementById("mydockheader").style.backgroundColor = "#ff5500";
+}
+</script>
+<script>
+function myFunctionD4() {
+  document.getElementById("mydockheader").style.backgroundColor = "#e6e600";
+}
+</script>
+<script>
+function myFunctionD5() {
+  document.getElementById("mydockheader").style.backgroundColor = "#00ff00";
+}
+</script>
+<script>
+function myFunctionD6() {
+  document.getElementById("mydockheader").style.backgroundColor = "#008000";
+}
+</script>
+<script>
+function myFunctionD7() {
+  document.getElementById("mydockheader").style.backgroundColor = "#0099cc";
+}
+</script>
+<script>
+function myFunctionD8() {
+  document.getElementById("mydockheader").style.backgroundColor = "#0000cc";
+}
+</script>
+<script>
+function myFunctionD9() {
+  document.getElementById("mydockheader").style.backgroundColor = "#cc00cc";
+}
+</script>
+<script>
+function myFunctionD10() {
+  document.getElementById("mydockheader").style.backgroundColor = "#ff00ff";
+}
+</script>
+<script>
+function myFunctionD11() {
+  document.getElementById("mydockheader").style.backgroundColor = "#999999";
+}
+</script>
+<script>
+function myFunctionMe1() {
+  document.getElementById("mydivheader").style.backgroundColor = "#111111";
+}
+</script>
+<script>
+function myFunctionMe2() {
+  document.getElementById("mydivheader").style.backgroundColor = "#cc0000";
+}
+</script>
+<script>
+function myFunctionMe12() {
+  document.getElementById("mydivheader").style.backgroundColor = "#fc0000";
+}
+</script>
+<script>
+function myFunctionMe3() {
+  document.getElementById("mydivheader").style.backgroundColor = "#ff5500";
+}
+</script>
+<script>
+function myFunctionMe4() {
+  document.getElementById("mydivheader").style.backgroundColor = "#e6e600";
+}
+</script>
+<script>
+function myFunctionMe5() {
+  document.getElementById("mydivheader").style.backgroundColor = "#00ff00";
+}
+</script>
+<script>
+function myFunctionMe6() {
+  document.getElementById("mydivheader").style.backgroundColor = "#008000";
+}
+</script>
+<script>
+function myFunctionMe7() {
+  document.getElementById("mydivheader").style.backgroundColor = "#0099cc";
+}
+</script>
+<script>
+function myFunctionMe8() {
+  document.getElementById("mydivheader").style.backgroundColor = "#0000cc";
+}
+</script>
+<script>
+function myFunctionMe9() {
+  document.getElementById("mydivheader").style.backgroundColor = "#cc00cc";
+}
+</script>
+<script>
+function myFunctionMe10() {
+  document.getElementById("mydivheader").style.backgroundColor = "#ff00ff";
+}
+</script>
+<script>
+function myFunctionMe11() {
+  document.getElementById("mydivheader").style.backgroundColor = "#999999";
+}
+</script>
+<script>
+function myFunctionm1() {
+  var x = document.getElementById("alert1");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script>
+function myFunctionm2() {
+  var x = document.getElementById("personalize");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script>
+function myFunctionm3() {
+  var x = document.getElementById("about");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script>
+function myFunctionm4() {
+  var x = document.getElementById("mychat");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script>
+function myFunctionm6() {
+  var x = document.getElementById("mysettings");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script>
+function myFunctionm7() {
+  var x = document.getElementById("myupdater");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<style>
+</style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 15px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 46%;
+  bottom: 30px;
+  font-size: 17px;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the         color or opacity to make the text pop! */
+  box-shadow: inset 0 0 0 200px rgb(255 255 255 / 8%);
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
+</head>
+<body>
+<div id="snackbar">Session ID:
+
+<a id="demo"></a>
+
+<script>
+let x = Math.floor((Math.random() * 10000000000000) + 1);
+document.getElementById("demo").innerHTML = x;
+</script>
+<p>Advanced version details: A3.21/31/12/.3.0B
+</body>
+</html>
+
+
+</body>
+</html>
+</div>
+
+<script>
+function myFunctionsnack() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+
+</body>
+</html>
+
+<html>
+<style>
+#mydiv {
+  position: absolute;
+  z-index: 9999999999999;
+  background-color: #f1f1f1;
+  text-align: center;
+  width: 100%;
+}
+
+#mydivheader {
+  z-index: 9999999999999;
+  background-color: #333;
+  color: #fff;
+  -webkit-backdrop-filter: blur(8px);  /* Safari  9+ */
+  backdrop-filter: blur(8px); /* Chrome and  Opera */
+  box-shadow: inset 0 0 0 200px        rgba(255,255,255,0.08);
+}
+#mydivheader:hover {
+  z-index: 9999999999999;
+}
+</style>
+<body>
+<div id="mydiv">
+  <div id="mydivheader"><style>
+
+.navbar {
+   overflow: hidden;
+   z-index: 99999999999999999;
+}
+
+.navbar a {
+  float: left;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  padding: 1px 6px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+  z-index: 999999999;
+}
+
+.dropdown .dropbtn {
+  font-size: 22px;  
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  border-radius: 5px;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 160px;
+  z-index: 9999999999;
+  border-radius: 5px;
+  margin-top: 1px;
+  margin-left: 1px;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the           color or opacity to make the text pop! */
+  box-shadow: inset 0 0 0 200px rgb(255 255 255 / 8%);
+}
+
+.dropdown-content a:hover {
+  background: #1a1a1a;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: middle;
+  border-radius: 5px;
+  padding: 1px 8px;
+  margin: 4px;
+  font-size: 16px;
+}
+
+.dropdown-content a:hover {
+  background-color: #2881f0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+<a onClick="myFunctionm5()">△</a>
+  <div class="dropdown">
+    <button class="dropbtn">☐ 
+    </button>
+    <div class="dropdown-content">
+      <a onClick="myFunctionm3()">About DeskUtility</a>
+      <hr style="height:2px;border-width:0;width: 80%;color:gray;background-color:gray">
+      <a onClick="myFunctionm6()">Preferences</a>
+    </div>
+  </div> 
+</div>
+<head>
+<style>
+#minimized {             
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  z-index: 1;
+  border-radius: 5px;
+  margin-top: 1px;
+  margin-left: 1px;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); 
+  box-shadow: inset 0 0 0 200px rgb(255 255 255 / 8%);
+  color: #000;
+}
+</style>
+</head>
+<body>
+<div id="minimized">
+<p>&nbsp;&nbsp;&nbsp;Minimized&nbsp;&nbsp;&nbsp;<p>
+<hr style="height:2px;border-width:0;width: 80%;color:gray;background-color:gray"><p><p>
+</div>
+<script>
+function myFunctionm5() {
+  var x = document.getElementById("minimized");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
+<html>
+<style>
+#personalize {
+  position: absolute;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d2d2d2;
+  border-radius: 12px;
+  color: #000;
+  left: 50%;
+  top: 70%;
+  display: none;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the       color or opacity to make the text pop! */
+  box-shadow: inset 0 0 0 200px rgb(255 255 255 / 8%);
+}
+
+#personalize:hover {
+  z-index: 99999999;
+}
+
+#personalizeh {
+  padding: 12px;
+  background-color: #f6f6f6;
+  text-size: 50px;
+  color: #999999;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-bottom: 1px solid #d2d2d2;
+}
+</style>
+<body>
+<div id="personalize">
+  <div id="personalizeh"><!DOCTYPE html>
+<html>
+<head>
+<style>
+.close {
+  background-color: #ff514f;
+  border: none;
+  color: #ff514f;
+  padding: 0.1px 4.7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.close:hover {
+  color: #9d0810;
+  background: #fc5854;
+}
+
+.close:active {
+  background: #bf4744;
+  color: #660f11;
+}
+
+</style>
+</head>
+<body>
+<button class="close"onClick="myFunctionm2()">x</button>
+
+</body>
+</html>
+<html>
+<head>
+<style>
+.minimize {
+  background-color: #fdbc40;
+  border: none;
+  color: #fdbc40;
+  padding: 0.1px 5.8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 1px 3.5px;
+  cursor: pointer;
+  border-radius: 999px;
+  opacity: 100%;
+}
+
+.minimize:hover {
+  color: #995812;
+  background: #fdbc40;
+}
+
+.minimize:active {
+  background: #be8d2f;
+  color: #660f11;
+}
+
+
+</style>
+</head>
+<body>
+<button class="minimize"onClick="myFunctionm1()">-</button>
+</body>
+</html>
+<html>
+<head>
+<style>
+.maximize {
+  background-color: #33c748;
+  border: none;
+  color: #33c748;
+  padding: 0.1px 4.6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 1px 3.5px;
+  cursor: pointer;
+  border-radius: 999px;
+  opacity: 100%;
+}
+
+.maximize:hover {
+  color: #0b650d;
+  background: #33c748;
+}
+
+.maximize:active {
+  background: #1c9931;
+}
+
+
+</style>
+</head>
+<body>
+<button class="maximize"onClick="myFunctionm1()">o</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personalize</div>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor: select;
+  border-radius: 99px;
+  padding: 0.7px 4px;
+  margin: 2px;
+  opacity: 100%;
+}
+button:hover {
+  background-color: #9a9a9a;
+}
+button:active {
+  background: #1a1a1a;
+}
+.button1 {background-color: #111111} 
+.button2 {background-color: #cc0000;}
+.button3 {background-color: #ff5500;} 
+.button4 {background-color: #e6e600;} 
+.button5 {background-color: #00ff00} 
+.button6 {background-color: #008000}
+.button7 {background-color: #0099cc} 
+.button8 {background-color: #0000cc}
+.button9 {background-color: #cc00cc}
+.button10 {background-color: #ff00ff}
+.button11 {background-color: #999999}
+.button12 {background-color: #fc0000}
+</style>
+</head>
+<body>
+
+<p>Menu Bar Color:<p>
+<button class="button button1"onclick="myFunctionMe1()">o</button>
+<button class="button button2"onclick="myFunctionMe2()">o</button>
+<button class="button button12"onclick="myFunctionMe12()">o</button>
+<button class="button button3"onclick="myFunctionMe3()">o</button>
+<button class="button button4"onclick="myFunctionMe4()">o</button>
+<button class="button button5"onclick="myFunctionMe5()">o</button>
+<p>
+<button class="button button6"onclick="myFunctionMe6()">o</button>
+<button class="button button7"onclick="myFunctionMe7()">o</button>
+<button class="button button8"onclick="myFunctionMe8()">o</button>
+<button class="button button9"onclick="myFunctionMe9()">o</button>
+<button class="button button10"onclick="myFunctionMe10()">o</button>
+<button class="button button11"onclick="myFunctionMe11()">o</button>
+<p>Background:<p>
+<button class="button button1"onclick="myFunctionc()">o</button>
+<button class="button button2"onclick="myFunction2c()">o</button>
+<button class="button button12"onclick="myFunction12c()">o</button>
+<button class="button button3"onclick="myFunction3c()">o</button>
+<button class="button button4"onclick="myFunction4c()">o</button>
+<button class="button button5"onclick="myFunction5c()">o</button>
+<p>
+<button class="button button6"onclick="myFunction6c()">o</button>
+<button class="button button7"onclick="myFunction7c()">o</button>
+<button class="button button8"onclick="myFunction8c()">o</button>
+<button class="button button9"onclick="myFunction9c()">o</button>
+<button class="button button10"onclick="myFunction10c()">o</button>
+<button class="button button11"onclick="myFunction11c()">o</button>
+<p>Dock Color:<p>
+<button class="button button1"onclick="myFunctionD1()">o</button>
+<button class="button button2"onclick="myFunctionD2()">o</button>
+<button class="button button12"onclick="myFunctionD12()">o</button>
+<button class="button button3"onclick="myFunctionD3()">o</button>
+<button class="button button4"onclick="myFunctionD4()">o</button>
+<button class="button button5"onclick="myFunctionD5()">o</button>
+<p>
+<button class="button button6"onclick="myFunctionD6()">o</button>
+<button class="button button7"onclick="myFunctionD7()">o</button>
+<button class="button button8"onclick="myFunctionD8()">o</button>
+<button class="button button9"onclick="myFunctionD9()">o</button>
+<button class="button button10"onclick="myFunctionD10()">o</button>
+<button class="button button11"onclick="myFunctionD11()">o</button>
+<p>Appearence:<p>
+<!Start of Dark Mode module>
+<style>
+.light {
+  border: none;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  cursor: select;
+  padding: 0.7px 4px;
+  margin: 2px;
+  opacity: 100%;
+  border-radius: 9px;
+  padding: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+light:hover {
+  background-color: #7a7a7a;
+}
+light:active {
+  background: #1a1a1a;
+  color: white;
+}
+</style>
+<!Start of Dark Mode> 
+<script>
+function myFunctionla1() {
+  document.getElementById("personalizeh").style.backgroundColor = "#1e1e1e";
+}
+</script>
+<!Light scripts>
+<script>
+function myFunctionla2() {
+  document.getElementById("personalizeh").style.backgroundColor = "#ffffff";
+}
+</script>
+<script>
+function myFunctionla3() {
+  document.getElementById("abouth").style.backgroundColor = "#1e1e1e";
+}
+</script>
+<!Light scripts>
+<script>
+function myFunctionla4() {
+  document.getElementById("abouth").style.backgroundColor = "#ffffff";
+}
+</script>
+<script>
+function myFunctionla5() {
+  document.getElementById("mysettingsheader").style.backgroundColor = "#1e1e1e";
+}
+</script>
+<script>
+function myFunctionla6() {
+  document.getElementById("mysettingsheader").style.backgroundColor = "#ffffff";
+}
+</script>
+<script>
+function myFunctionla7() {
+  document.getElementById("mychatheader").style.backgroundColor = "#1e1e1e";
+}
+</script>
+<script>
+function myFunctionla8() {
+  document.getElementById("mychatheader").style.backgroundColor = "#ffffff";
+}
+</script>
+<!Dark mode scripts end, for alerts too>
+<button class="dialog button16"onClick="myFunctionla1();myFunctionla3();myFunctionla5();myFunctionla7()">Dark</button><button class="light button15"onClick="myFunctionla2();myFunctionla4();myFunctionla6();myFunctionla8()">Light</button>
+<!Dark mode module end>
+<!DOCTYPE html>
+<script>
+function myFunctionc() {
+  document.body.style.backgroundColor = "#111111";
+}
+</script>
+<script>
+function myFunction2c() {
+  document.body.style.backgroundColor = "#cc0000";
+}
+</script>
+<script>
+function myFunction3c() {
+  document.body.style.backgroundColor = "#ff5500";
+}
+</script>
+<script>
+function myFunction4c() {
+  document.body.style.backgroundColor = "#e6e600";
+}
+</script>
+<script>
+function myFunction5c() {
+  document.body.style.backgroundColor = "#00ff00";
+}
+</script>
+<script>
+function myFunction6c() {
+  document.body.style.backgroundColor = "#008000";
+}
+</script>
+<script>
+function myFunction7c() {
+  document.body.style.backgroundColor = "#0099cc";
+}
+</script>
+<script>
+function myFunction8c() {
+  document.body.style.backgroundColor = "#0000cc";
+}
+</script>
+<script>
+function myFunction9c() {
+  document.body.style.backgroundColor = "#cc00cc";
+}
+</script>
+<script>
+function myFunction10c() {
+  document.body.style.backgroundColor = "#ff00ff";
+}
+</script>
+<script>
+function myFunction11c() {
+  document.body.style.backgroundColor = "#999999";
+}
+</script>
+<script>
+function myFunction12c() {
+  document.body.style.backgroundColor = "#fc0000";
+}
+</script>
+</div>
+
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("personalize"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+</body>
+</html>
+<style>
+#alert1 {
+  position: absolute;
+  z-index: 99;
+  text-align: center;
+  border-radius: 12px;
+  background: rgba(241, 241, 241, 0.7);
+  padding-bottom: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: black;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the         color or opacity to make the text pop! */
+  box-shadow: inset 0 0 0 200px rgb(255 255 255 / 8%);
+  display: none;
+}
+#alert1:hover {
+  z-index: 99999999;
+}
+#alert1h {
+  text-size: 50px;
+  color: #999999;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  display: none;
+}
+</style>
+<body>
+<div id="alert1">
+  <div id="alert1h">
+ </div>
+<p>That button you just clicked is useless.<p>
+<p>Why?<p>
+<p>Becuase the creator
+wants to add useless<p>
+<p>buttons to DeskUtility
+because if he ever<p>
+<p>wants to add a 
+function to them<p>
+<p>he can add them easily.<p>
+<html>
+<style>
+.dialog {
+  margin:  auto;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: select;
+  border-radius: 9px;
+  padding: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.dialog:hover {
+  background-color: #8a8a8a;
+}
+</style>
+</head>
+<button class="dialog button13"onclick="myFunctionm4()">Open Chat</button>
+<button class="dialog button14"onclick="myFunctionm1()">Okay</button>
+<style>
+.button13 {background-color: #4e62ee} 
+.button14 {background-color: #0086ff}
+.button15 {background-color: #f6f6f6}
+.button16 {background-color: #1a1a1a}
+</style>
+
+
+</div>
+
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("alert1"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<html>
+<style>
+#about {
+  position: absolute;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d2d2d2;
+  border-radius: 12px;
+  color: #000;
+  left: 50%;
+  top: 70%;
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: rgb(152 151 151 / 40%); /* Just adjust the
+  color or opacity to make the text pop! */
+  box-shadow : inset 0 0 0 200px rgb(255 255 255 / 8%);
+  display: none;
+}
+
+#about:hover {
+  z-index: 99999999;
+} 
+
+#abouth {
+  padding: 12px;
+  background-color: #f6f6f6;
+  text-size: 50px;
+  color: #999999;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-bottom: 1px solid #d2d2d2;
+}
+</style>
+<body>
+<div id="about">
+  <div id="abouth">
+  <!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<button class="close"onClick="myFunctionm3()">x</button>
+
+</style>
+</head>
+<body>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div>DeskUtility 3.0. The core<p>DeskUtility experience.<p>htmlOS 1.5. The hard-working<p>worker that runs<p>DeskUtility itself.<p><button class="dialog button14"onclick="myFunctionsnack()">Advanced</button></div>
+<script>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("about"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>

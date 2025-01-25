@@ -1,0 +1,3946 @@
+<link rel="icon" type="image/x-icon" href="images/icon/favicon.jpg">
+<div id="lockc1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<script src = "extra/scripts/wallpaper.js"> </script>
+<script src = "extra/scripts/accent.js"> </script>
+<style>
+#desktop {
+  position: absolute;
+  min-height: 100%; min-width: 100%;
+  z-index: 0;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+}
+.tabbed {
+  background: transparent !important;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Poppins';
+  height: 10%;
+}
+
+.tabbed:hover {
+  color: #999;
+}
+
+.tabbed:active {
+  color: #555;
+}
+
+.app {                             
+  background-color: #1d1d1d;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: .1s;
+  font-family: 'Poppins';
+}
+
+.settings { 
+  width: 100% !important; 
+  padding: 4px !important; 
+  margin: 1px !important; 
+  border-radius: 10px !important; 
+}
+.backbutton {
+  width: 50%;
+}
+.app:hover {
+  opacity: 65%;
+}
+
+.app:active {
+  opacity: 25%;
+}
+.button1 {background-color: #1d1d1d;}
+.button2 {background-color: #da532c;}
+.button3 {background-color: #1e7145;}
+.color1 {background-color: #1d1d1d} 
+.color2 {background-color: #990000}
+.color3 {background-color: #d6d600} 
+.color4 {background-color:rgb(255, 196, 0)} 
+.color5 {background-color: #00ff00} 
+.color6 {background-color: #008000}
+.color7 {background-color: #0099cc} 
+.color8 {background-color: #0000cc}
+.color13 {background-color: #000088}
+.color14 {background-color: #880088}
+.color9 {background-color: #cc00cc}
+.color10 {background-color: #ff00ff}
+.color11 {background-color: #999999}
+.color12 {background-color: #bb0000}
+.thicc {width:90%;}
+.app6 {}
+.app6:hover {
+  background-color:rgb(255, 196, 0)
+}
+.context {position: fixed; padding: 4px 6px; background: rgb(255,255,255, 0.1); border-radius: 6px;}
+ {background-color: #1d1d1d;}
+.app2 {background-color: #da532c;}
+.app4 {padding: 4px 8px; background: rgb(255,0,0, 0.1); border-radius: 6px;}
+.app5 {background-color:rgb(50,50,50, .50);}
+.app3 {}
+.app3:hover {
+  background: #991111;
+  color: ffffff;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+  background-image: url('images/wr4.jpg');
+  width: 100%;
+  height: 100%;
+  padding: 0;
+      }
+}
+@keyframes fade {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
+}
+@keyframes start {
+  0% {opacity: 100%; z-index: 99999;}
+  99% {opacity: 1%; z-index: 99999;}
+  100% {opacity: 0%; z-index: -10;}
+}
+</style>
+<div id="desktop" onclick="closedockstuff();prefout();">
+<script>
+function closedockstuff() {
+  var x = document.getElementById("search");
+  x.style.display = "none";
+  var x = document.getElementById("google");
+  x.style.display = "none";
+  var x = document.getElementById("dockmenu");
+  x.style.display = "none";
+  var x = document.getElementById("wallpaper");
+  x.style.display = "none";
+  var x = document.getElementById("accent");
+  x.style.display = "none";
+  var x = document.getElementById("appdrawer");
+  x.style.display = "none";
+  var x = document.getElementById("bugreport");
+  x.style.display = "none";
+  var x = document.getElementById("notifpanel");
+  x.style.display = "none";
+  var x = document.getElementById("deeves");
+  x.style.display = "none";
+  var x = document.getElementById("chatpref");
+  x.style.display = "none";
+  var x = document.getElementById("controlbar");
+  x.style.display = "none"
+  var x = document.getElementById("uitest");
+  x.style.display = "none";
+}
+</script>
+</div>
+<style>
+#loading {
+  position: absolute; background-color: #000000;
+  min-height: 100%; min-width: 100%;
+  z-index: -10;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  animation: start 2s;
+  opacity: 0%;
+  pointer-events: none;
+}
+#loadingchild1 {
+  position: absolute;
+  left: 50%; top: 20%;
+  transform: translate(-50%, -50%);
+}
+#loadingchild2 {
+  position: absolute;
+  left: 50%; top: 70%;
+  transform: translate(-50%, -50%);
+}
+.hugetext {
+  font-size: 50px;
+}
+</style>
+<div id="loading">
+</div>
+<style>
+#support {
+  position: absolute; background-color:rgb(0,0,0,0.50);
+  min-height: 100%; min-width: 100%;
+  z-index: 99998;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  overflow: scroll;
+  text-align: center;
+  backdrop-filter: blur(36px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 800px rgba(0,0,0,0.05);
+}
+#supportchild {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+<div id="support">
+  <div id="supportchild">
+  <p>System Error</p>
+  <p>Your browser or device may not be fully supported.
+  <p>If you want, view the browser support index or use your options below.</p><button class="app" onclick="browsersupport();">View Browser Support Index</button><button class="app" onclick="window.location.reload();">Reload</button><button class="app" onclick="dismissbrowser();">Continue Anyways</button>
+  <style>
+#browsersupport {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  background-color:rgb(0,0,0,0.50);   
+  text-align: center;
+  color: #000;
+  height: 70%;
+  width: 70%;
+  left: 50%;
+  top: 50%;
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+</style>
+<div id="browsersupport"><p class="h1">Browser Support Index</p>
+  <p>X = Not Working or Unsupported O = Supported and working</p>
+  <p class="h1">Mozilla Firefox</p>
+  <p>Blurred Glass Effects = X</p>
+  <p>Battery Status = X</p>
+  <p>DeskUtility Scrollbars = X</p>
+  <p>Proper Animations = O</p>
+  <p>Fullscreen = O</p>
+  <p>Overall Usability = 7/10</p>
+  <p class="h1">Google Chrome</p>
+  <p>Blurred Glass Effects = O</p>
+  <p>Battery Status = O</p>
+  <p>DeskUtility Scrollbars = O</p>
+  <p>Proper Animations = O</p>
+  <p>Fullscreen = O</p>
+  <p>Overall Usability = 10/10</p>
+  <button class="app" onclick="closebrowsersupport();">Close</button></div>
+<script>
+function browsersupport() {
+  var x = document.getElementById("browsersupport");
+  x.style.display = "block";
+}
+function closebrowsersupport() {
+  var x = document.getElementById("browsersupport");
+  x.style.display = "none";
+}
+</script>
+  </div>
+</div>
+<script>
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|IE|firefox/i.test(navigator.userAgent)){
+  var x = document.getElementById("support");
+  x.style.display = "block";
+}else{
+  var x = document.getElementById("support");
+  x.style.display = "none";
+}
+
+function dismissbrowser() {
+  var x = document.getElementById("support");
+  x.style.display = "none";
+}
+</script>
+<style>
+#developerbeta {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  margin: 6px;
+  background:rgb(0,0,0,.7);
+  z-index: 9999;
+  backdrop-filter: blur(4px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 200px rgba(0,0,0,0.07);
+  padding: 8px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+}
+
+.true {
+  display: block;
+}
+
+.false {
+  display: none;
+}
+
+.link {
+  color: #3333ff;
+  transition: 0.25s;
+}
+
+.link:hover {
+  opacity: 65%;
+}
+
+.link:active {
+  opacity: 40%;
+}
+
+.devlinka {margin-right: 6px !important;}
+</style>
+<div id="developerbeta" class="false"><p>Developer Beta</p><p>Build 7/18/2022.R3.7.4</p><p><a class="link devlinka" onclick="devinfo();">More Info</a><a class="link" onclick="watermarkhide();" style="color: #f00 !important;">Hide</a></p></div>
+<style>
+#devinfo {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 60%;
+  width: 60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="devinfo" onclick="closedevinfo();"><p>If this build was not DMed to you by randomuser691337#1477 on Discord, this build is <a style="color:#f00;">stolen.</a></p><p>Otherwise, if it was DMed to you by that user, click their profile and make sure their tag and username/pfp match. A good way to tell is if the user is the same as the owner of randomuser691337's Community, which the user will be nicknamed The Pixel OEM in that server.</p><p>If you can verify that that user sent you this beta, keep testing!</p><p>Otherwise, report this stolen build to randomuser691337#1477 on Discord, and include the user and the build number.</p><p>New build features:</p><p>Browser compatibility improved (Firefox has decent support now)</p><p>Dock has been simplified</p><p>Notification icon changes when set to silent or notify</p><button class="app" onclick="closedevinfo();">Close</button></div>
+<script>
+function devinfo() {
+  var x = document.getElementById("devinfo");
+  x.style.display = "block";
+}
+function closedevinfo() {
+  var x = document.getElementById("devinfo");
+  x.style.display = "none";
+}
+function watermarkhide() {
+  var x = document.getElementById("developerbeta");
+  x.style.display = "none";
+}
+</script>
+<style>
+#setupm {
+  display: none;
+  top: 8%;
+  position: fixed;
+  left: 0; top: 0;
+  right: 0; bottom: 0;
+  z-index: 8;
+  margin: 20px;
+  border-radius: 12px;
+  color: #fff;
+  text-align: center !important;
+  background:rgb(0,0,0,.4);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.05);
+}
+#setupm1 {
+  position: fixed;
+  z-index: 8;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setupm2 {
+  display:  none;
+  position: fixed;
+  z-index: 7;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setupm3 {
+  display:  none;
+  position: fixed;
+  z-index: 6;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setupm4 {
+  display:  none;
+  position: fixed;
+  z-index: 5;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setupm5 {
+  display:  none;
+  position: fixed;
+  z-index: 4;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setupm6 {
+  display:  none;
+  position: fixed;
+  z-index: 3;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+#setupm7 {
+  display:  none;
+  position: fixed;
+  z-index: 2;
+  border-radius: 12px;
+  padding-left: 25px;
+  width: 100%;
+  height:  100%;
+}
+</style>
+<div id="setupm">
+  <div id="setupm1"><p class="h1 paddingheadings">Migration Assistant</p><p>On your other DeskUtility sesson:</p><p>Open the Control Center (click time or battery %)</p><p>Press "View Migration Code"</p><p>Write down or store the code</p><p>Press "Next" and type it in!</p><p>If you get a notification while migrating, ignore it.<p>You will see your changes take effect as it is typed in!</p><button class="app" onclick="setupm1();">Next</button><button class="app" onclick="window.location.reload();">Cancel (Reset)</button><button class="app" onclick="mcodeopen();">View Migration Code</button></div>
+  <div id="setupm2">
+    <p class="h1 paddingheadings">Type in your code...</p>
+    <button class="app" onclick="wr1();setupm2();">1</button>
+    <button class="app" onclick="wr2();setupm2();">2</button>
+    <button class="app" onclick="wr3();setupm2();">3</button>
+    <button class="app" onclick="wr4();setupm2();">4</button>
+    <button class="app" onclick="wr5();setupm2();">5</button>
+    <button class="app" onclick="wr6();setupm2();">6</button>
+    <button class="app" onclick="wr7();setupm2();">7</button>
+    <button class="app" onclick="wr8();setupm2();">8</button>
+    <button class="app" onclick="wr9();setupm2();">9</button>
+    <button class="app" onclick="setupm2();">0</button>
+    <button class="app" onclick="wr11();setupm2();">A</button>
+    <button class="app" onclick="wr12();setupm2();">B</button>
+    <button class="app" onclick="wr10();setupm2();">C</button>
+    <button class="app" onclick="setupm2();">D</button>
+    <button class="app" onclick="setupm2();">E</button>
+    <button class="app" onclick="">Backspace</button>
+  </div>
+  <div id="setupm3">
+    <p class="h1 paddingheadings">Type in your code...</p>
+    <button class="app" onclick="myFunctionc();setupm3();">1</button>
+    <button class="app" onclick="myFunction2c();setupm3();">2</button>
+    <button class="app" onclick="myFunction3c();setupm3();">3</button>
+    <button class="app" onclick="myFunction4c();setupm3();">4</button>
+    <button class="app" onclick="myFunction5c();setupm3();">5</button>
+    <button class="app" onclick="myFunction6c();setupm3();">6</button>
+    <button class="app" onclick="myFunction7c();setupm3();">7</button>
+    <button class="app" onclick="myFunction8c();setupm3();">8</button>
+    <button class="app" onclick="myFunction9c();setupm3();">9</button>
+    <button class="app" onclick="setupm3();">0</button>
+    <button class="app" onclick="myFunction11c();setupm3();">A</button>
+    <button class="app" onclick="myFunction12c();setupm3();">B</button>
+    <button class="app" onclick="myFunction13c();setupm3();">C</button>
+    <button class="app" onclick="myFunction14c();setupm3();">D</button>
+    <button class="app" onclick="myFunction10c();setupm3();">E</button>
+    <button class="app" onclick="setupmb2();">Backspace</button>
+  </div>
+  <div id="setupm4">
+    <p class="h1 paddingheadings">Type in your code...</p>
+    <button class="app" onclick="setupm4();accent1d1d1d();">1</button>
+    <button class="app" onclick="accent990000();setupm4();">2</button>
+    <button class="app" onclick="accentd6d600();setupm4();">3</button>
+    <button class="app" onclick="accentffc400();setupm4();">4</button>
+    <button class="app" onclick="accent00ff00();setupm4();">5</button>
+    <button class="app" onclick="accent008000();setupm4();">6</button>
+    <button class="app" onclick="accent0099cc();setupm4();">7</button>
+    <button class="app" onclick="accent0000cc();setupm4();">8</button>
+    <button class="app" onclick="accent000088();setupm4();">9</button>
+    <button class="app" onclick="setupm4();">0</button>
+    <button class="app" onclick="accent880088();setupm4();">A</button>
+    <button class="app" onclick="accentcc00cc();setupm4();">B</button>
+    <button class="app" onclick="accentff00ff();setupm4();">C</button>
+    <button class="app" onclick="accent999999();setupm4();">D</button>
+    <button class="app" onclick="accentbb0000();setupm4();">E</button>
+    <button class="app" onclick="setupmb3();">Backspace</button>
+  </div>
+  <div id="setupm5">
+    <p class="h1 paddingheadings">Type in your code...</p>
+        <button class="app" onclick="setupm5();privacymodeon();">1</button>
+    <button class="app" onclick="setupm5();">2</button>
+    <button class="app" onclick="setupm5();">3</button>
+    <button class="app" onclick="setupm5();">4</button>
+    <button class="app" onclick="setupm5();">5</button>
+    <button class="app" onclick="setupm5();">6</button>
+    <button class="app" onclick="setupm5();">7</button>
+    <button class="app" onclick="setupm5();">8</button>
+    <button class="app" onclick="setupm5();">9</button>
+    <button class="app" onclick="setupm5();privacymodeoff();">0</button>
+    <button class="app" onclick="setupm5();">A</button>
+    <button class="app" onclick="setupm5();">B</button>
+    <button class="app" onclick="setupm5();">C</button>
+    <button class="app" onclick="setupm5();">D</button>
+    <button class="app" onclick="setupm5();">E</button>
+    <button class="app" onclick="setupmb4();">Backspace</button>
+  </div>
+    <div id="setupm6">
+    <p class="h1 paddingheadings">Type in your code...</p>
+    <button class="app" onclick="setupm6();">1</button>
+    <button class="app" onclick="setupm6();">2</button>
+    <button class="app" onclick="setupm6();">3</button>
+    <button class="app" onclick="setupm6();">4</button>
+    <button class="app" onclick="setupm6();">5</button>
+    <button class="app" onclick="setupm6();">6</button>
+    <button class="app" onclick="setupm6();">7</button>
+    <button class="app" onclick="setupm6();">8</button>
+    <button class="app" onclick="setupm6();">9</button>
+    <button class="app" onclick="setupm6();">0</button>
+    <button class="app" onclick="setupm6();">A</button>
+    <button class="app" onclick="setupm6();">B</button>
+    <button class="app" onclick="setupm6();">C</button>
+    <button class="app" onclick="setupm6();">D</button>
+    <button class="app" onclick="setupm6();">E</button>
+    <button class="app" onclick="setupmb5();">Backspace</button>
+  </div>
+  <div id="setupm7"><p class="h1 paddingheadings">Migration complete!</p><p>Press "Let's go!" to go to DeskUtility Desktop!</p><button class="app" onclick="setupmdone();welcomebacknotif();">Let's go!</button><button class="app" onclick="resetmigration();">I entered my code wrong, restart migration</button></div>
+</div>
+<script>
+function welcomebacknotif() {
+  notify()
+  document.getElementById('notiflinea').innerHTML = "Welcome back!"; 
+  document.getElementById('notiflineb').innerHTML = "If you got your code wrong, reload."; 
+  document.getElementById('notiflinec').innerHTML = ""; 
+  notifsound();
+}
+
+function setupm1() {
+  var x = document.getElementById("setupm1");
+  x.style.display = "none";
+  var x = document.getElementById("setupm2");
+  x.style.display = "block";
+}
+function setupm2() {
+  var x = document.getElementById("setupm2");
+  x.style.display = "none";
+  var x = document.getElementById("setupm3");
+  x.style.display = "block";
+}
+function setupm3() {
+  var x = document.getElementById("setupm3");
+  x.style.display = "none";
+  var x = document.getElementById("setupm4");
+  x.style.display = "block";
+}
+function setupm4() {
+  var x = document.getElementById("setupm4");
+  x.style.display = "none";
+  var x = document.getElementById("setupm5");
+  x.style.display = "block";
+}
+function setupm5() {
+  var x = document.getElementById("setupm5");
+  x.style.display = "none";
+  var x = document.getElementById("setupm6");
+  x.style.display = "block";
+}
+function setupm6() {
+  var x = document.getElementById("setupm6");
+  x.style.display = "none";
+  var x = document.getElementById("setupm7");
+  x.style.display = "block";
+}
+function setupmb1() {
+  var x = document.getElementById("setupm2");
+  x.style.display = "none";
+  var x = document.getElementById("setupm1");
+  x.style.display = "block";
+}
+function setupmb2() {
+  var x = document.getElementById("setupm3");
+  x.style.display = "none";
+  var x = document.getElementById("setupm2");
+  x.style.display = "block";
+}
+function setupmb3() {
+  var x = document.getElementById("setupm4");
+  x.style.display = "none";
+  var x = document.getElementById("setupm3");
+  x.style.display = "block";
+}
+function setupmb4() {
+  var x = document.getElementById("setupm5");
+  x.style.display = "none";
+  var x = document.getElementById("setupm4");
+  x.style.display = "block";
+}
+function setupmb5() {
+  var x = document.getElementById("setupm6");
+  x.style.display = "none";
+  var x = document.getElementById("setupm5");
+  x.style.display = "block";
+}
+function setupmdone() {
+  var x = document.getElementById("migratelockup");
+  x.style.display = "block";
+  var x = document.getElementById("dock");
+  x.style.display = "block";
+  var x = document.getElementById("contexthidden");
+  x.style.display = "block"
+  var x = document.getElementById("setupm");
+  x.style.display = "none";
+  var x = document.getElementById("controlbarsetup");
+  x.style.display = "none"
+  var x = document.getElementById("controlbarnormal");
+  x.style.display = "block"
+}
+function resetmigration() {
+  var x = document.getElementById("setupm1");
+  x.style.display = "block";
+  var x = document.getElementById("setupm2");
+  x.style.display = "none";
+  var x = document.getElementById("setupm3");
+  x.style.display = "none";
+  var x = document.getElementById("setupm4");
+  x.style.display = "none";
+  var x = document.getElementById("setupm5");
+  x.style.display = "none";
+  var x = document.getElementById("setupm6");
+  x.style.display = "none";
+  var x = document.getElementById("setupm7");
+  x.style.display = "none";
+
+}
+</script>
+<div id="migratelockup">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      #context-menu {
+        position: fixed;
+        z-index: 10000;
+        width: 190px;
+        background-color:rgb(0,0,0,0.5);    
+        backdrop-filter: blur(12px); /* Chrome and Opera */
+        box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+        border-radius: 12px;
+        transform: scale(0);
+        transform-origin: top left;
+        padding: 6px;
+      }
+
+      #context-menu.visible {
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+      }
+
+      #context-menu .item {
+        padding: 4px 5px;
+        font-size: 15px;
+        color: #eee;
+        cursor: pointer;
+        border-radius: 6px;
+        text-align: center;
+        transition: 0.25s;
+      }
+
+      #context-menu .item:hover {
+        background-color:rgb(0,0,0,0.25);
+      }
+      #context-menu .item:active {
+        background-color:rgb(0,0,0,0.5);
+      }
+      #contexthidden {
+        display: none;
+      }
+    </style>
+  </head>
+    <div id="context-menu">
+      <div class="item" onclick="accent();">Change Accent Color</div>
+      <div class="item" onclick="wallpaper();">Change Wallpaper</div>
+      <div id="contexthidden">
+      <div class="item" onclick="quickswitch();">Quick Switcher</div>
+      <div class="item" onclick="preferencesopen();">Preferences</div>
+    </div></div>
+
+    <script>
+      const contextMenu = document.getElementById("context-menu");
+      const scope = document.querySelector("body");
+
+      const normalizePozition = (mouseX, mouseY) => {
+        // ? compute what is the mouse position relative to the container element (scope)
+        let {
+          left: scopeOffsetX,
+          top: scopeOffsetY,
+        } = scope.getBoundingClientRect();
+        
+        scopeOffsetX = scopeOffsetX < 0 ? 0 : scopeOffsetX;
+        scopeOffsetY = scopeOffsetY < 0 ? 0 : scopeOffsetY;
+       
+        const scopeX = mouseX - scopeOffsetX;
+        const scopeY = mouseY - scopeOffsetY;
+
+        // ? check if the element will go out of bounds
+        const outOfBoundsOnX =
+          scopeX + contextMenu.clientWidth > scope.clientWidth;
+
+        const outOfBoundsOnY =
+          scopeY + contextMenu.clientHeight > scope.clientHeight;
+
+        let normalizedX = mouseX;
+        let normalizedY = mouseY;
+
+        // ? normalize on X
+        if (outOfBoundsOnX) {
+          normalizedX =
+            scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
+        }
+
+        // ? normalize on Y
+        if (outOfBoundsOnY) {
+          normalizedY =
+            scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
+        }
+
+        return { normalizedX, normalizedY };
+      };
+
+      scope.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+
+        const { clientX: mouseX, clientY: mouseY } = event;
+
+        const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
+
+        contextMenu.classList.remove("visible");
+
+        contextMenu.style.top = `${normalizedY}px`;
+        contextMenu.style.left = `${normalizedX}px`;
+
+        setTimeout(() => {
+          contextMenu.classList.add("visible");
+        });
+      });
+
+      scope.addEventListener("click", (e) => {
+        // ? close the menu if the user clicks outside of it
+        if (e.target.offsetParent != contextMenu) {
+          contextMenu.classList.remove("visible");
+        }
+      });
+    </script>
+<style>
+#notifpanel {
+  bottom: 68px;
+  position: absolute;
+  background:rgb(0,0,0,.4);
+  z-index: 9999;
+  margin-left: 6px;
+  left: 0%;
+  padding: 6px;
+  padding-right: 7px;
+  border-radius: 12px;
+  color: #fff;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.05);
+  animation-name: barflyout;
+  animation-duration: 0.25s;
+  width: 310.1px;
+}
+@keyframes barflyout {
+  from {bottom: -2%;}
+  to {bottom: 68px;}
+}
+</style>
+<div id="notifpanel"><button onclick="notifsound();disableMute();changetonotify();" class="app settings">Notify</button><button onclick="enableMute();changetosilent();" class="app settings">Silent</button><button onclick="notifsound();notify();" class="app">Most Recent Notification</button><button onclick="notifclose();" class="app">Close</button></div>
+<script>
+function notifopen() {
+  var x = document.getElementById("notifpanel");
+  x.style.display = "block"
+  var x = document.getElementById("controlbar");
+  x.style.display = "none"
+}
+
+function notifclose() {
+  var x = document.getElementById("notifpanel");
+  x.style.display = "none"
+}
+function setupdropb() {
+  document.getElementById("setupdropb").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtnb')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+  </body>
+</html>
+<style>
+#controlbar {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  right: 6px;
+  top: 36px;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  z-index: 35;
+  display: none;
+  animation-name: barflyout;
+  animation-duration: 0.25s;
+}
+#controlbarsetup {
+  display: block;
+}
+#controlbarnormal {
+  display: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+</style>
+<script>
+function customopen() {
+  var x = document.getElementById("controlbar");
+  x.style.display = "block"
+  var x = document.getElementById("notifpanel");
+  x.style.display = "none"
+}
+
+function customclose() {
+  var x = document.getElementById("controlbar");
+  x.style.display = "none"
+}
+</script>
+<div id="controlbar">
+  <div id="controlbarsetup"><p>Complete setup to use Custom Controls.</p></div>
+  <div id="controlbarnormal"><p>Custom Controls</p></div></div>
+</div>
+<script>
+function changetosilent() {
+  document.getElementById("notificon").src = "images/icon/crossnotif.png";
+}
+
+function changetonotify() {
+  document.getElementById("notificon").src = "images/icon/notif.png";
+}
+</script>
+<div id="">
+<div id="yeetmigrate">
+<style>
+.windowbuttons {
+  position: fixed;
+  padding: 0; 
+  margin: 0;
+  left: 0%;
+}
+.close {
+  position: absolute;
+  max-height: 16px;
+  min-height: 16px;
+  max-width: 16px;
+  min-width: 16px;
+  font-size: 16px;
+  color: #fff;
+  font-family: 'Poppins';
+  border: none;
+  background: transparent !important;
+  margin-left: 8px;
+  transition: 0.2s;
+}
+.close:hover {
+  color: #900;
+}
+.close:active {
+  color: #800;
+}
+</style>
+<style>
+#mcode {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  top: 50%;
+  display: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 115px;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 250px rgba(0,0,0,0.05);
+}
+
+#mcodeheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+#mcode:hover {
+  z-index: 10;
+}
+</style>
+
+<div id="mcode">
+  <div id="mcodeheader"><div class="windowbuttons"><button class="close" onclick="mcodeclose();">X</button></div>Migration Code</div><button id="mig1" class="app">4</button><button id="mig2" class="app">0</button><button id="mig3" class="app">0</button><button id="mig4" class="app">0</button><button id="mig5" class="app">0</button></div>
+<script>
+function mcodeopen() {
+  var x = document.getElementById("mcode");
+  x.style.display = "block"
+}
+
+function mcodeclose() {
+  var x = document.getElementById("mcode");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("mcode"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+.line {
+  border-right: 2px solid #888;
+}
+@keyframes drop {
+  0% {}
+  100% {}
+}
+@keyframes setuptrans {
+  0% {opacity: 0%;}
+  100% {opacity: 100%}
+}
+#setup {
+  top: 8%;
+  position: fixed;
+  left: 0; top: 0;
+  right: 0; bottom: 0;
+  z-index: 8;
+  margin: 20px;
+  border-radius: 12px;
+  color: #fff;
+  background:rgb(0,0,0,.4);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.05);
+  padding-top: 20px;
+  text-align: center;
+}
+#setup1 {
+  position: fixed;
+  z-index: 8;
+  border-radius: 12px;
+  width: 100%;
+  height:  100%;
+}
+#setup2 {
+  display:  none;
+  position: fixed;
+  z-index: 7;
+  border-radius: 12px;
+  width: 100%;
+  height:  100%;
+}
+#setup3 {
+  display:  none;
+  position: fixed;
+  z-index: 6;
+  border-radius: 12px;
+  width: 100%;
+  height:  100%;
+}
+#setup4 {
+  display:  none;
+  position: fixed;
+  z-index: 5;
+  border-radius: 12px;
+  width: 100%;
+  height:  100%;
+}
+#setup5 {
+  display:  none;
+  position: fixed;
+  z-index: 4;
+  border-radius: 12px;
+  width: 100%;
+  height:  100%;
+}
+#setup6 {
+  display:  none;
+  position: fixed;
+  z-index: 3;
+  border-radius: 12px;
+  width: 100%;
+  height:  100%;
+}
+.h1 {
+  font-size: 25px;
+}
+.pgbarsetup {
+  position: fixed;
+  border-radius: 8px;
+  height: 12px;
+  background:rgb(120, 120, 120, 0.10);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(180, 180, 180,0.03);
+  padding:  4px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 6px !important;
+  left: 0;
+  right: 0;
+  text-align: left !important;
+}
+.pgbarsetup2 {
+  height: 12px !important;
+  border-radius: 4px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.width0 {width: 0%;}
+.width20 {width: 20%;}
+.width40 {width: 40%;}
+.width60 {width: 60%;}
+.width80 {width: 80%;}
+.width100 {width: 100%;}
+.down {bottom: 0%;}
+.green {background-color: #009900;}
+.none{display: none;}
+.ptop {
+  margin-top: 20px !important;
+}
+</style>
+<div id="setup">
+  <div id="setup1"><p class="h1">Welcome!<div class="pgbarsetup"><div class="pgbarsetup2 width0"></div></div></p><p class="ptop"style="color:#999;">If you have a migration code or other DeskUtility session, click "Migrate".</p><style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);      background:rgb(0,0,0,.4);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.05);
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  z-index: 10;
+  display: none;
+  padding: 4px;
+  min-width: 200px;
+  padding-right: 6px;
+}
+.show {display: block;}
+.dropbtn {
+  margin: 0;
+}
+.splita {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: 1px;
+}
+.splitb {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 1px;
+}
+</style>
+</head>
+<div class="dropdown">
+  <button class="app noleftmargin splita" onclick="setup1();load();closedockstuff();">Let's go!</button><button class="app splita splitb" onclick="migrate();load();closedockstuff();">Migrate</button><button onclick="setupdrop()" class="app dropbtn splitb">More <i class="fa fa-caret-down"></i></button>
+  <div id="setupdrop" class="dropdown-content">
+  <button class="app settings" onclick="accent();">Change Accent Color</button>
+    <button class="app settings" onclick="togglefullscreen();">Fullscreen Toggle</button>
+    <button class="app settings" onclick="uitest();">Perform UI Tests</button>
+  <button class="app settings" onclick="setupdone();load();welcomenotif();">Skip Setup</button>
+  </div>
+</div>
+<script>
+function setupdrop() {
+  document.getElementById("setupdrop").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function migrate() {
+  var x = document.getElementById("setup");
+  x.style.display = "none";
+  var x = document.getElementById("migratelockup");
+  x.style.display = "none";
+  var x = document.getElementById("dock");
+  x.style.display = "none";
+  var x = document.getElementById("setupm");
+  x.style.display = "block";
+}
+</script></div>
+  <div id="setup2"><p class="h1">How to use and other stuff (DON'T SKIP THIS!)<div class="pgbarsetup"><div class="pgbarsetup2 width20 app"></div></div></p><p class="ptop">If you miss a notification, click the notification icon in the dock.</p><p>Then, click "Most Recent Notification" to view it again.</p></p><p><p>DeskUtility can perform badly on lower-end devices.</p></p><p>A device with at least 4gb ram, decent processer and GPU should be fine!</p><p>To quit apps that open fullscreen, click the Menu icon, and click "Quit App".<p><button class="app" onclick="setup2();closedockstuff();">Next</button></p></div>
+  <div id="setup3"><p class="h1">Let's start with personalizing.<div class="pgbarsetup"><div class="pgbarsetup2 width40 app"></div></div></p><p class="ptop"></p><button class="app" onclick="wallpaper();">Wallpapers</button><button class="app" onclick="accent();">Accent Colors</button><button class="app" onclick="setup3();closedockstuff();">Done!</button><button class="app" onclick="setupb2();">Back</button></div>
+  <div id="setup4"><p class="h1">Keep Your Data Safe<div class="pgbarsetup"><div class="pgbarsetup2 width60 app"></div></div><p class="ptop" style="color:#999;">Jot down the code that you are presented with.</p><p style="color:#999;">DeskUtility will notify you if you need to rewrite your Migration Code.</p><button class="app" onclick="setup4();closedockstuff();">Next</button><button class="app" onclick="setupb4();">Back</button></div>
+  <div id="setup5"><p class="h1">Anything else?<div class="pgbarsetup"><div class="pgbarsetup2 width80 app"></div></div></p><p class="ptop"></p>
+<button class="app" onclick="fullscreen();">Enter Full Screen</button><button class="app" onclick="preferencesopen();">Open Preferences</button><button class="app" onclick="setup5();closedockstuff();">Next</button><button class="app" onclick="setupb4();">Back</button></div>
+  <div id="setup6"><p class="h1">All done!<div class="pgbarsetup"><div class="pgbarsetup2 width100 app"></div></div></p><p class="ptop"></p><button class="app" onclick="setupdone();closedockstuff();welcomenotif();">Go To DeskUtility Desktop</button><button class="app" onclick="setupb5();">Back</button></div>
+</div>
+<script>
+function idontagree() {
+  notify()
+   document.getElementById('notiflinea').innerHTML = "Setup Alert"; 
+  document.getElementById('notiflineb').innerHTML = "You cannot use DeskUtility if you don't agree to the terms and conditions"; 
+  document.getElementById('notiflinec').innerHTML = ""; 
+  notifsound();
+}
+function welcomenotif() {
+  notify()
+  document.getElementById('notiflinea').innerHTML = "Welcome to DeskUtility!"; 
+  document.getElementById('notiflineb').innerHTML = "I hope you enjoy what I have made!"; 
+  document.getElementById('notiflinec').innerHTML = ""; 
+  notifsound();
+}
+
+  var elem = document.documentElement;
+function fullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+    notify()
+    document.getElementById('notification').innerHTML = "Entered fullscreen successfully";
+  }
+}
+
+function windowscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+    notify()
+    document.getElementById('notification').innerHTML = "Left fullscreen successfully"; 
+  }
+}
+
+function setup1() {
+  var x = document.getElementById("setup1");
+  x.style.display = "none";
+  var x = document.getElementById("setup2");
+  x.style.display = "block";
+}
+function setup2() {
+  var x = document.getElementById("setup2");
+  x.style.display = "none";
+  var x = document.getElementById("setup3");
+  x.style.display = "block";
+}
+function setup3() {
+  var x = document.getElementById("setup3");
+  x.style.display = "none";
+  var x = document.getElementById("setup4");
+  x.style.display = "block";
+  var x = document.getElementById("mcode");
+  x.style.display = "block";
+}
+function setup4() {
+  var x = document.getElementById("setup4");
+  x.style.display = "none";
+  var x = document.getElementById("setup5");
+  x.style.display = "block";
+  var x = document.getElementById("mcode");
+  x.style.display = "none";
+}
+function setup5() {
+  var x = document.getElementById("setup5");
+  x.style.display = "none";
+  var x = document.getElementById("setup6");
+  x.style.display = "block";
+}
+function setupb2() {
+  var x = document.getElementById("setup3");
+  x.style.display = "none";
+  var x = document.getElementById("setup2");
+  x.style.display = "block";
+  var x = document.getElementById("mcode");
+  x.style.display = "none";
+}
+function setupb3() {
+  var x = document.getElementById("setup2");
+  x.style.display = "block";
+  var x = document.getElementById("setup3");
+  x.style.display = "none";
+}
+function setupb4() {
+  var x = document.getElementById("setup5");
+  x.style.display = "none";
+  var x = document.getElementById("setup4");
+  x.style.display = "block";
+}
+function setupb5() {
+  var x = document.getElementById("setup6");
+  x.style.display = "none";
+  var x = document.getElementById("setup5");
+  x.style.display = "block";
+}
+function setupdone() {
+  var x = document.getElementById("setup6");
+  x.style.display = "none";
+  var x = document.getElementById("setup");
+  x.style.display = "none";
+  var x = document.getElementById("dock");
+  x.style.display = "block";
+  var x = document.getElementById("contexthidden");
+  x.style.display = "block"
+  var x = document.getElementById("controlbarsetup");
+  x.style.display = "none"
+  var x = document.getElementById("controlbarnormal");
+  x.style.display = "block"
+  var x = document.getElementById("search");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<style>
+#wallpaper {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 72.5%;
+  width: 75%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+
+.wallicon {
+  border-radius: 5px;
+  width: 12.1%;
+  height: 12.1%;
+  background:rgb(0,0,0,0);
+  transition: 0.2s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  margin: 3px;
+  object-fit: cover;
+  background-color:  #111;
+}
+.margin4px {margin-right: 4px;}
+.marginleft5px {margin-left: 5px;}
+.marginleft3px {margin-left: 3px;}
+.wallicon:hover {
+  opacity: 60%;
+}
+.wallicon:active {
+  opacity: 35%;
+}
+.colors {
+  border: none;
+  color: white;
+  width: 20px; height: 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.25s;
+  padding: 10px;
+}
+.colors:hover {
+  background-color:rgb(0,0,0,.65)
+}
+.colors:active {
+  background-color:rgb(120,120,120,.25);
+}
+</style>
+<div id="wallpaper"><p class="h1">Wallpapers</p><p>
+<p>Note: Most have been removed for privacy reasons.</p>
+<button class="colors color1" onclick="myFunctionc();myFunctionte2();"></button>
+<button class="colors color2" onclick="myFunction2c();myFunctionte1();"></button>
+<button class="colors color12" onclick="myFunction12c();myFunctionte1();"></button>
+<button class="colors color4" onclick="myFunction3c();myFunctionte1();"></button>
+<button class="colors color3" onclick="myFunction4c();myFunctionte1();"></button>
+<button class="colors color5" onclick="myFunction5c();myFunctionte1();"></button>
+<button class="colors color6" onclick="myFunction6c();myFunctionte1();"></button>
+<button class="colors color7" onclick="myFunction7c();myFunctionte1();"></button>
+<button class="colors color8" onclick="myFunction8c();myFunctionte1();"></button>
+<button class="colors color13" onclick="myFunction13c();myFunctionte1();"></button>
+<button class="colors color14" onclick="myFunction14c();myFunctionte1();"></button>
+<button class="colors color9" onclick="myFunction9c();myFunctionte1();"></button>
+<button class="colors color10" onclick="myFunction10c();myFunctionte1();"></button>
+<button class="colors color11" onclick="myFunction11c();myFunctionte1();"></button></p><img onclick="wr4();" src="images/wr4.jpg" class="wallicon"></img><img onclick="wr11();" src="images/404.jpg" class="wallicon"></img><img onclick="wr12();" src="images/wr11.jpg" class="wallicon"></img><p><button class="app" onclick="wallpaperclose();">I'm done!</button></p></div>
+<style>
+#newspref {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 55%;
+  width: 65%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+#locknewsoptions {
+  margin: 0;
+  padding: 0;
+}
+</style>
+<div id="newspref"><p class="h1">Lock Screen</p>
+<p style="color: #999;"><strong>Note:</strong> If Privacy Mode is enabled, some options are hidden.</p>
+ <div id="locknewsoptions">
+  <p><button class="app" onclick="locknewson();">Enable Lock Screen News (Default)</button>
+  <button class="app" onclick="locknewsoff();">Disable Lock Screen News</button></p>
+  <p>News Providers</p>
+  <p style="color: #999;">The choices are bland because most news sites reject embedding.</p>
+<button class="app" onclick="document.getElementById('locknews').src = 'https://bbc.com'">BBC</button></div>
+<p><button class="app" onclick="newsperclose();">Done!</button></p>
+</div>
+<script>
+function newsper() {
+  var x = document.getElementById("newspref");
+  x.style.display = "block";
+}
+function newsperclose() {
+  var x = document.getElementById("newspref");
+  x.style.display = "none";
+}
+</script>
+<style>
+#accent {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 72.5%;
+  width: 70%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="accent"><p class="h1">Accent Colors</p>
+<p>Normal Color</p>
+<button class="colors color1" onclick="accent1d1d1d();"></button>
+<button class="colors color2" onclick="accent990000();"></button>
+<button class="colors color12" onclick="accentbb0000();"></button>
+<button class="colors color4" onclick="accentffc400();"></button>
+<button class="colors color3" onclick="accentd6d600();"></button>
+<button class="colors color5" onclick="accent00ff00();"></button>
+<button class="colors color6" onclick="accent008000();"></button>
+<button class="colors color7" onclick="accent0099cc();"></button>
+<button class="colors color8" onclick="accent0000cc();"></button>
+<button class="colors color13" onclick="accent000088();"></button>
+<button class="colors color14" onclick="accent880088();"></button>
+<button class="colors color9" onclick="accentcc00cc();"></button>
+<button class="colors color10" onclick="accentff00ff();"></button>
+<button class="colors color11" onclick="accent999999();"></button>
+<p><button class="app" onclick="accentclose();">Done!</button></p>
+</div>
+<script>
+function searchopen() {
+  var x = document.getElementById("search");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<style>
+#bugreport {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 60%;
+  width: 60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="bugreport" onclick="closebug();">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfbBvMIfCa6hdHtNJ8mpCwK9gbk6pwpaCGfHelp2gcjMngjfg/viewform?embedded=true" width="100%;" height="100%;" style="border-radius:5px;" frameborder="0" marginheight="0" marginwidth="0" id="bugreportframe">Loading… please be patient.</iframe></div>
+<script>
+function bug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "block";
+}
+function closebug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "none";
+}
+</script>
+<style>
+#chatpref {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 55%;
+  width: 65%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="chatpref"><p class="h1">DeskChat Preferences</p>
+<p style="color: #999;">WidgetBot is set as the default. Titan has more features.</p>
+<p style="color: #999;">To change Titan's theme, click the button in the bottom left corner and select a theme from the menu.</p>
+<button class="app" onclick="document.getElementById('deskchatgoogle').src = 'extra/chat.html'">Use WidgetBot</button>
+<button class="app" onclick="document.getElementById('deskchatgoogle').src = 'extra/chatalt.html'">Use Titan Instead</button>
+<p><button class="app" onclick="chatprefclose();">Done!</button></p>
+</div>
+<script>
+function chatpref() {
+  var x = document.getElementById("chatpref");
+  x.style.display = "block";
+}
+function chatprefclose() {
+  var x = document.getElementById("chatpref");
+  x.style.display = "none";
+}
+</script>
+<style>
+#deeves {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 10px;
+  background-image: url('images/icon/deeves.jpg');
+  text-align: center;
+  color: #000;
+  height: 70%;
+  width: 70%;
+  left: 50%;
+  top: 50%;
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div id="deeves"><p>This is my aunt's cat, it's added because I was told to!</p><button class="app" onclick="closedeeves();">Close</button><button class="app" onclick="wrdeeves();">Set As Wallpaper</button></div>
+<script>
+function wrdeeves() {
+  document.body.style.backgroundImage = "url('images/icon/deeves.jpg')"; 
+}
+function deeves() {
+  var x = document.getElementById("deeves");
+  x.style.display = "block";
+}
+function closedeeves() {
+  var x = document.getElementById("deeves");
+  x.style.display = "none";
+}
+</script>
+<style>
+#uitest {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  background-color:rgb(0,0,0,0.5);   
+  text-align: center;
+  color: #000;
+  height: 70%;
+  width: 70%;
+  left: 50%;
+  top: 50%;
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+</style>
+<div id="uitest"><p class="h1">UI Testing</p><p style="color:#999;">This is built for developers looking to see if their software messes with DeskUtility's code, or if the developer wants to test UI functions.</p><p style="color:#999;">If you spot a bug, say something! Go to Control Center and click "Report Bug".</p><button class="app" onclick="closeuitest();">Close</button></div>
+<script>
+function uitest() {
+  var x = document.getElementById("uitest");
+  x.style.display = "block";
+}
+function closeuitest() {
+  var x = document.getElementById("uitest");
+  x.style.display = "none";
+}
+</script>
+<html>
+<head>
+<style>
+#search {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 50%;
+  width: 55%;
+  margin-left: 6px;
+  left: 0%;
+  bottom: 68px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+}
+</style>
+</head>
+<div id="search">
+<style>
+#Searchleft {
+  border-radius: 12px;
+  padding: 8px;
+  overflow: scroll;
+  margin-top: 8px;
+  list-style-type: none;
+}
+#mySearch {
+  position: absolute;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  height: 50px;
+  left: 0; right: 0;
+  text-align: center;
+  cursor: default !important;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+#mySearch:hover {
+  opacity: 100%;
+}
+#searchbuttons {
+  position: absolute;
+  margin-top: 70px;
+  bottom: 0; top: 0;
+  overflow: scroll;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+</style>
+<div id="Searchleft">
+  <input type="text" id="mySearch" class="app" onkeyup="myFunctionSearch()" placeholder="Search for literally anything... or scroll!" title="Type in a category">
+  <div id="searchbuttons">
+      <li class="app"><a onclick="searchopen();">Close Search Menu</a></li>
+      <li class="app"><a onclick="preferencesopen();searchopen();">Preferences</a></li>
+      <li class="app"><a onclick="window.location.reload();">Reload DeskUtility</a></li>
+      <li class="app"><a onclick="wallpaper();searchopen();">Change Wallpaper</a></li>
+      <li class="app"><a onclick="accent();searchopen();">Change Accent Color</a></li>
+      <li class="app"><a onclick="appdrawer();searchopen();">Open App Drawer</a></li>
+      <li class="app"><a onclick="google();searchopen();">Perform Web Search</a></li>
+      <li class="app"><a onclick="dockmenu();searchopen();">Open Control Center</a></li>
+      <li class="app"><a onclick="lock();searchopen();">Lock DeskUtility</a></li>
+      <li class="app"><a onclick="nightlight();searchopen();">Night Light Toggle</a></li>
+      <li class="app"><a onclick="mcodeopen();searchopen();">Migration Code</a></li>
+      <li class="app"><a onclick="migrate();closedockstuff();resetmigration();">Migrate</a></li>
+      <li class="app"><a onclick="deeves();searchopen();">Deeves</a></li>
+  </div>
+</div>
+<script>
+function myFunctionSearch() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("searchbuttons");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</div>
+</body>
+</html>
+</script>
+<script>
+function dockmenu() {
+  var x = document.getElementById("dockmenu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<style>
+.line {
+  position: fixed;
+  width: 90%;
+  height: 5px;
+  border-radius: 3px;
+  left:  50%;
+  transform: translate(-50%);
+  background-color: #999;
+}
+@keyframes up {
+  from {bottom:  -10%; opacity: 0%;}
+  to {bottom: 68px; opacity: 100%;}
+}
+@keyframes dockup {
+  0% {bottom:  -7.5%; opacity: 0%;}
+  50% {bottom: 12px; opacity: 100%;}
+  100% {bottom: 6px; opacity: 100%;}
+}
+#multitask {
+  position: absolute;
+  padding: none;
+  left: 50%;
+  margin: none;
+  transform: translate(-50%);
+  bottom: 2px;
+  display: none;
+}
+#dock {
+  position: absolute;
+  max-height: 40px;
+  min-height: 40px;
+  background:rgb(0,0,0,.4);
+  z-index: 32;
+  margin: 6px;
+  bottom: 0;
+  left: 0; right: 0;
+  border-radius: 12px;
+  padding: 8px;
+  color: #fff;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  display: none;
+  animation: dockup 0.5s;
+}
+#metrodock {
+  position: absolute;
+  max-height: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  min-width: 40px;
+  background:rgb(0,0,0,.4);
+  z-index: 32;
+  margin: 6px;
+  bottom: 0;
+  left: 0;
+  border-radius: 12px;
+  padding: 8px;
+  color: #fff;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  display: none;
+  animation: dockup 0.5s;
+}
+
+.appicon {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background:rgb(0,0,0,0);
+  transition: 0.2s;
+}
+.margin4px {margin-right: 4px;}
+.marginleft5px {margin-left: 5px;}
+.marginleft3px {margin-left: 3px;}
+.appicon:hover {
+  opacity: 60%;
+}
+.appicon:active {
+  opacity: 35%;
+}
+.minecraft{margin-left: 1px; margin-right: 1px; width: 32px; height: 32px; padding: 2px;}
+.googleisspecial{width:38px;height:38px;margin-bottom:0px;}
+.menuisspecial{width:32px;height:40px;margin-bottom:0px;}
+#dockmenu {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  max-width: 400px;
+  margin-right: 6px;
+  right: 0%;
+  bottom: 68px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+  padding: 8px;
+}
+#appdrawer {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 40%;
+  width: 40%;
+  left: 50%;
+  bottom: 68px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 32;
+  animation: up 0.5s;
+  margin-left: 6px;
+  left: 0%;
+}
+.norightborderradius {border-top-right-radius: 0px; border-bottom-right-radius: 0px;}
+.noleftborderradius {border-top-left-radius: 0px; border-bottom-left-radius: 0px;}
+.norightmargin {margin-right: 0;}
+.noleftmargin {margin-left: 0 !important;}
+.pillfirst {border-right: #222 solid 2px;}
+.pillfirst:hover {}
+.quickopt {
+  background-color:rgb(0,0,0,.85);
+  border: none;
+  color: white;
+  padding: 20px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.10s;
+  font-family: 'Poppins';
+}
+.quickopt:hover {
+  background-color:rgb(0,0,0,.25)
+}
+.quickopt:active {
+  background-color:rgb(0,0,0,.60)
+}
+.appdrawerapp {
+  position: absolute;
+  background: #1a1a1a;
+  border-radius: 10px;
+  transform: translate(-50%);
+  left: 50%;
+  padding: 8px;
+  text-align: right;
+  overflow: hidden;
+}
+#apptextname {
+  padding-left: 8px;
+  padding-right: 9px;
+  overflow: scroll;
+}
+</style>
+<script>
+function appdrawer() {
+  var x = document.getElementById("appdrawer");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+ }
+}
+function appviewswap() {
+  var x = document.getElementById("appimages");
+  x.style.display = "none";
+  var x = document.getElementById("apptextname");
+  x.style.display = "block";
+}
+function appviewswapb() {
+  var x = document.getElementById("appimages");
+  x.style.display = "block";
+  var x = document.getElementById("apptextname");
+  x.style.display = "none";
+}
+</script>
+<div id="appdrawer"><p class="h1 paddingheadings">App Drawer</p>
+<div id="appimages">
+  <img onclick="calcopen();appdrawer();" src="images/icon/deskcalc.png" class="appicon"></img>
+  <img onclick="mapsopen();appdrawer();" src="images/icon/maps.png" class="appicon"></img>
+  <img onclick="calenderopen();appdrawer();" src="images/icon/deskcal.png" class="appicon"></img>
+  <img onclick="textopen();appdrawer();" src="images/icon/textedit.png" class="appicon"></img>
+  <img onclick="appdrawer();preferencesopen();" src="images/icon/pref.png" class="appicon"></img>
+  <img onclick="appdrawer();mineopen();openmetro();" src="images/icon/mine.png" class="appicon minecraft"></img>
+  <img onclick="appdrawer();snakeopen();" src="images/icon/snake.png" class="appicon"></img>
+</div>
+<div id="apptextname" style="display:none;">
+  <button class="app settings" onclick="calcopen();appdrawer();">Calculator</button>
+  <button class="app settings" onclick="mapsopen();appdrawer();">Google Maps (Lite)</button>
+  <button class="app settings" onclick="calenderopen();appdrawer();">Calender (Lite)</button>
+  <button class="app settings" onclick="textopen();appdrawer();">TextEdit</button>
+  <button class="app settings" onclick="appdrawer();preferencesopen();">Preferences</button>
+  <button class="app settings" onclick="appdrawer();mineopen();openmetro();">Minecraft (Lite, Metro App)</button>
+  <button class="app settings" onclick="appdrawer();snakeopen();">Snake (Lite)</button>
+</div>
+  <p><button class="app" onclick="appdrawer();">Close</button><button class="app" onclick="appviewswap();">Name View</button><button class="app" onclick="appviewswapb();">Image View</button></p>
+</div>
+<style>
+.controlbutton {
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  background:rgb(0,0,0,0);
+  transition: 0.2s;
+  margin: 10px;
+}
+.controlbutton:hover {
+  opacity: 60%;
+}
+.controlbutton:active {
+  opacity: 35%;
+}
+.controlmenuleft {
+  position: absolute;
+  left: 0%;
+  text-align: center;
+}   
+.controlmenuleftbutton {
+  position: absolute;
+  left: 0%;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+} 
+.controlmenuleftbutton:hover { 
+  color: #999;
+}
+.controlmenuleftbutton:active { 
+  color: #555;
+}
+</style>
+<style>
+#nightlight {
+  position: absolute;
+  background: #ff9900;
+  min-height: 100%; min-width: 100%;
+  z-index: 999999;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  opacity: 30%;
+  pointer-events: none;
+  display: none;
+}
+
+#nightlight2 {
+  position: absolute;
+  background: #000000;
+  min-height: 100%; min-width: 100%;
+  z-index: 999998;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  opacity: 25%;
+  pointer-events: none;
+  display: none;
+}
+.paddingheadings {
+  margin-top: 20px;
+}
+</style>
+<div id="nightlight">
+</div>
+<div id="nightlight2">
+</div>
+<script>
+function nightlight() {
+  var x = document.getElementById("lightbutton");
+  if (x.innerHTML === "Enable Night Light") {
+    x.innerHTML = "Disable Night Light";
+  } else {
+    x.innerHTML = "Enable Night Light";
+  }
+  var x = document.getElementById("nightlight");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("nightlight2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<div id="dockmenu"><p class="h1 paddingheadings">Control Center</p><img class="controlbutton" src="images/icon/lock.png" onclick="lock();"></img><img class="controlbutton" src="images/icon/migration.png" onclick="mcodeopen();dockmenu();"></img>
+  <img id="btnFullscreen" src="images/icon/fullscreen.png" class="controlbutton" type="button"></img><button onclick="bug();dockmenu();" class="app settings">Report Bug</button><button onclick="notifopen();dockmenu();" class="app settings">Notification Options</button><button onclick="nightlight();" id="lightbutton" class="app settings">Enable Night Light</button><button onclick="preferencesopen();dockmenu();" class="app settings">Open Preferences</button>
+<script>
+function nightsetup() {
+  var x = document.getElementById("nightlight");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("nightlight2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function togglefullscreen(elem) {
+  elem = elem || document.documentElement;
+
+  if (!document.fullscreenElement && !document.mozFullScreenElement &&
+    !document.webkitFullscreenElement && !document.msFullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    }
+  }
+}
+
+document.getElementById('btnFullscreen').addEventListener('click', function() {
+  togglefullscreen();
+});
+</script></div>
+
+<script>
+function google() {
+  var x = document.getElementById("google");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function load() {
+  nightsetup();google();search();dockmenu();wallpaper();appdrawer();metromenu();
+}
+</script>
+<html>
+<head>
+<style>
+#google {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 80%;
+  width: 80%;
+  margin-left: 6px;
+  left: 0%;
+  bottom: 68px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: hidden;
+  z-index: 32;
+  animation: up 0.5s;
+  padding: 0%;
+}
+.marginright5px {margin-right: 5px;}
+#privacymode {
+  display: none;
+}
+#offlinegoogle {
+  display: none;
+}
+#deskchatgoogle {
+  display:  none;
+}
+#crashembed {
+  display:  none;
+}
+.titlebar {
+  
+}
+.titlebar:hover:none {
+}
+.titlebar:active:none {
+}
+#status {
+  position: absolute;
+  bottom: 11px;
+  margin-right: 8px;
+  right: 0%;
+}
+.status {
+  font-size: 20px;
+  background: none !important;
+  color: #fff;
+  font-family: 'Poppins';
+  border: none !important;
+  transition: 0.25s;
+}
+.status:hover {
+  opacity: 70%;
+}
+.status:active {
+  opacity: 35%;
+}
+</style>
+<script>
+function deskchatembedopen() {
+  var x = document.getElementById("googleframe");
+  x.style.display = "none";
+  var x = document.getElementById("deskchatgoogle");
+  x.style.display = "block";
+  var x = document.getElementById("crashembed");
+  x.style.display = "none";
+}
+
+function googleembedopen() {
+  var x = document.getElementById("deskchatgoogle");
+  x.style.display = "none";
+  var x = document.getElementById("googleframe");
+  x.style.display = "block";
+  var x = document.getElementById("crashembed");
+  x.style.display = "none";
+}
+
+function crashembedopen() {
+  var x = document.getElementById("deskchatgoogle");
+  x.style.display = "none";
+  var x = document.getElementById("googleframe");
+  x.style.display = "none";
+  var x = document.getElementById("crashembed");
+  x.style.display = "block";
+}
+</script>
+<div id="google">
+ <div id="onlinegoogle">
+  <iframe src="extra/google.html" style="border: none;" width="100%" height="90%" id="googleframe" title="Google"></iframe><iframe src="extra/sitecrashes.html" style="border: none;" width="100%" height="90%" id="crashembed" title="Crashing Websites Info"></iframe><iframe src="extra/chat.html" style="border: none;" width="100%" height="90%" style="" id="deskchatgoogle" title="DeskChat"></iframe>
+  <button class="tabbed" onclick="googleembedopen();">Google</button><button class="tabbed" onclick="crashembedopen();">Why are sites crashing?</button><button class="tabbed" onclick="deskchatembedopen();">Open DeskChat</button><button class="tabbed" onclick="chatpref();deskchatembedopen();">DeskChat Preferences</button></div>
+  <div id="privacymode"><p>Privacy Mode is enabled or Google products were disabled.</p><p>Please use the menu below to troubleshoot.</p><button class="app settings" onclick="privacymodeoff();">Disable Privacy Mode (Enables online services)</button><button class="app settings" onclick="google();">OK</button>
+  </div>
+</div>
+
+<div id="dock">
+<img onclick="closedockstuff();appdrawer();" src="images/icon/apps.png" class="appicon marginright5px"></img>
+<img onclick="closedockstuff();myFunctionSearch();searchopen();document.getElementById('mySearch').value = ''" src="images/icon/search.png" class="appicon"></img>
+<img src="images/icon/lock.png" id="lockdock" onclick="lock();" class="appicon marginleft3px"></img>
+<img id="notificon" src="images/icon/notif.png" onclick="notifopen();" class="appicon googleisspecial marginleft5px"></img>
+<img src="images/icon/googlewhite.png" onclick="closedockstuff();google();" class="appicon googleisspecial marginleft5px"></img>
+
+<div id="multitask">
+  <img id="calcicon" onclick="calcopen()" src="images/icon/deskcalc.png" class="appicon"></img>
+  <img id="mapsicon" onclick="mapsopen();" src="images/icon/maps.png" class="appicon"></img>
+  <img id="calicon" onclick="calenderopen();" src="images/icon/deskcal.png" class="appicon"></img>
+  <img id="texticon" onclick="textopen();" src="images/icon/textedit.png" class="appicon"></img>
+  <img id="preficon" onclick="preferencesopen();" src="images/icon/pref.png" class="appicon"></img>
+  <img id="mineicon" onclick="mineopen();openmetro();" src="images/icon/mine.png" class="appicon minecraft"></img>
+  <img id="snakeicon" onclick="snakeopen();" src="images/icon/snake.png" class="appicon"></img>
+</div>
+
+<div id="status">
+  <meta charset = "utf-8"><title>DeskUtility 7.4</title><link rel = "stylesheet" href = "extra/clock/clock.css"><button onclick="closedockstuff();dockmenu();" id="cell" class="status"> </button><button onclick="closedockstuff();dockmenu();" id = "digital-clock" class="status"> </button></div><script src = "extra/clock/clock.js"> </script><script src="battery/script.js"> </script></div></div>
+<script>
+function metromenu() {
+  var x = document.getElementById("metromenu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<div id="metrodock"><img src="images/icon/menu.png" onclick="metromenu();" class="appicon"></img></div>
+<div id="metromenu">
+  <div id="metrotowindow"></div>
+  <button onclick="quitmetro();metromenu();" id="lightbutton" class="app settings">Quit App</button>
+</div>
+<title>DeskUtility 7.4</title>
+</div>
+<audio id="locksound">
+  <source src="extra/audio/lock.mp3" type="audio/mpeg">
+</audio>
+<audio id="notifsound">
+  <source src="extra/audio/alert.mp3" type="audio/mpeg">
+</audio>
+<style>
+#metromenu {
+  position: absolute;
+  border-radius: 12px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  width: 200px;
+  margin-left: 6px;
+  left: 0%;
+  bottom: 68px;
+  display: none;
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: hidden;
+  z-index: 32;
+  animation: up 0.5s;
+  padding: 6px;
+  padding-right: 7px;
+}
+
+#locked {
+  position: absolute; background-color: #000000;
+  min-height: 100%; min-width: 100%;
+  z-index: 99; padding: 24px;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  text-align: center;
+  display: none;
+  cursor: none;
+}
+.alignup{left: 50%;transform: translate(-50%);}
+</style>
+<script>
+function quitmetro() {
+  var x = document.getElementById("mine");
+  x.style.display = "none"
+  var x = document.getElementById("dock");
+  x.style.display = "block"
+  var x = document.getElementById("metrodock");
+  x.style.display = "none"
+}
+
+function lock() {
+  var x = document.getElementById("locked");
+  x.style.display = "block";
+  var x = document.getElementById("lockc1");
+  x.style.display = "none";
+  var x = document.getElementById("lockc2");
+  x.style.display = "none";
+  document.title = "DeskUtility 7.4";
+  locksound();
+}
+function unlock() {
+  var x = document.getElementById("locked");
+  x.style.display = "none";
+  var x = document.getElementById("lockc2");
+  x.style.display = "block";
+  var x = document.getElementById("lockc1");
+  x.style.display = "block";
+  document.title = "DeskUtility 7.4";
+}
+function enableMute() { 
+  x.volume = 0.0;
+  y.volume = 0.0;
+} 
+
+function disableMute() { 
+  x.volume = 1.0;
+  y.volume = 1.0;
+}  
+
+var x = document.getElementById("locksound"); 
+function locksound() { 
+  x.play(); 
+} 
+
+var y = document.getElementById("notifsound"); 
+function notifsound() { 
+  y.play(); 
+} 
+</script>
+</div>
+<div id="locked" onclick="unlock();document.getElementById('locknews').src = 'https://bbc.com'"><p class="h1">DeskUtility is locked.</p><p style="color: #999;">Click anywhere to unlock. We'll be waiting for you!</p>
+<div id="devinfo"> </div><style>
+#locknews {
+  position: absolute;
+  border-radius: 12px;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #232323;
+  margin-top: 10px;
+  pointer-events: none;
+}
+</style>
+<iframe id="locknews" width="75%" height="70%" src="https://bbc.com" frameborder="0" scrolling="NO"></iframe>
+</div>
+<div id="lockc2">
+<style>
+#notification {
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 12px;
+  position: fixed;
+  z-index: 999;
+  right: 0%;
+  margin: 6px;
+  font-size: 17px;
+  background-color:rgb(0,0,0,0.5);  
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+}
+
+#notification.show {
+  visibility: visible;
+  animation: fadein1 0.5s, fadeout1 0.5s 3.5s;
+}
+
+@keyframes fadein1 {
+  from {right: -20%; opacity: 0;}
+  to {opacity: 1; right: 0%;}
+}
+
+@keyframes fadeout1 {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+.h2 {
+  font-size: 22px;
+}
+</style>
+</head>
+
+<div id="notification"><p class="h2" id="notiflinea">You have not gotten any notifications, yet.</p>
+<p id="notiflineb">If you use DeskUtility often, you should get some soon!</p>
+<p id="notiflinec"></p></div>
+<script>
+function notify() {
+  var x = document.getElementById("notification");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
+}
+</script>
+<style>
+#doesnotexist {
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  padding: 12px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  margin: 6px;
+  font-size: 17px;
+  background-color:rgb(0,0,0,0.5);  
+  transform: translate(-50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+}
+
+#doesnotexist.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {margin: 6px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {margin: 6px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+</style>
+</head>
+<div id="doesnotexist">Sorry, that does not exist yet. It may in the future!<p style="margin-bottom:0%;">Error ID #001</p></div>
+<script>
+function error001() {
+  var x = document.getElementById("doesnotexist");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+<style>
+#about {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 12;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 700px rgba(0,0,0,0.05);
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+  color: #fff;
+  text-align: center;
+}
+
+#aboutheader {
+  padding: 10px;
+  z-index: 13;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 8px;
+}
+</style>
+<div id="about">
+  <div id="aboutheader"><div class="windowbuttons"><button class="close" onclick="aboutclose();">X</button></div>About DeskUtility</div>
+  <p class="h1">About DeskUtility</p>
+  <p>DeskUtility 7.4</p>
+  <p>Build 7/18/2022.R3.7.4</p>
+  <p>Developer Channel</p>
+  <p>Made By randomuser691337</p>
+</div>
+<script>
+function aboutopen() {
+  var x = document.getElementById("about");
+  x.style.display = "block"
+}
+function aboutclose() {
+  var x = document.getElementById("about");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("about"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // aboutl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // aboutulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#calc {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 700px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 8px;
+  display: none;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#calcheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+#calc:hover {
+  z-index: 10;
+}
+</style>
+
+<div id="calc">
+  <div id="calcheader"><div class="windowbuttons"><button class="close" onclick="calcclose();">X</button></div><button class="titlebutton" onclick="clr();">Clear</button><button class="titlebutton" onclick="solve();">Equals</button></div><style>
+#calculator {
+}
+</style>
+</head>
+
+<div id="calculator">
+<html>
+   <head>
+      <script>
+         //function that display value
+         function dis(val)
+         {
+             document.getElementById("result").value+=val
+         }
+           
+         //function that evaluates the digit and return result
+         function solve()
+         {
+             let x = document.getElementById("result").value
+             let y = eval(x)
+             document.getElementById("result").value = y
+         }
+           
+         //function that clear the display
+         function clr()
+         {
+             document.getElementById("result").value = ""
+         }
+      </script>
+      <!-- for styling -->
+      <style>
+  
+         input[type="button"]
+         {
+         background-color: #1d1d1d;
+         color: white;
+         width:100%;
+         border-radius: 7px;
+         border: none;
+         width: 75px;
+         height: 75px;
+         max-width: 88px;
+         max-height: 88px;
+         }
+  
+         input[type="button"]:hover {
+         background-color: #222;
+         color: white;
+         width:100%;
+         border-radius: 7px;
+         border: none;
+         width: 75px;
+         height: 75px;
+         }
+
+
+         input[type="button"]:active {
+         background-color: #111;
+         color: white;
+         width:100%;
+         border-radius: 7px;
+         border: none;
+         width: 75px;
+         height: 75px;
+         }
+
+         .calctext
+         {
+         background: transparent !important;
+         padding: 8px;
+         color: #fff;
+         width: 100%;
+         }
+      </style>
+   </head>
+   <!-- create table -->
+   
+      <table border="0">
+         <tr>
+            <p style=""><input class="app calctext" type="text" id="result" value="" placeholder="Click me to clear" onclick="clr()" readonly onfocus="this.blur();"/></p>
+            <td></td>
+         </tr>
+         <tr>
+            <td><input class="app" type="button" value="1" onclick="dis('1')"/> </td>
+            <td><input class="app" type="button" value="2" onclick="dis('2')"/> </td>
+            <td><input class="app" type="button" value="3" onclick="dis('3')"/> </td>
+            <td><input class="app" type="button" value=":|:" onclick="dis('/')"/> </td>
+         </tr>
+         <tr>
+            <td><input class="app" type="button" value="4" onclick="dis('4')"/> </td>
+            <td><input class="app" type="button" value="5" onclick="dis('5')"/> </td>
+            <td><input class="app" type="button" value="6" onclick="dis('6')"/> </td>
+            <td><input class="app" type="button" value="-" onclick="dis('-')"/> </td>
+         </tr>
+         <tr>
+            <td><input class="app" type="button" value="7" onclick="dis('7')"/> </td>
+            <td><input class="app" type="button" value="8" onclick="dis('8')"/> </td>
+            <td><input class="app" type="button" value="9" onclick="dis('9')"/> </td>
+            <td><input class="app" type="button" value="+" onclick="dis('+')"/> </td>
+         </tr>
+         <tr>
+            <td><input class="app" type="button" value="." onclick="dis('.')"/> </td>
+            <td><input class="app" type="button" value="0" onclick="dis('0')"/> </td>
+            <td><input class="app" type="button" value="=" onclick="solve()"/> </td>
+            <td><input class="app" type="button" value="x" onclick="dis('*')"/> </td>
+         </tr>
+      </table>
+   </body>
+</html>   
+</div>
+</body>
+</html>
+</div>
+<script>
+function calcopen() {
+  var x = document.getElementById("calc");
+  x.style.display = "block"
+}
+function calcclose() {
+  var x = document.getElementById("calc");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("calc"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#mine {
+  position: absolute;
+  z-index: 11;
+  background-color: #1a1a1a;
+  text-align: center;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+<div id="mine">
+  <iframe src="https://classic.minecraft.net" width="100%;" height="100%;" style="z-index:1;border:0;border-radius:0px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mineframe"></iframe>
+</div>
+<script>
+function openmetro() {
+  var x = document.getElementById("dock");
+  x.style.display = "none"
+  var x = document.getElementById("metrodock");
+  x.style.display = "block"
+}
+function mineopen() {
+  var x = document.getElementById("mine");
+  x.style.display = "block"
+}
+function mineclose() {
+  var x = document.getElementById("mine");
+  x.style.display = "none"
+}
+</script>
+<style>
+#maps {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 700px rgba(0,0,0,0.05);
+  text-align: center;
+  display: none;
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#mapsheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 8px;
+}
+
+#maps:hover {
+  z-index: 10;
+}
+</style>
+
+<div id="maps">
+  <div id="mapsheader"><div class="windowbuttons"><button class="close" onclick="mapsclose();">X</button></div>Google Maps (Lite)</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21001.804495909837!2d2.282596631147625!3d48.85390902434949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701f7e8337b5%3A0xa2cb58dd28914524!2sEiffel%20Tower%2C%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1653803120151!5m2!1sen!2sus" width="700px;" height="300x;" style="border:0;border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapsframe"></iframe>
+</div>
+<script>
+function mapsopen() {
+  var x = document.getElementById("maps");
+  x.style.display = "block"
+}
+function mapsclose() {
+  var x = document.getElementById("maps");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("maps"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // mapsulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#snake {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 270px rgba(0,0,0,0.05);
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+  text-align: right;
+  display: none;
+}
+
+#snakeheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 8px;
+}
+
+#snake:hover {
+  z-index: 10;
+}
+</style>
+<div id="snake">
+  <div id="snakeheader"><div class="windowbuttons"><button class="close" onclick="snakeclose();">X</button></div>Snake (Lite)</div><canvas id="stage" height="200px" width="200px"></canvas>
+<style>
+canvas {
+  border-radius: 10px;
+}
+</style>
+<script>
+/**
+ * Namespace
+ */
+var Game      = Game      || {};
+var Keyboard  = Keyboard  || {}; 
+var Component = Component || {};
+
+/**
+ * Keyboard Map
+ */
+Keyboard.Keymap = {
+  37: 'left',
+  38: 'up',
+  39: 'right',
+  40: 'down'
+};
+
+/**
+ * Keyboard Events
+ */
+Keyboard.ControllerEvents = function() {
+  
+  // Setts
+  var self      = this;
+  this.pressKey = null;
+  this.keymap   = Keyboard.Keymap;
+  
+  // Keydown Event
+  document.onkeydown = function(event) {
+    self.pressKey = event.which;
+  };
+  
+  // Get Key
+  this.getKey = function() {
+    return this.keymap[this.pressKey];
+  };
+};
+
+/**
+ * Game Component Stage
+ */
+Component.Stage = function(canvas, conf) {  
+  
+  // Sets
+  this.keyEvent  = new Keyboard.ControllerEvents();
+  this.width     = canvas.width;
+  this.height    = canvas.height;
+  this.length    = [];
+  this.food      = {};
+  this.score     = 0;
+  this.direction = 'right';
+  this.conf      = {
+    cw   : 10,
+    size : 5,
+    fps  : 1000
+  };
+  
+  // Merge Conf
+  if (typeof conf == 'object') {
+    for (var key in conf) {
+      if (conf.hasOwnProperty(key)) {
+        this.conf[key] = conf[key];
+      }
+    }
+  }
+  
+};
+
+/**
+ * Game Component Snake
+ */
+Component.Snake = function(canvas, conf) {
+  
+  // Game Stage
+  this.stage = new Component.Stage(canvas, conf);
+  
+  // Init Snake
+  this.initSnake = function() {
+    
+    // Itaration in Snake Conf Size
+    for (var i = 0; i < this.stage.conf.size; i++) {
+      
+      // Add Snake Cells
+      this.stage.length.push({x: i, y:0});
+    }
+  };
+  
+  // Call init Snake
+  this.initSnake();
+  
+  // Init Food  
+  this.initFood = function() {
+    
+    // Add food on stage
+    this.stage.food = {
+      x: Math.round(Math.random() * (this.stage.width - this.stage.conf.cw) / this.stage.conf.cw), 
+      y: Math.round(Math.random() * (this.stage.height - this.stage.conf.cw) / this.stage.conf.cw), 
+    };
+  };
+  
+  // Init Food
+  this.initFood();
+  
+  // Restart Stage
+  this.restart = function() {
+    this.stage.length            = [];
+    this.stage.food              = {};
+    this.stage.score             = 0;
+    this.stage.direction         = 'right';
+    this.stage.keyEvent.pressKey = null;
+    this.initSnake();
+    this.initFood();
+  };
+};
+
+/**
+ * Game Draw
+ */
+Game.Draw = function(context, snake) {
+  
+  // Draw Stage
+  this.drawStage = function() {
+    
+    // Check Keypress And Set Stage direction
+    var keyPress = snake.stage.keyEvent.getKey(); 
+    if (typeof(keyPress) != 'undefined') {
+      snake.stage.direction = keyPress;
+    }
+    
+    // Draw White Stage
+    context.fillStyle = "#1a1a1a";
+    context.fillRect(0, 0, snake.stage.width, snake.stage.height);
+    
+    // Snake Position
+    var nx = snake.stage.length[0].x;
+    var ny = snake.stage.length[0].y;
+    
+    // Add position by stage direction
+    switch (snake.stage.direction) {
+      case 'right':
+        nx++;
+        break;
+      case 'left':
+        nx--;
+        break;
+      case 'up':
+        ny--;
+        break;
+      case 'down':
+        ny++;
+        break;
+    }
+    
+    // Check Collision
+    if (this.collision(nx, ny) == true) {
+      snake.restart();
+      return;
+    }
+    
+    // Logic of Snake food
+    if (nx == snake.stage.food.x && ny == snake.stage.food.y) {
+      var tail = {x: nx, y: ny};
+      snake.stage.score++;
+      snake.initFood();
+    } else {
+      var tail = snake.stage.length.pop();
+      tail.x   = nx;
+      tail.y   = ny;  
+    }
+    snake.stage.length.unshift(tail);
+    
+    // Draw Snake
+    for (var i = 0; i < snake.stage.length.length; i++) {
+      var cell = snake.stage.length[i];
+      this.drawCell(cell.x, cell.y);
+    }
+    
+    // Draw Food
+    this.drawCell(snake.stage.food.x, snake.stage.food.y);
+    
+    // Draw Score
+    context.fillText('Score: ' + snake.stage.score, 5, (snake.stage.height - 5));
+  };
+  
+  // Draw Cell
+  this.drawCell = function(x, y) {
+    context.fillStyle = 'rgb(255, 255, 255)';
+    context.beginPath();
+    context.arc((x * snake.stage.conf.cw + 6), (y * snake.stage.conf.cw + 6), 4, 0, 2*Math.PI, false);    
+    context.fill();
+  };
+  
+  // Check Collision with walls
+  this.collision = function(nx, ny) {  
+    if (nx == -1 || nx == (snake.stage.width / snake.stage.conf.cw) || ny == -1 || ny == (snake.stage.height / snake.stage.conf.cw)) {
+      return true;
+    }
+    return false;    
+  }
+};
+
+
+/**
+ * Game Snake
+ */
+Game.Snake = function(elementId, conf) {
+  
+  // Sets
+  var canvas   = document.getElementById(elementId);
+  var context  = canvas.getContext("2d");
+  var snake    = new Component.Snake(canvas, conf);
+  var gameDraw = new Game.Draw(context, snake);
+  
+  // Game Interval
+  setInterval(function() {gameDraw.drawStage();}, snake.stage.conf.fps);
+};
+
+
+/**
+ * Window Load
+ */
+window.onload = function() {
+  var snake = new Game.Snake('stage', {fps: 100, size: 4});
+};
+</script></div>
+<script>
+function snakeopen() {
+  var x = document.getElementById("snake");
+  x.style.display = "block"
+}
+function snakeclose() {
+  var x = document.getElementById("snake");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("snake"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // snakel a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // snakeulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#text {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.05);
+  width:  500px;
+  height: 250px;
+  min-width: 400px;
+  min-height: 150px;
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+  resize: both;
+  overflow: auto;
+}
+
+#textheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 6px;
+}
+
+#text:hover {
+  z-index: 10;
+}
+
+.titlebutton {
+  border: none;
+  color: white;
+  min-height: 22px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: transparent !important;
+  font-family: 'Poppins';
+}
+
+.titlebutton:hover {
+  color: #666;
+}
+
+.titlebutton:active {
+  color: #555;
+}
+
+.nopaddingleft {
+  padding-left: 0;
+}
+.left {
+  position: fixed;
+  left: 0%;
+}
+#textdev {
+  display: none;
+}
+#textpref {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 55%;
+  width: 65%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 11;
+  resize: both;
+  overflow: auto;
+}
+#textdevpref {
+  display: none;
+}
+#textdev {
+  position: absolute;
+  z-index: 11;
+  top: 30px; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 10;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 700px rgba(0,0,0,0.05);
+}
+#textdevheader {
+  
+}
+</style>
+<div id="textpref">
+<p class="h1">TextEdit Preferences</p>
+<p style="color: #999;"><strong>Note: </strong>Some options are hidden if you are not in Developer Mode. Injector is disabled when you close TextEdit, it can be re-enabled at any time.</p>
+<p class="link" onclick="devwarningopen();">Click here to enable Developer Mode</p>
+<div id="textdevpref">
+<button class="app settings" onclick="textdevopen();">Enable Injector (Run JavaScript inside DeskUtility)</button>
+<button class="app settings" onclick="textdevclose();">Disable Injector (Re-enable whenever)</button></div>
+<p><button class="app" onclick="textprefclose();">Close</button></p></div>
+<script>
+function textdevopen() {
+  var x = document.getElementById("textdev");
+  x.style.display = "block";
+}
+function textdevclose() {
+  var x = document.getElementById("textdev");
+  x.style.display = "none";
+}
+function textprefopen() {
+  var x = document.getElementById("textpref");
+  x.style.display = "block";
+}
+function textprefclose() {
+  var x = document.getElementById("textpref");
+  x.style.display = "none";
+}
+function debuginjector() {
+  var x = document.getElementById("debuginjector");
+  x.style.display = "block";
+  var x = document.getElementById("debuginjectorhide");
+  x.style.display = "block";
+}
+function debuginjectorhide() {
+  var x = document.getElementById("debuginjector");
+  x.style.display = "none";
+  var x = document.getElementById("debuginjectorhide");
+  x.style.display = "none";
+}
+</script>
+<div id="textdev">
+ <div id="titlebuttonheader">
+  <button class="titlebutton" id="dwn-btnjs"/>Download .js</button>
+  <button class="titlebutton" onclick="doIt();">Run Code</button>
+ </div>
+</div>
+<div id="text">
+  <div id="textheader"><div class="windowbuttons"><button class="close" onclick="textclose();">X</button></div>
+  <button class="titlebutton nopaddingleft" onclick="document.getElementById('text-val').value = ''">Delete</button>
+  <button class="titlebutton" id="dwn-btn2"/>Download .txt</button>
+  <button class="titlebutton" onclick="copy2();">Copy All</button>
+  <button class="titlebutton" onclick="textprefopen();closedockstuff();">Preferences</button>
+  </div>
+  <div id="textjail"><textarea placeholder="Start typing..." type="text" style="width:100%;border-radius:8px;max-height:90%;max-width:100%;min-width:100%;padding:6px;color:#fff;margin-top:2px;border:none;background:#1a1a1a;" id="text-val"></textarea></div>
+ <script>
+function copy2() {
+  var copyText = document.getElementById("text-val");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  navigator.clipboard.writeText(copyText.value);
+}
+
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+       element.style.display = 'none';
+       document.body.appendChild(element);
+       element.click();
+       document.body.removeChild(element);
+   }
+
+   // Start file download.
+   document.getElementById("dwn-btn2").addEventListener("click", function(){
+       var text = document.getElementById("text-val").value;
+       var filename = "filename.txt";
+       download(filename, text);
+   }, false);
+function doIt() {
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement("script");
+    newScript.type = "text/javascript";
+    newScript.innerHTML = document.getElementById("text-val").value;
+    headID.appendChild(newScript);
+ } 
+</script>
+<script>function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+       element.style.display = 'none';
+       document.body.appendChild(element);
+       element.click();
+       document.body.removeChild(element);
+   }
+
+   // Start file download.
+   document.getElementById("dwn-btnjs").addEventListener("click", function(){
+       var text = document.getElementById("text-val").value;
+       var filename = "filename.js";
+       download(filename, text);
+   }, false);</script>
+</div></div>
+<script>
+  dragElement(document.getElementById("textdev"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // textl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // textulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+function textopen() {
+  var x = document.getElementById("text");
+  x.style.display = "block"
+}
+function textclose() {
+  var x = document.getElementById("text");
+  x.style.display = "none"
+  var x = document.getElementById("textdev");
+  x.style.display = "none";
+}
+
+dragElement(document.getElementById("text"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // textl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // textulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#calender {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 700px rgba(0,0,0,0.05);
+  padding: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#calenderheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 8px;
+}
+
+#calender:hover {
+  z-index: 10;
+}
+
+</style>
+
+<div id="calender">
+  <div id="calenderheader"><div class="windowbuttons"><button class="close" onclick="calenderclose();">X</button></div>Calender</div><iframe style="border-radius:8px;background-color: #1a1a1a;" src="https://widget.calendarlabs.com/v1/calendar.php?cid=1001&ver=1.2&uid=6134683183&c=8&l=en&cbg=1a1a1a&cfg=fff&hfg=fff&hfg1=fff&ct=1&cb=1&cbc=1a1a1a&cf=verdana&cp=bottom&sw=0&hp=t&ib=0&ibc=&i=images/"frameborder=no scrolling=no allowtransparency='true' id="calframe">Loading...</iframe></div>
+<script>
+function calenderopen() {
+  var x = document.getElementById("calender");
+  x.style.display = "block"
+}
+function calenderclose() {
+  var x = document.getElementById("calender");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("calender"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // calenderl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calenderulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<style>
+#preferences {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 9;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 400px rgba(0,0,0,0.05);
+  padding: 3px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+  display: none;
+  width:  300px;
+  padding-right: 5px;
+}
+
+#preferencesheader {
+  padding: 10px;
+  z-index: 10;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -3px;
+  margin-left: -3px;
+  margin-right: -5px;
+  margin-bottom: 3px;
+}
+
+#preferences:hover {
+  z-index: 10;
+}
+#preferencespopout {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 65%;
+  width: 55%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  z-index: 10;
+  padding: 1%;
+  display: none;
+  resize: both;
+  overflow: auto;
+}
+#personalize {
+  display: none;
+}
+#dataprivacy {
+  display: none;
+}
+#generaloptions {
+  display: none;
+}
+#others {
+  display: none;
+}
+#desktopoptions {
+  display: none;
+}
+#devwarning {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 12;
+  background:rgb(0,0,0,.55);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 700px rgba(0,0,0,0.05);
+  padding: 8px;
+  width: 300px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.4);
+  color: #fff;
+  text-align: center;
+}
+
+#devwarningheader {
+  padding: 10px;
+  z-index: 13;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 8px;
+}
+</style>
+<div id="devwarning">
+  <div id="devwarningheader"><div class="windowbuttons"><button class="close" onclick="devwarningclose();">X</button></div>Confirmation</div>
+  <div id="dev0">
+  <p>Enable Developer Mode?</p>
+  <p style="color:#999;">This enables development features that may cause security holes.</p>
+  <p style="color:#999;">I am not liable for anything that happens!</p>
+  <button onclick="devmodeon();devwarningclose();" class="app">Enable</button><button onclick="devwarningclose();" class="app">Cancel</button>
+  </div>
+  <div id="dev1" style="display:none;">
+  <p>Developer Mode is already enabled!</p>
+  <button onclick="devmodeoff();devwarningclose();" class="app">Disable</button><button onclick="devwarningclose();" class="app">Cancel</button>
+</div>
+</div>
+<script>
+function devwarningopen() {
+  var x = document.getElementById("devwarning");
+  x.style.display = "block"
+}
+function devwarningclose() {
+  var x = document.getElementById("devwarning");
+  x.style.display = "none"
+}
+dragElement(document.getElementById("devwarning"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // devwarningl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // devwarningulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+<div id="preferences">
+  <div id="preferencesheader"><div class="windowbuttons"><button class="close" onclick="preferencesclose();prefout();">X</button></div><button class="titlebutton" onclick="aboutopen();">About</button><button class="titlebutton" onclick="bug();">Report Bug</button></div>
+  <button onclick="personalizeopen();" class="app settings">Personalize</button>
+  <button onclick="dataprivacyopen();" class="app settings">Data & Privacy</button>
+  <div style="display: none;">
+  <button onclick="generaloptionsopen();" class="app settings">General Options</button>
+  <button onclick="desktopopen();" class="app settings">User Interface</button>
+  </div>
+  <button onclick="othersopen();" class="app settings">All Others</button></div>
+  <div id="preferencespopout">
+  <div id="personalize"><p class="h1 paddingheadings">Personalize</p>
+    <button class="app settings" onclick="wallpaper();">Wallpapers</button>
+    <button class="app settings" onclick="accent();">Accent Colors</button>
+    <button class="app settings" onclick="newsper();">Lock Screen</button>
+    <button class="app" onclick="prefout();">Close</button></div>
+  <div id="dataprivacy"><p class="h1 paddingheadings">Data & Privacy</p>
+    <button class="app settings" onclick="privacymodeon();">Enable Privacy Mode (Disables online services)</button>
+    <button class="app settings" onclick="privacymodeoff();">Disable Privacy Mode (Enables online services)</button>
+    <button class="app settings" onclick="window.location.reload();">Reset DeskUtility (Reloading)</button>
+    <button class="app settings" onclick="devwarningopen();">Enable Developer Mode</button>
+    <button class="app settings" onclick="devmodeoff();">Disable Developer Mode</button>
+    <button class="app" onclick="prefout();">Close</button></div>
+  <div id="generaloptions"><p class="h1 paddingheadings">General Options</p>
+    <button class="app" onclick="prefout();">Close</button></div>
+  <div id="others"><p class="h1 paddingheadings">Other Options</p>
+    <button onclick="nightlight();" class="app settings">Toggle Night Light</button>
+    <button class="app settings" onclick="uitestopen();">Perform UI Tests</button>
+    <button class="app settings" onclick="fullscreen();">Enter Full Screen</button>
+    <button class="app settings" onclick="windowscreen();">Exit Full Screen</button>
+    <button class="app" onclick="prefout();">Close</button></div>
+  <div id="desktopoptions"><p class="h1 paddingheadings">User Interface</p>
+    <button class="app" onclick="prefout();">Close</button></div>
+  </div>
+<script>
+function devmodeon() {
+  var x = document.getElementById("textdevpref");
+  x.style.display = "block";
+  var x = document.getElementById("dev0");
+  x.style.display = "none";
+  var x = document.getElementById("dev1");
+  x.style.display = "block";
+  notify()
+  document.getElementById('notiflinea').innerHTML = "DeskUtility Option Manager"; 
+  document.getElementById('notiflineb').innerHTML = "Developer mode enabled successfully."; 
+  document.getElementById('notiflinec').innerHTML = ""; 
+  notifsound();
+}
+function devmodeoff() {
+  var x = document.getElementById("textdevpref");
+  x.style.display = "none";
+  var x = document.getElementById("dev1");
+  x.style.display = "none";
+  var x = document.getElementById("dev0");
+  x.style.display = "block";
+  notify()
+  document.getElementById('notiflinea').innerHTML = "DeskUtility Option Manager"; 
+  document.getElementById('notiflineb').innerHTML = "Developer mode disabled successfully."; 
+  document.getElementById('notiflinec').innerHTML = ""; 
+  notifsound();
+}
+function locknewson() {
+  var x = document.getElementById("locknews");
+  x.style.display = "block"
+}
+function locknewsoff() {
+  var x = document.getElementById("locknews");
+  x.style.display = "none"
+}
+function privacymodeon() {
+  var x = document.getElementById("privacymode");
+  x.style.display = "block"
+  var x = document.getElementById("onlinegoogle");
+  x.style.display = "none"
+  var x = document.getElementById("locknews");
+  x.style.display = "none"
+  var x = document.getElementById("locknewsoptions");
+  x.style.display = "none"
+  document.getElementById('mapsframe').src = 'extra/privacyerror.html'
+  document.getElementById('mineframe').src = 'extra/privacyerror.html'
+  document.getElementById('bugreportframe').src = 'extra/privacyerror.html'
+  document.getElementById('calframe').src = 'extra/smallprivacyerror.html'
+  document.getElementById("mig4").innerHTML = "1";
+  notify()
+  document.getElementById('notiflinea').innerHTML = "DeskUtility Option Manager"; 
+  document.getElementById('notiflineb').innerHTML = "Privacy mode enabled successfully."; 
+  document.getElementById('notiflinec').innerHTML = ""; 
+  notifsound();
+}
+function privacymodeoff() {
+  var x = document.getElementById("onlinegoogle");
+  x.style.display = "block"
+  var x = document.getElementById("privacymode");
+  x.style.display = "none"
+  var x = document.getElementById("locknews");
+  x.style.display = "block"
+  document.getElementById("mig4").innerHTML = "0";
+  document.getElementById('mineframe').src = 'https://classic.minecraft.net'
+  document.getElementById('mapsframe').src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21001.804495909837!2d2.282596631147625!3d48.85390902434949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701f7e8337b5%3A0xa2cb58dd28914524!2sEiffel%20Tower%2C%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1653803120151!5m2!1sen!2sus'
+  document.getElementById('bugreportframe').src = 'https://docs.google.com/forms/d/e/1FAIpQLSfbBvMIfCa6hdHtNJ8mpCwK9gbk6pwpaCGfHelp2gcjMngjfg/viewform?embedded=true'
+  document.getElementById('calframe').src = 'https://widget.calendarlabs.com/v1/calendar.php?cid=1001&ver=1.2&uid=6134683183&c=8&l=en&cbg=1a1a1a&cfg=fff&hfg=fff&hfg1=fff&ct=1&cb=1&cbc=1a1a1a&cf=verdana&cp=bottom&sw=0&hp=t&ib=0&ibc=&i=images/'
+  notify()
+  document.getElementById('notiflinea').innerHTML = "DeskUtility Option Manager"; 
+  document.getElementById('notiflineb').innerHTML = "Privacy mode disabled successfully."; 
+  document.getElementById('notiflinec').innerHTML = ""; 
+  notifsound();
+}
+</script>
+<script>
+function prefout() {
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "none"
+  var x = document.getElementById("others");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("desktopoptions");
+  x.style.display = "none"
+}
+function personalizeopen() {
+  var x = document.getElementById("personalize");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("othersopen");
+  x.style.display = "none"
+  var x = document.getElementById("desktopoptions");
+  x.style.display = "none"
+}
+function dataprivacyopen() {
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("others");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+  var x = document.getElementById("desktopoptions");
+  x.style.display = "none"
+}
+function generaloptionsopen() {
+  var x = document.getElementById("generaloptions");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("others");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+  var x = document.getElementById("desktopoptions");
+  x.style.display = "none"
+}
+function othersopen() {
+  var x = document.getElementById("others");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+  var x = document.getElementById("desktopoptions");
+  x.style.display = "none"
+}
+function desktopopen() {
+  var x = document.getElementById("desktopoptions");
+  x.style.display = "block"
+  var x = document.getElementById("preferencespopout");
+  x.style.display = "block"
+  var x = document.getElementById("generaloptions");
+  x.style.display = "none"
+  var x = document.getElementById("dataprivacy");
+  x.style.display = "none"
+  var x = document.getElementById("personalize");
+  x.style.display = "none"
+  var x = document.getElementById("others");
+  x.style.display = "none"
+}
+function preferencesopen() {
+  var x = document.getElementById("preferences");
+  x.style.display = "block"
+}
+function preferencesclose() {
+  var x = document.getElementById("preferences");
+  x.style.display = "none"
+  notify()
+  document.getElementById('notiflinea').innerHTML = "DeskUtility Data Manager"; 
+  document.getElementById('notiflineb').innerHTML = "We noticed that you were recently using Preferences."; 
+  document.getElementById('notiflinec').innerHTML = "To keep data synced, please re-write your Migration Code."; 
+  notifsound();
+}
+dragElement(document.getElementById("preferences"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // preferencesl a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // preferencesulate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+</div></div></div>

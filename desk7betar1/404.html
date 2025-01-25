@@ -1,0 +1,284 @@
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="icon" type="image/x-icon" href="images/icon/favicon.jpg">
+<script src = "battery/script2.js"> </script>
+<style>
+#desktop {
+  position: absolute; background-color:rgb(0,0,0,0.50);
+  min-height: 100%; min-width: 100%;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  overflow: scroll;
+  backdrop-filter: blur(36px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 800px rgba(0,0,0,0.50);
+}
+
+.app {
+  background-color: #1d1d1d;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-family: 'Poppins';
+}
+
+.app:hover {
+  opacity: 65%;
+}
+
+.app:active {
+  opacity: 25%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 12px;
+  display: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 12px;
+  display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  user-select: none;
+  background-image: url('images/wr4.jpg');
+  width: 100%;
+  height: 100%;
+  padding: 0;
+      }
+}
+@keyframes fade {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
+}
+@keyframes start {
+  0% {opacity: 100%; z-index: 99999;}
+  100% {opacity:  0%; z-index:  -10;}
+}
+#center {
+  position: absolute;
+  transform:translate(-50%, -50%);
+  left: 50%; top: 50%;
+}
+</style>
+<div id="desktop"><div id="center">
+<h1 style="color:#900;">404 Not Found</h1><p>Yes, you better be using Chrome!</p></div>
+</div>
+<style>
+#loading {
+  position: absolute; background-color: #000000;
+  min-height: 100%; min-width: 100%;
+  z-index: -10;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  color: #fff;
+  animation: start 2s;
+  opacity: 0%;
+  pointer-events: none;
+}
+
+.app {
+  background-color: #1d1d1d;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-family: 'Poppins';
+}
+
+.app:hover {
+  opacity: 65%;
+}
+
+.app:active {
+  opacity: 25%;
+}
+</style>
+<div id="loading">
+</div>
+</div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #context-menu {
+        position: fixed;
+        z-index: 10000;
+        width: 180px;
+        background-color:rgb(0,0,0,0.5);    
+        backdrop-filter: blur(12px); /* Chrome and Opera */
+        box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+        border-radius: 12px;
+        transform: scale(0);
+        transform-origin: top left;
+        padding: 6px;
+        color: #fff;
+      }
+
+      #context-menu.visible {
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+      }
+
+      #context-menu .item {
+        padding: 4px 5px;
+        font-size: 15px;
+        color: #eee;
+        cursor: pointer;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      #context-menu .item:hover {
+        background-color:rgb(0,0,0,0.25);
+      }
+      #context-menu .item:active {
+        background-color:rgb(0,0,0,0.5);
+      }
+      #contexthidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="context-menu">
+      Nothing to show here.
+    </div></div>
+
+    <script>
+      const contextMenu = document.getElementById("context-menu");
+      const scope = document.querySelector("body");
+
+      const normalizePozition = (mouseX, mouseY) => {
+        // ? compute what is the mouse position relative to the container element (scope)
+        let {
+          left: scopeOffsetX,
+          top: scopeOffsetY,
+        } = scope.getBoundingClientRect();
+        
+        scopeOffsetX = scopeOffsetX < 0 ? 0 : scopeOffsetX;
+        scopeOffsetY = scopeOffsetY < 0 ? 0 : scopeOffsetY;
+       
+        const scopeX = mouseX - scopeOffsetX;
+        const scopeY = mouseY - scopeOffsetY;
+
+        // ? check if the element will go out of bounds
+        const outOfBoundsOnX =
+          scopeX + contextMenu.clientWidth > scope.clientWidth;
+
+        const outOfBoundsOnY =
+          scopeY + contextMenu.clientHeight > scope.clientHeight;
+
+        let normalizedX = mouseX;
+        let normalizedY = mouseY;
+
+        // ? normalize on X
+        if (outOfBoundsOnX) {
+          normalizedX =
+            scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
+        }
+
+        // ? normalize on Y
+        if (outOfBoundsOnY) {
+          normalizedY =
+            scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
+        }
+
+        return { normalizedX, normalizedY };
+      };
+
+      scope.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+
+        const { clientX: mouseX, clientY: mouseY } = event;
+
+        const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
+
+        contextMenu.classList.remove("visible");
+
+        contextMenu.style.top = `${normalizedY}px`;
+        contextMenu.style.left = `${normalizedX}px`;
+
+        setTimeout(() => {
+          contextMenu.classList.add("visible");
+        });
+      });
+
+      scope.addEventListener("click", (e) => {
+        // ? close the menu if the user clicks outside of it
+        if (e.target.offsetParent != contextMenu) {
+          contextMenu.classList.remove("visible");
+        }
+      });
+    </script>
+<style>
+#bugreport {
+  position: absolute;
+  border-radius: 10px;
+  background-color:rgb(0,0,0,0.5);    
+  text-align: center;
+  color: #fff;
+  height: 60%;
+  width: 60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px); /* Chrome and Opera */
+  box-shadow: inset 0 0 0 600px rgba(0,0,0,0.0.5);
+  overflow: scroll;
+  padding: 1%;
+  display: none;
+  z-index: 35;
+  resize: both;
+  overflow: auto;
+}
+</style>
+<div id="bugreport" onclick="closebug();">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfbBvMIfCa6hdHtNJ8mpCwK9gbk6pwpaCGfHelp2gcjMngjfg/viewform?embedded=true" width="100%;" height="100%;" frameborder="0" marginheight="0" marginwidth="0">Loading… please be patient.</iframe></div>
+<script>
+function bug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "block";
+}
+function closebug() {
+  var x = document.getElementById("bugreport");
+  x.style.display = "none";
+}
+</script>

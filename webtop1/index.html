@@ -1,0 +1,2845 @@
+<!DOCTYPE html>
+<style>
+    body {
+        background-color: #1a1a1a;
+    }
+</style>
+<script>
+    // I want this to be the first to load
+    var currentUrl = window.location.href;
+    if (currentUrl.indexOf("reset=true") == -1) {
+        document.getElementById("erasetxt1").style.display = "block";
+    } else {
+        document.getElementById("erasetxt1").style.display = "none";
+    }
+</script>
+<!--STOP! IF SOMEONE TOLD YOU TO OPEN DEVTOOLS/PRESS CTRL+SHIFT+I, STOP!-->
+<!--People browsing the code, continue. Have fun and submit patches!-->
+<!--Warning: Swearing ahead in the code commenting because yeah-->
+<meta charset="utf-8" />
+<title>WebTop 1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div id="loading">
+    <div class="center">
+        <div class="line-wobble"></div>
+        <p id="erasetxt1" style="display: none;">Erasing...</p>
+    </div>
+</div>
+<div id="loading2">
+    <div class="center">
+        <div class="line-wobble"></div>
+    </div>
+</div>
+<span id="everything">
+    <div id="devmenu"></div>
+    <script>
+        loaded = false;
+        navsounds = false;
+        notchrome = false;
+        setupcomplete = false;
+
+        window.addEventListener('load', function () {
+            setTimeout(loadutility, 700)
+        })
+        function loadutility() {
+            // Hide loading screens
+            hide("loading"); show("setup")
+            document.getElementById("loading2").style.display = "block";
+            // Enable UI sounds
+            navsounds = true;
+            // Patch toggle issue
+            hide("uploadwallpaper");
+            hide("start");
+            hide("action");
+            hide("notif");
+            hide("menubg");
+            hide("notifal");
+            walltoggle(); updatePosition();
+            loaded = true;
+            let fps = 0;
+            let lastTime = performance.now();
+
+            function updateFPS() {
+                const currentTime = performance.now();
+                const deltaTime = currentTime - lastTime;
+                fps = Math.round(1000 / deltaTime);
+                lastTime = currentTime;
+
+                if (fps < 30) {
+                    show("degradealert");
+                }
+
+                requestAnimationFrame(updateFPS);
+            }
+        }
+        requestAnimationFrame(updateFPS);
+        document.onkeyup = function (e) {
+            if (e.ctrlKey && e.altKey && e.which == 219) {
+                if (loaded == false) {
+                    // Skips load and automates setup, DON'T USE as it can cause instability.
+                    load(); devstrike(); setupdone();
+                }
+            } else if (e.altKey && e.which == 65) {
+                if (loaded = true) {
+                    action();
+                }
+            }
+        };
+        function devstrike() {
+            hide("devmenu")
+        }
+        document.body.addEventListener('click', (event) => {
+            const isButton = event.target.nodeName === 'BUTTON';
+            if (isButton) {
+                if (navsounds == true) {
+                    navsound2();
+                }
+            }
+        })
+        document.body.addEventListener("contextmenu", function () {
+            if (navsounds == true) {
+                navsound();
+            }
+        });
+        function english() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'us', function () { }); }
+        function latvian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'lv', function () { }); }
+        function spanish() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'es', function () { }); }
+        function polish() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'pl', function () { }); }
+        function chinese() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'zh', function () { }); }
+        function romanian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'ro', function () { }); }
+        function french() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'fr', function () { }); }
+        function russian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'ru', function () { }); }
+        function german() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'de', function () { }); }
+        function serbian() { var lib = new google.translate.TranslateService(); lib.translatePage('en', 'sr', function () { }); }
+    </script>
+    <link rel="stylesheet" href="rightclick/style.css">
+    <link rel="stylesheet" href="extra/WebTopui.css">
+    <div class="target-dark target targetstyle" id="Desktop" onclick="focuswinnohide('Desktop')"></div>
+    <script src="rightclick/script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap');
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-image: url('img/bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-size: 16px;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: 100%;
+            height: 100%;
+            color: var(--font);
+            /* Fuck you Safari */
+            touch-action: manipulation !important;
+            -webkit-touch-action: manipulation !important;
+        }
+
+        #langshuffle {
+            width: 90%;
+            height: 40px;
+            border: none !important;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="popupalert" id="lowdatawarn">
+            <p>Low data mode enabled.</p>
+            <p>We can't promise anything, but if you have 40mb available data right now you will be fine.</p>
+            <p>WebTop has taken measures to prevent data usage, such as:</p>
+            <li>Warning the user when they try to access something that uses a lot of data</li>
+            <li>Disabling the wallpaper, unless requested by user (Settings)</li>
+            <li>Only loading content when needed (Probably buggy)</li>
+            <button class="app wider wider0" onclick="lowdataok();">Okay</button>
+            <script>
+                function lowdataok() {
+                    menubgclose();
+                    hide("lowdatawarn")
+                }
+            </script>
+        </div>
+        <div class="blurbg" id="setupbg"></div>
+        <div class="popup" id="setup" onclick="focuswinnohide('setup');">
+            <div id="lang">
+                <iframe id="langshuffle" src="./extra/langword.html"></iframe>
+                <button class="app wider widertop" onclick="setupgo();">English</button>
+                <button class="app wider" onclick="latvian();setupgo();">Latviski</button>
+                <button class="app wider" onclick="chinese();setupgo();">中國人</button>
+                <button class="app wider" onclick="spanish();setupgo();">Español</button>
+                <button class="app wider" onclick="french();setupgo();">Français</button>
+                <button class="app wider" onclick="german();setupgo();">Deutsch</button>
+                <button class="app wider" onclick="polish();setupgo();">Polski</button>
+                <button class="app wider" onclick="romanian();setupgo();">Română</button>
+                <button class="app wider" onclick="russian();setupgo();">Русский</button>
+                <button class="app wider widerbottom" onclick="serbian();setupgo();">Српски</button>
+            </div>
+            <div id="webtoposnote" class="hidden">
+                <p class="h2">Warning</p>
+                <p>You're using WebTopOS.</p>
+                <p>This entire environment is web-based, so you have little to no control over your hardware. I am
+                    working on adding controls.</p>
+                <p>What you can manage at the moment:</p>
+                <li>WiFi connection (Only connecting and disconnecting)</li>
+                <p>Grey Areas:</p>
+                <li>Brightness</li>
+                <li>Sleep</li>
+                <p>What can't be managed:</p>
+                <li>Brightness (Laptops)</li>
+                <li>Bluetooth</li>
+                <li>Drivers (If you REALLY want to, drop to shell and go insane. Changes do not stay on reboot.)</li>
+                <li>Shutdowns/Restarts (Hold power button for 10 seconds to shut off)</li>
+                <li>External/multi display setups</li>
+                <p>If you want to manage your hardware in this OS, press Alt+F4 to exit WebTop and drop to a TTY.</p>
+                <p>To get back to WebTop, log out and log in again.</p>
+                <p>Also, fun fact: This iso is big because there's a whole programming language and system I had to
+                    install (around 1500 MB) just to even give you the ability to connect to the internet from here.
+                    <button class="app wider widertop" onclick="restart();">Nevermind, attempt restart to
+                        OS</button><button class="app wider widertop" onclick="setupgo();">Let's go!</button>
+            </div>
+            <div id="setupmain">
+                <p class="h2">Terms, Notes, And Privacy</p>
+                <iframe src="extra/terms.html" id="terms"></iframe>
+                <p><button class="app" onclick="prefsetup();">I agree</button><button class="app"
+                        onclick="termerror();">I disagree</button></p>
+            </div>
+            <div id="setuppref">
+                <p class="h2">Setup</p>
+                <p>Note: PIN unlocking is not secure so don't trust it as someone can crack it with your browser's
+                    inspector.</p>
+                <p>Exceptions go to WebTopOS, which is not released and probably will not be.</p>
+                <input type="text" class="app textbox widertop" id="namebox" placeholder="Enter your name/nickname" />
+                <input type="password" class="app textbox widerbottom" id="pinbox" placeholder="Enter a PIN" />
+                <p><button class="app" onclick="devicesetup();setname();">I'm done!</button></p>
+            </div>
+            <div id="devicesetup">
+                <p class="h2">Device</p>
+                <p>Please answer a few questions so we can optimize WebTop for your device.</p>
+                <div id="setupq1" class="setupq">
+                    <p>Is your browser Chrome, Chromium, Opera/Opera GX, Microsoft Edge, or another Chrome based
+                        browser?
+                    </p>
+                    <p>This is here to disable APIs and components not fully supported on other browsers.</p>
+                    <p><button class="app wider widertop" onclick="setupq2();">Yes, it's Chrome/the above
+                            browsers</button>
+                        <button class="app wider widerbottom" onclick="setupq2();nonchrome();">No, I'm using a different
+                            browser</button>
+                    </p>
+                    <p>Question 1/2</p>
+                </div>
+                <div id="setupq2" class="setupq">
+                    <p>Is your device a touchscreen only/computer?</p>
+                    <p><button class="app wider widertop" onclick="setupdone();mobilemode();">Yes, it's a touch only
+                            device (Phones, tablets)</button>
+                        <button class="app wider" onclick="setupdone();">Yes, it's a 2 in 1 laptop (detachable
+                            keyboard)</button>
+                        <button class="app wider widerbottom" onclick="setupdone();">Yes, it's a laptop/desktop
+                            (Keyboard and mouse)</button>
+                    </p>
+                    <p>Question 2/2</p>
+                </div>
+                <p>Note: We will NEVER steal or send these answers in any way. Look through the code <a target="_blank"
+                        href="https://github.com/idiot-mov/idiot-mov.github.io">here</a> if you are
+                    suspicious.</p>
+                <p><button class="app" id="noanswerdevice" onclick="setupdone();">I don't want to
+                        answer</button>
+                </p>
+            </div>
+            <div id="setupdone">
+                <p class="h2">Finishing up...</p>
+                <p>We'll teleport you to the desktop when we're done.</p>
+                <div class="middle paddedload">
+                    <div class="line-wobble"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function migratecheck() {
+                var urlParams = new URLSearchParams(window.location.search);
+                var sectionName = urlParams.get('setupdone');
+                if (sectionName === "true") {
+                    hide("lang"); show("miglink")
+                }
+
+            }
+            migratecheck();
+            function setupgo() {
+                hide("lang")
+                document.getElementById("setupmain").style.display = "block";
+            }
+            function prefsetup() {
+                hide("setupmain")
+                document.getElementById("setuppref").style.display = "block";
+            }
+            function devicesetup() {
+                hide("setuppref")
+                document.getElementById("devicesetup").style.display = "block";
+                pinvar = document.getElementById("pinbox").value;
+            }
+            function setupq2() {
+                hide("setupq1")
+                document.getElementById("setupq2").style.display = "block";
+            }
+            function setupdone() {
+                hide("devicesetup"); hide("lang"); show("taskbar"); show("setupdone");
+                setTimeout(setupquit, 200); click("Desktop")
+                setupcomplete = true;
+            }
+            function setupquit() {
+                hide("setup")
+                hide("setupbg")
+                setTimeout(setupnotif, 200)
+            }
+            function setname() {
+                name = document.getElementById("namebox").value;
+                const urlParams = new URLSearchParams(window.location.search);
+                urlParams.set('name', name);
+                const newUrl = window.location.origin + window.location.pathname + '?' + urlParams.toString();
+                history.pushState({ path: newUrl }, '', newUrl);
+                document.querySelectorAll('.name').forEach(function (element) {
+                    element.innerHTML = name;
+                });
+            }
+            function setname2() {
+                name2 = document.getElementById("namebox2").value;
+                document.querySelectorAll('.name').forEach(function (element) {
+                    element.innerHTML = name2;
+                });
+            }
+            function nonchrome() {
+                hide('mainram');
+            }
+            function mobilemode() {
+                mobilemode = true;
+                let elements = document.querySelectorAll('.mobilenav');
+                elements.forEach(function (element) {
+                    element.style.display = 'block';
+                });
+                let elements2 = document.querySelectorAll('.Desktopnav');
+                elements2.forEach(function (element2) {
+                    element2.style.display = 'none';
+                });
+            }
+        </script>
+        <style>
+            #image {
+                position: fixed;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                top: 0px;
+                object-fit: cover;
+                border: none !important;
+                display: none;
+            }
+
+            .upload-btn-wrapper {
+                position: relative;
+                overflow: hidden;
+                border: none !important;
+            }
+
+            .btn {
+                color: gray;
+                background-color: white;
+                padding: 8px 8px;
+                border-radius: 8px;
+                font-size: 20px;
+                font-weight: bold;
+                border: none !important;
+            }
+
+            .upload-btn-wrapper input[type=file] {
+                font-size: 100px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                border: none !important;
+            }
+
+            #uploadwallpaper {
+                position: fixed;
+                display: none;
+                z-index: 13;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: none !important;
+                border-radius: 12px;
+                background: var(--lightdarkb);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                text-align: center;
+                padding: 14px;
+            }
+        </style>
+        <div id="uploadwallpaper">
+            <button class="app" id="decoywall">Click/tap to upload wallpaper</button>
+            <input type="file" style="display: none;" class="wallupload" name="myfile" id="wallupload" />
+            <p>Supported file types:</p>
+            <p>PNG, JPG, GIF, SVG, try others I guess</p>
+            <p><button class="app" onclick="walldialog();">Close</button></p>
+        </div>
+        <img id="image"></img>
+        <script>
+            let fake = document.querySelector('#decoywall');
+            fake.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('wallupload').click()
+            })
+            const file = document.querySelector(".wallupload")
+            file.addEventListener("change", function () {
+
+                const reader = new FileReader()
+
+                reader.addEventListener("load", () => {
+                    document.querySelector("#image").src = reader.result
+                })
+
+                reader.readAsDataURL(this.files[0])
+
+                document.getElementById("image").style.display = "block";
+
+                document.body.style.background = "#999999";
+            })
+            function resetbg() {
+                document.body.style.background.src = "img/wr5.jpg";
+                document.getElementById("image").style.display = "block";
+            }
+            function walldialog() {
+                if (document.getElementById("uploadwallpaper").style.display == "none") {
+                    document.getElementById("uploadwallpaper").style.display = "block";
+                } else {
+                    hide("uploadwallpaper")
+                }
+            }
+        </script>
+        <audio id="alert1">
+            <source src="audio/notif1.wav" type="audio/wav">
+        </audio>
+        <audio id="lock">
+            <source src="audio/lock.wav" type="audio/wav">
+        </audio>
+        <audio id="error">
+            <source src="audio/error.wav" type="audio/wav">
+        </audio>
+        <audio id="nav">
+            <source src="audio/nav.wav" type="audio/wav">
+        </audio>
+        <audio id="nav2">
+            <source src="audio/othernav.wav" type="audio/wav">
+        </audio>
+        <audio id="nav3">
+            <source src="audio/morenav.wav" type="audio/wav">
+        </audio>
+        <audio id="warnaud">
+            <source src="audio/warn.wav" type="audio/wav">
+        </audio>
+        <audio id="completeaud">
+            <source src="audio/complete.wav" type="audio/wav">
+        </audio>
+        <script>
+            var x = document.getElementById("alert1");
+            var lock = document.getElementById("lock");
+            var error = document.getElementById("error");
+            var nav = document.getElementById("nav");
+            var nav2 = document.getElementById("nav2");
+            var nav3 = document.getElementById("nav3");
+            var warn = document.getElementById("warnaud");
+            var complete = document.getElementById("completeaud");
+
+            function alertsound() {
+                alerts1();
+            }
+
+            function alerts1() {
+                x.play();
+            }
+
+            function locksound() {
+                lock.play();
+            }
+
+            function errorsound() {
+                error.play();
+            }
+
+            function navsound() {
+                nav.play();
+            }
+
+            function navsound2() {
+                nav2.play();
+            }
+
+            function navsound3() {
+                nav3.play();
+            }
+
+            function warnsound() {
+                warn.play();
+            }
+
+            function donesound() {
+                complete.play();
+            } 
+        </script>
+        <div class="popupalert" id="termerrormodel">
+            <p>You must agree with the terms and conditions to use the software.</p>
+            <button class="app wider wider0" onclick="canceltermerror();">Okay</button>
+            <script>
+                function termerror() {
+                    menubg();
+                    document.getElementById("termerrormodel").style.display = "block";
+                    hide("setup")
+                }
+                function canceltermerror() {
+                    menubgclose();
+                    hide("termerrormodel")
+                    document.getElementById("setup").style.display = "block";
+                }
+            </script>
+        </div>
+        <div class="popupalert" id="custompopup">
+            <p id="custompopuptxt"></p>
+            <button class="app wider wider0" onclick="menubgclose();showtaskbits();hide('custompopup');">Got it</button>
+        </div>
+        <div class="popupalert" id="resetmodel">
+            <p>Warning!</p>
+            <p>Are you sure you want to erase WebTop?</p>
+            <p>This will erase:</p>
+            <li>Your user</li>
+            <li>Your apps</li>
+            <li>Your settings</li>
+            <li>Pretty much everything</li>
+            <p>Are you sure you wish to continue?</p>
+            <button class="app wider widertop red forcecolor" onclick="eraseconfirm();">Yes, erase everything</button>
+            <button class="app wider widerbottom" onclick="cancelerase();">Nevermind</button>
+            <script>
+                function erase() {
+                    warnsound();
+                    menubg(); hidetaskbits();
+                    document.getElementById("resetmodel").style.display = "block";
+                    // When I was writing this code, someone was DMing me about being a 
+                    // femboy slut and shit. I'm pretty sure I should delete that DM.
+                    // EIDT: Yep, they turned into a femboy slut lmfao
+                }
+                function cancelerase() {
+                    menubgclose(); showtaskbits();
+                    hide("resetmodel")
+                }
+                function eraseconfirm() {
+                    let url = window.parent.location.href;
+                    let newURL = url + "?reset=true";
+                    window.parent.location.href = newURL;
+                    window.location.reload();
+                    // wr1(); aindigo(); nuke(); menubgclose(); darkmode();
+                    // document.getElementById("result").value = ""
+                    // hide("resetmodel")
+                    // hide("termbtn")
+                    // document.getElementById("lang").style.display = "block";
+                    // document.getElementById("setup").style.display = "block";
+                    // document.getElementById("setupbg").style.display = "block";
+                    // hide("setupdone");              
+                    // if (document.getElementById("notifal").style.display == "block") {
+                    //    notifalclose();
+                    // }
+                }
+                function nuke() {
+                    document.querySelectorAll('.popup').forEach(function (el) {
+                        el.style.display = 'none';
+                    });
+                }
+            </script>
+        </div>
+        <Style>
+            #macosripofflol {
+                position: fixed;
+                left: 0px;
+                right: 0px;
+                top: 0px;
+                padding: 4px;
+                z-index: 999999999999;
+                /* Lazy code at it's finest */
+                background: var(--lightdarkb);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                color: #fff !important;
+                box-shadow: 0 0 16px 16px rgba(0, 0, 0, 0.30);
+                border-bottom: 1px solid var(--lightdark);
+            }
+
+            .rightforce {
+                position: fixed;
+                right: 4px;
+            }
+
+            #rightmenu {
+                left: 5px;
+                max-width: 180px;
+            }
+
+            #rightmenu,
+            .barmenu {
+                position: fixed;
+                padding: 8px;
+                background-color: var(--lightdarkb);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                display: none;
+                border-radius: 10px;
+                display: none;
+                z-index: 11;
+                border: 1px solid var(--lightdark);
+            }
+
+            .letmebeclear {
+                background: transparent !important;
+            }
+
+            .menubarbtn {
+                padding: 3px 2px;
+                border-radius: 6px;
+                background: transparent;
+                border: none;
+                transition: .1s;
+                color: var(--font);
+                font-size: 18px;
+                font-family: 'Hind Siliguri', sans-serif;
+            }
+
+            .menubarapply {
+                color: #fff !important;
+            }
+
+            #rightmenup {
+                display: none;
+            }
+        </Style>
+        <div id="macosripofflol">
+            <button class="smallbtn menubarapply" id="focusedapp"
+                onclick="showel('rightmenu');menubg();navsound();">Setup</button>
+            <span class="rightforce">
+                <meta charset="utf-8">
+                <button id="battstat" class="letmebeclear menubarapply menubarbtn"> </button>
+                <button id="timestat" class="letmebeclear menubarapply menubarbtn"> </button>
+            </span>
+        </div>
+        <div id="rightmenu">
+            <p id="rightmenup" class="menubarapply">Setup</p>
+            <button class="smallbtn menubarapply wider hidebtn" id="quitappbtn"
+                onclick="document.getElementById(hidewin).style.display = 'none';hide('rightmenu');menubgclose();">Hide
+                app</button>
+            <button class="smallbtn menubarapply wider hidebtn" id="quitappbtn"
+                onclick="recenterwin();menubgclose();hide('rightmenu');">Recenter all apps</button>
+            <button class="smallbtn menubarapply wider" onclick="hide('rightmenu');navsound3();menubgclose();">Close
+                menu</button>
+        </div>
+        <div id="notif" class="taskmenu notif">
+            <button class="smallbtn1 forcewhitefont " onclick="notifreset();notif();">Clear All</button>
+            <button class="smallbtn forcewhitefont " onclick="dummynotif();notifclose();">Make Dummy Alert</button>
+            <div id="alertbox"></div>
+        </div>
+        <div id="notifclose" class="taskmenu notif">
+            <button class="smallbtn1 forcewhitefont">Clear All</button><button class="smallbtn forcewhitefont">Make
+                Dummy Alert</button>
+            <div id="dummybox"></div>
+        </div>
+        <div id="notifal" class="taskmenu notif">
+            <p>You have a new alert!</p>
+            <button class="smallbtn1 forcewhitefont" onclick="notif();">See Alert</button>
+            <button class="smallbtn forcewhitefont" onclick="notifalclose(); ">Close</button>
+        </div>
+        <div id="notifalclose" class="taskmenu notif">
+            <p>You have a new alert!</p>
+            <button class="smallbtn1 forcewhitefont">See Alert</button>
+            <button class="smallbtn forcewhitefont">Close</button>
+        </div>
+        <script>
+            function unknownapp() {
+                document.getElementById("focusedapp").innerHTML = "We don't know"
+                document.getElementById("rightmenup").innerHTML = "We're not sure what app is focused, so nothing here."
+            }
+
+            // WOW THE MENU IS DYNAMIC!!!!1111!1!!1
+            function letsnotusecssforthis() {
+                const macosripofflol = document.getElementById("macosripofflol");
+                const rightmenu = document.getElementById("rightmenu");
+                let notifig = document.querySelectorAll(".notif");
+                const updatePosition = () => {
+                    const rect = macosripofflol.getBoundingClientRect();
+                    rightmenu.style.top = `${rect.bottom + 5}px`;
+                    if (Array.isArray(notifig)) {
+                        notifig.forEach((element) => {
+                            element.style.top = `${rect.bottom + 5}px`;
+                        });
+                    }
+                };
+                setTimeout(updatePosition, 250);
+            }
+            letsnotusecssforthis();
+
+        </script>
+        <style>
+            .popupalert {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 12px;
+                padding: 14px;
+                background: var(--lightdarkb);
+                color: #fff;
+                max-width: 80%;
+                max-height: 70%;
+                display: none;
+                z-index: 11;
+                text-align: center;
+                border: 1px solid var(--lightdark);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .taskbtn {
+                padding: 3px 6px;
+                border-radius: 12px;
+                background: transparent;
+                transition: .1s;
+                text-align: center;
+                color: #fff;
+                font-family: 'Hind Siliguri', sans-serif;
+                border: none;
+                font-size: 16px;
+            }
+
+            .taskbtn:hover {
+                background: rgba(var(--accent), .6);
+            }
+
+            .taskbtn:active {
+                background: rgba(var(--accent), 1);
+            }
+
+            .actionbtn {
+                padding: 4px;
+                border-radius: 6px;
+                background: transparent;
+                border: none;
+                width: 28px;
+                height: 28px;
+                transition: .1s;
+            }
+
+            .actionbtn:hover {
+                background: rgba(var(--accent), .5);
+            }
+
+            .actionbtn:active {
+                background: rgba(var(--accent), 1);
+            }
+
+            .smallbtn,
+            .smallbtn1 {
+                padding: 4px 8px;
+                border-radius: 6px;
+                background: transparent;
+                border: none;
+                transition: .1s;
+                color: var(--font);
+                font-size: 14px;
+                font-family: 'Hind Siliguri', sans-serif;
+                background-color: rgba(var(--accent), .3);
+                margin-bottom: 2px;
+            }
+
+            .smallbtn1 {
+                margin-right: 4px;
+            }
+
+            .smallbtn:hover {
+                background: rgba(var(--accent), .6);
+            }
+
+            .smallbtn1:hover {
+                background: rgba(var(--accent), .6);
+            }
+
+            .smallbtn:active {
+                background: rgba(var(--accent), 1);
+            }
+
+            .smallbtn1:active {
+                background: rgba(var(--accent), 1);
+            }
+
+            .notif {
+                right: 8px;
+                width: 150px;
+                height: 100px;
+                text-align: center;
+                animation: notifani .25s;
+            }
+
+            #notifclose {
+                animation-direction: reverse;
+            }
+
+            @keyframes notifani {
+                0% {
+                    right: -190px;
+                }
+
+                100% {
+                    right: 8px;
+                }
+            }
+
+            .taskmenu {
+                position: fixed;
+                border-radius: 12px;
+                padding: 14px;
+                background: var(--lightdarkb);
+                color: #fff !important;
+                max-width: 80%;
+                max-height: 70%;
+                display: none;
+                z-index: 11;
+                text-align: center;
+                border: 1px solid var(--lightdark);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .start {
+                left: 50%;
+                transform: translate(-50%);
+                bottom: 58px;
+                width: 340px;
+                height: 530px;
+                text-align: center;
+                animation: startani .25s;
+            }
+
+            #startclose {
+                animation-direction: reverse;
+            }
+
+            @keyframes startani {
+                0% {
+                    bottom: -490px;
+                }
+
+                100% {
+                    bottom: 58px;
+                }
+            }
+
+            .action {
+                left: 50%;
+                transform: translate(-50%);
+                bottom: 58px;
+                width: 340px;
+                height: 530px;
+                text-align: center;
+                animation: startani .25s;
+            }
+
+            #actionclose {
+                animation-direction: reverse;
+            }
+
+            #notifalclose {
+                animation-direction: reverse;
+            }
+
+            @keyframes actionani {
+                0% {
+                    left: -190px;
+                }
+
+                100% {
+                    left: 8px;
+                }
+            }
+
+            .notiftxt {
+                position: flex;
+                margin-top: 4px;
+                text-align: center;
+                border-radius: 6px;
+                padding: 4px;
+                background: rgba(var(--accent), .2);
+                color: #fff;
+                max-width: 210px;
+            }
+
+            .popup {
+                z-index: 9;
+                background-color: var(--lightdarkb);
+                border: 1px solid var(--lightdark);
+                text-align: center;
+                min-height: 100px;
+                min-width: 130px;
+                max-height: 88.2%;
+                max-width: 86%;
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-radius: 12px;
+                left: 50%;
+                top: 50%;
+                display: none;
+                transform: translate(-50%, -50%);
+                padding-bottom: 1px;
+                box-shadow: 0 0 36px 36px rgba(0, 0, 0, 0.30);
+            }
+
+            /*Drgable */
+
+            .popup {
+                position: absolute;
+                /*resize: both; !*enable this to css resize*! */
+                overflow: auto;
+            }
+
+            .popup-header {
+                padding: 6px;
+                z-index: 10;
+                background-color: var(--lightdark);
+                color: var(--font);
+                cursor: move;
+                width: 100%;
+            }
+
+            /*Resizeable*/
+
+            .popup .resizer-right {
+                width: 5px;
+                height: 100%;
+                background: transparent;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                cursor: e-resize;
+            }
+
+            .popup .resizer-bottom {
+                width: 100%;
+                height: 5px;
+                background: transparent;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                cursor: n-resize;
+            }
+
+            .popup .resizer-both {
+                width: 5px;
+                height: 5px;
+                background: transparent;
+                z-index: 10;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                cursor: nw-resize;
+            }
+
+            /*NOSELECT*/
+
+            .popup * {
+                -webkit-touch-callout: none;
+                /* iOS Safari */
+                -webkit-user-select: none;
+                /* Safari */
+                -khtml-user-select: none;
+                /* Konqueror HTML */
+                -moz-user-select: none;
+                /* Firefox */
+                -ms-user-select: none;
+                /* Internet Explorer/Edge */
+                user-select: none;
+                /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+            }
+
+            #userspace {
+                /* Attempts to force windows below taskbits/taskbar*/
+                z-index: 3 !important;
+            }
+
+            #cmdhelp,
+            #devmode {
+                display: none;
+                z-index: 999999999;
+                padding: 12px;
+            }
+
+            #menubg,
+            #menubgclose {
+                position: fixed;
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                left: 0px;
+                right: 0px;
+                top: 0px;
+                bottom: 0px;
+                z-index: 2;
+                animation: menufade .25s;
+                display: none;
+                background: rgb(0, 0, 0, .15);
+            }
+
+            #menubgclose {
+                animation-direction: reverse;
+            }
+
+            @keyframes menufade {
+                0% {
+                    opacity: 0%;
+                }
+
+                100% {
+                    opacity: 100%;
+                }
+            }
+
+            #startbox {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                padding: 6px;
+                background: rgba(var(--accent), .2);
+            }
+        </style>
+        </div>
+        <div id="taskbar">
+            <button class="taskbtn" onclick="action();">Helper</button>
+            <button class="taskbtn" onclick="start();">Start</button>
+            <button class="taskbtn" onclick="notif();"><span id="notifstat">0</span> alerts</button>
+            <button id="ughnotif" style="display: none;">This is for notifications, I know my code is bad.</button>
+        </div>
+        <div id="start" class="taskmenu start">
+            <p class="h2">Hello, <span class="name">User</span>!</p>
+            <button class="app wider widertop"
+                onclick="show('calculator');focuswin('calculator');startclose();">Calculator</button>
+            <button class="app wider" onclick="show('terminal');focuswin('terminal');startclose();" id="termbtn"
+                style="display: none;">Terminal</button>
+            <button class="app wider" onclick="show('textedit');focuswin('textedit');startclose();">Textedit</button>
+            <button class="app wider widerbottom"
+                onclick="show('settings');focuswin('settings');startclose();">Settings</button>
+            <div id="startbox">
+                <button class="smallbtn" onclick="lock();locksound();">Lock</button>
+                <button class="smallbtn" onclick="dimtoggle();">Dim Mode Toggle</button>
+            </div>
+        </div>
+        <script>
+            dimmedon = false;
+            function dimtoggle() {
+                if (dimmedon == false) {
+                    show("dimbg");
+                    dimmedon = true;
+                    darkmode();
+                } else {
+                    dimmedon = false;
+                    hide("dimbg");
+                }
+            }
+        </script>
+        <div id="dimbg">
+            <style>
+                #dimbg {
+                    position: fixed;
+                    left: 0px;
+                    right: 0px;
+                    top: 0px;
+                    bottom: 0px;
+                    z-index: -1;
+                    background: #000000;
+                    display: none;
+                }
+            </style>
+        </div>
+        <div id="startclose" class="taskmenu start">
+            <p class="h2">Bye, <span class="name">User</span>.</p>
+        </div>
+
+        <div id="action" class="taskmenu action">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script src="assist/assist.js"></script>
+            <style>
+                .modal {
+                    padding: 20px;
+                    border-radius: 8px;
+                    position: fixed;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    top: 0px;
+                    overflow: scroll;
+                }
+
+                #mainwindow {
+                    display: none;
+                    bottom: 45px !important;
+                    overflow: scroll;
+                }
+
+                #assistbox {
+                    position: fixed;
+                    border-radius: 8px;
+                    padding: 6px 10px;
+                    background: rgba(var(--accent), .7);
+                    color: #fff;
+                    border: 1px solid var(--lightdark);
+                    font-family: 'Hind Siliguri', sans-serif;
+                    left: 50%;
+                    transform: translate(-50%);
+                    width: 450px;
+                    max-width: 80%;
+                    bottom: 15px;
+                    display: none;
+                    font-size: 16px;
+                }
+
+                .abovewindows {
+                    z-index: 11;
+                }
+            </style>
+            <div id="welcome" class="modal">
+                <p>Hi! I'm WebTopAssistant.</p>
+                <p>These are my pros and cons.</p>
+                <p>Pros:</p>
+                <p>Can perform various web-based actions e.g. "What's the weather", "Go to https://example.com"</p>
+                <p>Can perform actions in WebTop (EXPERIMENTAL)</p>
+                <p>Capable of generating instant reponses</p>
+                <p>The UI stays the same unless you update, but the assistant is pulled from the web on every startup
+                    which
+                    updates responses</p>
+                <p>Uses regex matching in order to return a response no matter if it's lowercase, uppercase, or in
+                    different
+                    form.</p>
+                <p>Cons:</p>
+                <p>Cannot learn from what you type, I don't want it going full M3GAN on everyone, just kidding that
+                    would
+                    never
+                    happen regardless.</p>
+                <p>Only very basic prompts, to add more submit some to a google form. (<a
+                        href="https://forms.gle/9aFzk6g3cw3mdDo78" target="_blank">The Form</a>)</p>
+                <button class="app" onclick="go();">Got it, let's go!</button>
+            </div>
+            <div id="mainwindow" class="modal">
+                <p id="response">Welcome! Try typing "Hello" in the box below. <a id="addresponse"
+                        onclick="webuse('https://forms.gle/9aFzk6g3cw3mdDo78')">Add Response</a></p>
+            </div>
+            <input id="assistbox" placeholder="Type something..."></input>
+            <script>
+                document.addEventListener("keyup", function (event) {
+                    if (event.code === 'Enter') {
+                        // The send() function is stored in the web to update anytime WebTop reloads
+                        send();
+                    }
+                })
+                function go() {
+                    hide("welcome")
+                    document.getElementById("mainwindow").style.display = "block";
+                    document.getElementById("assistbox").style.display = "block";
+                }
+            </script>
+        </div>
+        <div id="actionclose" class="taskmenu action">
+            <div class="modal">
+                <p>Bye frien</p>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+        <script>
+            function initateloops() {
+                if (notchrome = true) {
+                    runchecks();
+                    setTimeout(initiateloops, 1000);
+                }
+            }
+            function notifal() {
+                if (document.getElementById("notifal").style.display == "none") {
+                    document.getElementById("notifal").style.display = "block";
+                }
+                // When I was writing this code, someone was on the verge
+                // of suicide so I had to pause development for a bit. 
+            }
+            function notifalclose() {
+                let notifsize = document.getElementById("notifal");
+                hide("notifal")
+                document.getElementById("notifalclose").style.display = "block";
+                setTimeout(closenotifal, 240)
+            }
+            function closenotifal() {
+                hide("notifalclose")
+            }
+            function closemenus() {
+                if (document.getElementById("notif").style.display == "block") {
+                    notifclose();
+                }
+                if (document.getElementById("start").style.display == "block") {
+                    startclose();
+                }
+                if (document.getElementById("action").style.display == "block") {
+                    actionclose();
+                }
+            }
+            function hidetaskbits() {
+                hide("taskbitleft")
+                hide("taskbitmiddle")
+                hide("taskbitright")
+            }
+            function showtaskbits() {
+                document.getElementById("taskbitleft").style.display = "block";
+                document.getElementById("taskbitmiddle").style.display = "block";
+                document.getElementById("taskbitright").style.display = "block";
+            }
+            function notif() {
+                if (document.getElementById("notif").style.display == "none") {
+                    closemenus(); menubg();
+                    document.getElementById("notif").style.display = "block";
+                    if (document.getElementById("notifal").style.display == "block") {
+                        notifalclose(); menubg();
+                    }
+                } else {
+                    notifclose(); menubgclose();
+                }
+            }
+            function notifreset() {
+                var paras = document.getElementsByClassName('notiftxt');
+                while (paras[0]) {
+                    paras[0].parentNode.removeChild(paras[0]);
+                }
+                document.getElementById("notifstat").innerHTML = "0";
+            }
+            function notifclose() {
+                let notifsize = document.getElementById("notif");
+                $("#notifclose").css("height", $("#notif").height());
+                hide("notif")
+                document.getElementById("notifclose").style.display = "block";
+                setTimeout(closenotif, 240)
+                menubgclose();
+            }
+            crashed = false;
+            function notify() {
+                if (crashed == false) {
+                    document.getElementById("ughnotif").click();
+                    notifal();
+                    var objDiv = document.getElementById("notif");
+                    objDiv.scrollTop = objDiv.scrollHeight;
+                    alertsound();
+                } else {
+                    console.log("The session has crashed so the user is not allowed to receive notifications.")
+                }
+            }
+            function notifydummy() {
+            }
+            function closenotif() {
+                hide("notifclose")
+            }
+            function setupnotif() {
+                const a = document.createElement("div");
+                a.className = "notiftxt";
+                a.innerText = "Welcome! For help, click the button in the bottom left and click the question mark.";
+                document.querySelector(".notif").appendChild(a);
+                notify(); notifydummy();
+            }
+            function dummynotif() {
+                const a = document.createElement("div");
+                a.className = "notiftxt";
+                a.innerText = "This test worked.";
+                document.querySelector(".notif").appendChild(a);
+                notify(); notifydummy();
+            }
+            let notifadd = document.querySelector("#ughnotif");
+
+            notifadd.addEventListener("click", function () {
+                let output = document.querySelector("#notifstat");
+                let result = Number(output.innerText) + 1;
+
+                if (result > 10) {
+                    result = 0;
+                }
+
+                output.innerText = result;
+            });
+            function menubg() {
+                document.getElementById("menubg").style.display = "block";
+                hide("userspace")
+            }
+            function menubgclose() {
+                hide("menubg")
+                document.getElementById("menubgclose").style.display = "block";
+                setTimeout(closemenubg, 240);
+            }
+            function closemenubg() {
+                hide("menubgclose")
+                document.getElementById("userspace").style.display = "block";
+            }
+            function start() {
+                if (document.getElementById("start").style.display == "none") {
+                    closemenus(); menubg();
+                    document.getElementById("start").style.display = "block";
+                } else {
+                    startclose(); menubgclose();
+                }
+            }
+            function action() {
+                if (document.getElementById("action").style.display == "none") {
+                    closemenus(); menubg();
+                    document.getElementById("action").style.display = "block";
+                } else {
+                    actionclose(); menubgclose();
+                }
+            }
+            function startclose() {
+                hide("start")
+                document.getElementById("startclose").style.display = "block";
+                menubgclose();
+                setTimeout(closestart, 240)
+            }
+            function actionclose() {
+                hide("action")
+                document.getElementById("actionclose").style.display = "block";
+                setTimeout(closeaction, 240)
+            }
+            function closestart() {
+                hide("startclose")
+            }
+            function closeaction() {
+                hide("actionclose")
+            }
+            var cell = document.getElementById('battstat');
+            navigator.getBattery().then(function (battery) {
+                function updateAllBatteryInfo() {
+                    updateChargeInfo();
+                    updateLevelInfo();
+                    updateChargingInfo();
+                    updateDischargingInfo();
+                }
+                updateAllBatteryInfo();
+                // This code was so hard to finish implementing that I thought of
+                // stabbing myself with a rusty nail
+                battery.addEventListener('chargingchange', function () {
+                    updateChargeInfo();
+                });
+                function updateChargeInfo() {
+                    if (battery.charging) {
+                        cell.style.color = "#00ff00";
+                    }
+                    else {
+                        if (battery.level < 0.20) {
+                            cell.style.color = "#700";
+                        }
+                        if (battery.level < 0.10) {
+                            cell.style.color = "#700";
+                        }
+                        else {
+                            cell.style.color = "#fff";
+                        }
+                    }
+                }
+                battery.addEventListener('levelchange', function () {
+                    updateLevelInfo();
+                });
+                function updateLevelInfo() {
+                    cell.innerHTML = Math.round(battery.level * 100) + "%";
+                }
+
+                battery.addEventListener('chargingtimechange', function () {
+                    updateChargingInfo();
+                });
+                function updateChargingInfo() {
+                    console.log("Battery charging time: "
+                        + battery.chargingTime + " seconds");
+                }
+
+                battery.addEventListener('dischargingtimechange', function () {
+                    updateDischargingInfo();
+                });
+                function updateDischargingInfo() {
+                    console.log("Battery discharging time: "
+                        + battery.dischargingTime + " seconds");
+                }
+
+            });
+            function Time() {
+
+                var date = new Date();
+
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+
+                var period = "";
+
+                if (hour >= 12) {
+                    period = "PM";
+                } else {
+                    period = "AM";
+                }
+
+                if (hour == 0) {
+                    hour = 12;
+                } else {
+                    if (hour > 12) {
+                        hour = hour - 12;
+                    }
+                }
+
+                hour = update(hour);
+                minute = update(minute);
+                second = update(second);
+
+                document.getElementById("timestat").innerText = hour + ":" + minute + ":" + second;
+
+                setTimeout(Time, 1000);
+            }
+
+            function update(t) {
+                if (t < 10) {
+                    return "0" + t;
+                }
+                else {
+                    return t;
+                }
+            }
+
+            Time();
+
+            const popups2 = document.getElementsByClassName("popup");
+            const abovewindows = document.getElementsByClassName("abovewindows");
+            popups2.addEventListener("click", increaseZIndex);
+            function increaseZIndex() {
+                abovewindow.style.zIndex = parseInt(abovewindow.style.zIndex) + 1;
+            }
+        </script>
+        <div class="popup" id="cmdhelp">
+            <p>Here is some documentation on the terminal.</p>
+            <p>To open an app from the terminal, run open[appname] but without the brackets and no capitals or spaces.
+            </p>
+            <p>General commands: nuke() reset() help() furry()</p>
+            <p>You can use multiple at once! Ex: reset();furry();</p>
+            <p></p>
+            <button class="app" onclick="hide('cmdhelp').style.display = 'none'">OK, got it!</button>
+        </div>
+        <div class="popup" id="devmode">
+            <p>WARNING: Developer mode, when enabled, is a security risk if you don't know what you're doing!</p>
+            <p>If someone told you to enable it, please do not run their commands unless you know what you're doing.</p>
+            <p>Enabling developer mode adds the "Terminal" app to your Start menu.</p>
+            <p>Things that people can do if they inject malicious code:</p>
+            <li>Download unwanted files and viruses (They won't work, unless YOU execute them)</li>
+            <li>Redirect you to a malicious site or cause harm to your browser</li>
+            <li>Basically anything possible that can be done through the web, and I mean EVERYTHING!</li>
+            <li>Pretty obvious, destroy WebTop</li>
+            <p>The creator of WebTop is not responsible for anything that you do. I advise that you look over the
+                code
+                before running it.</p>
+            <p>Nothing bad will happen if you enable Developer Mode, but if you use it incorrectly, bad things can
+                happen.
+            </p>
+            <button class="app wider widertop"
+                onclick="document.getElementById('devmode').style.display = 'none';menubgclose();showtaskbits();">I'm
+                not ready for the power</button>
+            <button class="app wider widerbottom" onclick="developergo();">I assume the risks, enable it!</button>
+            </p>
+        </div>
+        <div id="userspace">
+            <!--This is the userspace, which belongs to the windows. This is here to keep windows below the taskbits/taskmenus.-->
+            <style>
+                .nobg {
+                    background-color: none !important;
+                }
+            </style>
+
+            <div id="calculator" class="popup" onclick="focuswin('calculator')">
+                <div class="popup-header noselect">Calculator <button class="smallbtn1" onclick="hide('calculator');"
+                        class="hidebtn">Hide</button><button class="smallbtn1" id="clrcmd"
+                        onclick="clr();">Clear</button><button class="smallbtn" id="run"
+                        onclick="solve();">Equals</button>
+                </div>
+                <style>
+                    #calculator2 {
+                        text-align: center;
+                    }
+                </style>
+
+                <div id="calculator2">
+                    <script type="text/javascript">
+                        //function that display value
+                        function dis(val) {
+                            document.getElementById("result").value += val
+                        }
+
+                        //function that evaluates the digit and return result
+                        function solve() {
+                            let x = document.getElementById("result").value
+                            let y = eval(x)
+                            document.getElementById("result").value = y
+                        }
+
+                        //function that clear the display
+                        function clr() {
+                            document.getElementById("result").value = ""
+                        }
+
+                        function calculatorclose() {
+                            hide('calculator').style.display = 'none';
+                        }
+                    </script>
+                    <!-- for styling -->
+                    <style>
+                        input[type="button"] {
+                            color: white;
+                            width: 100%;
+                            border-radius: 6px;
+                            border: none;
+                            width: 60px;
+                            height: 60px;
+                            transition: .1s;
+                            font-size: 20px;
+                            font-family: 'Hind Siliguri', sans-serif;
+                            background-color: transparent !important;
+                        }
+
+                        input[type="button"]:hover {
+                            color: rgba(var(--accent)) !important;
+                            width: 100%;
+                            border-radius: 7px;
+                            border: none;
+                        }
+
+
+                        input[type="button"]:active {
+                            color: rgba(var(--accent2), .90) !important;
+                            width: 100%;
+                            border-radius: 7px;
+                            border: none;
+                        }
+
+                        .calctext {
+                            background: transparent !important;
+                            padding: 8px;
+                            color: #fff;
+                            width: 100%;
+                        }
+
+                        #result {
+                            position: flex;
+                            left: 8px;
+                            right: 8px;
+                            top: 6px;
+                            background: transparent !important;
+                            border: none !important;
+                        }
+                    </style>
+
+                    <!-- create table -->
+
+                    <table border="0">
+                        <tr>
+                            <p><input class="app thick nobg" type="text" id="result" value=""
+                                    placeholder="Type an equation..." onfocus="
+                            +this.blur();" /></p>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="1" onclick="dis('1')" /> </td>
+                            <td><input type="button" value="2" onclick="dis('2')" /> </td>
+                            <td><input type="button" value="3" onclick="dis('3')" /> </td>
+                            <td><input type="button" value=":|:" onclick="dis('/')" /> </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="4" onclick="dis('4')" /> </td>
+                            <td><input type="button" value="5" onclick="dis('5')" /> </td>
+                            <td><input type="button" value="6" onclick="dis('6')" /> </td>
+                            <td><input type="button" value="-" onclick="dis('-')" /> </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="7" onclick="dis('7')" /> </td>
+                            <td><input type="button" value="8" onclick="dis('8')" /> </td>
+                            <td><input type="button" value="9" onclick="dis('9')" /> </td>
+                            <td><input type="button" value="+" onclick="dis('+')" /> </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="." onclick="dis('.')" /> </td>
+                            <td><input type="button" value="0" onclick="dis('0')" /> </td>
+                            <td><input type="button" value="=" onclick="solve()" /> </td>
+                            <td><input type="button" value="x" onclick="dis('*')" /> </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+
+            <div class="popup" id="terminal" onclick="focuswin('terminal')">
+                <style>
+                    #terminal {
+                        width: 260px;
+                    }
+
+                    #paddedterm {
+                        padding: 8px;
+                    }
+                </style>
+                <div class="popup-header noselect">Terminal <button class="smallbtn1" onclick="hide('terminal');"
+                        class="hidebtn">Hide</button><button class="smallbtn1" id="clrcmd"
+                        onclick="document.getElementById('cmdlinebox').value = ''">Clear</button><button
+                        class="smallbtn" id="run" onclick="doIt2();">Run</button></div>
+                <div id="paddedterm">
+                    <input class="textbox app" placeholder="Type help() for help in lowercase." type="text"
+                        spellcheck="false" id="cmdlinebox"></input>
+                    <p>Any output from commands will be sent to notifications.</p>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $("cmdlinebox").keydown(function (e) {
+                    if (e.keyCode == 13 && !e.shiftKey) {
+                        e.preventDefault();
+                    }
+                });
+                document.getElementById("cmdlinebox")
+                    .addEventListener("keyup", function (event) {
+                        event.preventDefault();
+                        if (event.keyCode === 13) {
+                            doIt2();
+                        }
+                    });
+                function cmdopen() {
+                    document.getElementById("cmd").style.display = "block";
+                    authopen();
+                }
+                function cmdclose() {
+                    hide("cmd")
+                }
+                simplecommand = true;
+                function doIt2() {
+                    if (simplecommand == true) {
+                        document.getElementById("cmdlinebox").value += "()"
+                        baserun();
+                    } else {
+                        baserun();
+                    }
+                }
+                function baserun() {
+                    var headID = document.getElementsByTagName("head")[0];
+                    var newScript = document.createElement("script");
+                    newScript.type = "text/javascript";
+                    newScript.innerHTML = document.getElementById("cmdlinebox").value;
+                    headID.appendChild(newScript);
+                    document.getElementById('cmdlinebox').value = ''
+                }
+                function help() {
+                    document.getElementById("cmdhelp").style.display = "block";
+                }
+                function enabledeveloper() {
+                    document.getElementById('devmode').style.display = 'block'
+                    menubg();
+                }
+                function disabledeveloper() {
+                    simplecommand = true;
+                    const a = document.createElement("div");
+                    a.className = "notiftxt";
+                    a.innerText = "Disabled developer mode.";
+                    document.querySelector(".notif").appendChild(a);
+                    notify(); notifydummy();
+                }
+                function developergo() {
+                    hide('devmode');
+                    document.getElementById('termbtn').style.display = 'block'
+                    document.getElementById('terminal').style.display = 'block'
+                    const a = document.createElement("div");
+                    a.className = "notiftxt";
+                    a.innerText = "Enabled developer mode.";
+                    document.querySelector(".notif").appendChild(a);
+                    notify(); notifydummy(); showtaskbits();
+                }
+                let previousWidth = window.innerWidth;
+                let previousHeight = window.innerHeight;
+                let timer;
+
+                window.addEventListener("resize", function () {
+                    clearTimeout(timer);
+                    timer = setTimeout(checkViewportChange, 30);
+                });
+
+                function checkViewportChange() {
+                    let currentWidth = window.innerWidth;
+                    let currentHeight = window.innerHeight;
+
+                    if (Math.abs(previousWidth - currentWidth) > 100 || Math.abs(previousHeight - currentHeight) > 100) {
+                        const a = document.createElement("div");
+                        a.className = "notiftxt";
+                        a.innerText = "STOP! If someone told you to open inspect element, they are trying to bypass the protections WebTop has. 1/2";
+                        document.querySelector(".notif").appendChild(a);
+                        const b = document.createElement("div");
+                        b.className = "notiftxt";
+                        b.innerText = "If you resized this window and want to avoid this in the future, resize your window more 2/2";
+                        document.querySelector(".notif").appendChild(b);
+                        notify();
+                    }
+
+                    previousWidth = currentWidth;
+                    previousHeight = currentHeight;
+                }
+            </script>
+            <div class="popup" id="webview" onclick="focuswin('webview')">
+                <style>
+                    #webview {
+                        max-width: 1000px;
+                        width: 400px;
+                    }
+
+                    #webframe {
+                        border: 0;
+                        height: 300px;
+                        box-sizing: border-box;
+                        width: 100%;
+                    }
+                </style>
+                <div class="popup-header noselect">Webviewer <button class="smallbtn1" onclick="hide('webview');"
+                        class="hidebtn">Hide</button><button class="smallbtn"
+                        onclick="document.getElementById('webframe').src = document.getElementById('webframe').src">Reload</button>
+                    <button class="smallbtn Desktopnav" id="resizewebview"
+                        onclick="toggleresizewebview()">Resize</button>
+                </div>
+                <iframe id="webframe" src="https://example.com"></iframe>
+                <p>Webviewer 6.0</p>
+                <script>
+                    let webview = document.getElementById("webview");
+                    function toggleresizewebview() {
+                        webview.style.width = "630px";
+                        document.getElementById("resizewebview").setAttribute("onClick", "javascript: toggleresizewebview2();");
+                    }
+                    function toggleresizewebview2() {
+                        webview.style.width = "400px";
+                        document.getElementById("resizewebview").setAttribute("onClick", "javascript: toggleresizewebview();");
+                    } 
+                </script>
+            </div>
+            <style>
+                .nopaddingleft {
+                    padding-left: 0;
+                }
+
+                .left {
+                    position: fixed;
+                    left: 0%;
+                }
+
+                #textedit {
+                    width: 600px;
+                }
+
+                .textbox {
+                    position: flex;
+                    width: 100%;
+                    border-radius: 8px;
+                    max-height: 90%;
+                    max-width: 100%;
+                    min-width: 100%;
+                    padding: 6px;
+                    color: #fff;
+                    margin-top: 2px;
+                    border: none;
+                    background: rgba(var(--accent));
+                }
+
+                #exportdoc,
+                #replacetxt,
+                #findtext {
+                    z-index: 15;
+                }
+            </style>
+            <button style="display: none;" id="dwn-btn2">lmfao invisible</button>
+            <div id="textedit" class="popup" onclick="focuswin('textedit')">
+                <div class="popup-header noselect">Textedit
+                    <button onclick="hide('textedit');" class="hidebtn smallbtn">Hide</button>
+                    <button class="smallbtn" onclick="document.getElementById('text-val').value = ''">Delete</button>
+                    <button class="smallbtn" onclick="copy2();">Copy All</button>
+                    <button class="smallbtn" onclick="show('findtext')">Find</button>
+                    <button class="smallbtn" onclick="show('replacetxt')">Replace</button>
+                    <button class="smallbtn" onclick="show('exportdoc')">Export as...</button>
+                    <button class="smallbtn" id="decoytxt">Upload document</button>
+                    <input type="file" style="display: none;" id="uploadtxt" />
+                </div>
+                <div class="popupalert" id="exportdoc">
+                    <p>Export as:</p>
+                    <button class="app wider widertop" onclick="txt();downloadit();">.txt</button>
+                    <button class="app wider" onclick="json();downloadit();">.json</button>
+                    <button class="app wider" onclick="html();downloadit();">.html</button>
+                    <button class="app wider widerbottom" onclick="hide('exportdoc')">Close</button>
+                </div>
+                <div class="popupalert" id="replacetxt">
+                    <p>Replace text</p>
+                    <input type="text" class="app textbox widertop" id="replace1" placeholder="Text to replace" />
+                    <input type="text" class="app textbox widerbottom" id="replace2" placeholder="Replace with" />
+                    <button class="app" onclick="hide('replacetxt')">Close</button><button class="app"
+                        onclick="replace();">Replace</button>
+                </div>
+                <div class="popupalert" id="findtext">
+                    <p>Find text</p>
+                    <input type="text" class="app textbox wider0" id="findtxtbox" placeholder="Text to find" />
+                    <button class="app" onclick="hide('findtext')">Close</button><button class="app"
+                        onclick="findtext();">Find</button>
+                </div>
+                <textarea placeholder="Start typing, or upload a document." type="text" class="app textbox"
+                    id="text-val" cols="20" rows="12"></textarea>
+                <p class="paddedp">Don't report any visual bugs, I know they exist.</p>
+                <script>
+                    function replace() {
+                        replace1 = document.getElementById("replace1").value;
+                        replace2 = document.getElementById("replace2").value;
+                        var text = document.getElementById("text-val").value;
+                        var newText = text.replace(replace1, replace2);
+                        document.getElementById("text-val").value = newText;
+                    }
+                    let fake2 = document.querySelector('#decoytxt');
+                    fake2.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        document.getElementById('uploadtxt').click()
+                    })
+                    function copy2() {
+                        var copyText = document.getElementById("text-val");
+                        copyText.select();
+                        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+                        navigator.clipboard.writeText(copyText.value);
+                    }
+                    function download(filename, text) {
+                        var element = document.createElement('a');
+                        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                        element.setAttribute('download', filename);
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
+                        element.click();
+                        document.body.removeChild(element);
+                    }
+                    // Start file download.
+                    filetype = "txt";
+                    function downloadit() {
+                        var text = document.getElementById("text-val").value;
+                        var filename = "filename." + filetype;
+                        download(filename, text);
+                    }
+                    function download(filename, text) {
+                        var element = document.createElement('a');
+                        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                        element.setAttribute('download', filename);
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
+                        element.click();
+                        document.body.removeChild(element);
+                    }
+                    function txt() {
+                        filetype = "txt";
+                    }
+                    function html() {
+                        filetype = "html";
+                    }
+                    function json() {
+                        filetype = "json";
+                    }
+                    function findtext() {
+                        replace1 = document.getElementById("findtxtbox").value;
+                        var textbox = document.getElementById("text-val");
+                        var index = textbox.value.indexOf(replace1);
+                        if (index >= 0) {
+                            textbox.focus();
+                            textbox.setSelectionRange(index, index + replace1.length);
+                        }
+                    }
+
+                </script>
+                <script>
+                    let input = document.querySelector('#uploadtxt')
+                    let textarea = document.querySelector('#text-val')
+
+                    // This event listener has been implemented to identify a
+                    // Change in the input section of the html code
+                    // It will be triggered when a file is chosen.
+                    input.addEventListener('change', () => {
+                        let files = input.files;
+
+                        if (files.length == 0) return;
+                        const file = files[0];
+
+                        let reader = new FileReader();
+
+                        reader.onload = (e) => {
+                            const file = e.target.result;
+
+                            // This is a regular expression to identify carriage
+                            // Returns and line breaks
+                            const lines = file.split(/\r\n|\n/);
+                            textarea.value = lines.join('\n');
+
+                        };
+
+                        reader.onerror = (e) => alert(e.target.error.name);
+
+                        reader.readAsText(file);
+                    });
+
+                </script>
+            </div>
+            <style>
+                .nopaddingleft {
+                    padding-left: 0;
+                }
+
+                .left {
+                    position: fixed;
+                    left: 0%;
+                }
+
+                #WebTopfile {
+                    width: 600px;
+                }
+            </style>
+            <div id="WebTopfile" class="popup" onclick="focuswin('WebTopfile');">
+                <div class="popup-header noselect">WebTopFile Editor
+                    <button onclick="hide('WebTopfile');" class="hidebtn smallbtn">Hide</button>
+                    <button class="smallbtn" onclick="downloadfileWebTop();">Export WebTopFile</button>
+                    <input type="file" style="display: none;" id="uploadtxt" />
+                </div>
+                <textarea placeholder="Start typing, or upload a document." type="text" class="app textbox"
+                    id="WebTopfilebox" cols="20" rows="12"></textarea>
+                <p class="paddedp">Note: Be careful modifying this. The average user is not meant to access this, but
+                    have fun!
+                </p>
+                <script>
+                    function replace() {
+                        var text = document.getElementById("WebTopfilebox").value;
+                        var newText = text.replace(replace1, replace2);
+                        document.getElementById("WebTopfilebox").value = newText;
+                    }
+                    function downloadfileWebTop() {
+                        var text = document.getElementById("WebTopfilebox").value;
+                        var filename = "filename.txt";
+                        download2(filename, text);
+                    }
+                    function download2(filename, text) {
+                        var element = document.createElement('a');
+                        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                        element.setAttribute('download', filename);
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
+                        element.click();
+                        document.body.removeChild(element);
+                    }
+                </script>
+            </div>
+            <div id="about" class="popup" onclick="focuswin('about');">
+                <div class="popup-header noselect">About <button class="smallbtn1" onclick="hide('about');"
+                        class="hidebtn">Hide</button></div>
+                <img id="aboutimg" src="img/wr5.jpg"></img>
+                <p>WebTop 1.0</p>
+                <p>Built by idiot.mov</p>
+                <p>In <span id="webtopstate">normal</span> mode</p>
+                <button class="smallbtn1 marginbottom" onclick="show('sysinfo');focuswin('sysinfo');">System
+                    Info</button>
+                <script>
+                    function refreshinfo() {
+                        displayinfo1 = document.getElementById("displayinfo1");
+                        displayinfo2 = document.getElementById("displayinfo2");
+                        useragentinfo = document.getElementById("useragentinfo");
+                        meminfo = document.getElementById("meminfo");
+                        displayinfo1.innerHTML = window.screen.height;
+                        displayinfo2.innerHTML = window.screen.width;
+                        meminfo.innerHTML = navigator.deviceMemory;
+                        useragentinfo.innerHTML = navigator.userAgent;
+                        setTimeout(refreshinfo, 4000)
+                    }
+                </script>
+            </div>
+            <div id="sysinfo" class="popup" onclick="focuswin('sysinfo');">
+                <div class="popup-header noselect">System Info <button class="smallbtn1" onclick="hide('sysinfo');"
+                        class="hidebtn">Hide</button></div>
+                <div class="paddedbox">
+                    <p class="note">Note: Scaling affects display readings.</p>
+                    <p>Display: <span id="displayinfo2"></span>x<span id="displayinfo1"></span></p>
+                    <p id="mainram">RAM: <span id="meminfo"></span>gb available to WebTop</p>
+                    <p>Browser Agent: <span id="useragentinfo" class="fixpbug"></span></p>
+                    <p><button class="smallbtn1 wider" id="agentuser1"
+                            onclick="show('useragentinfo');show('agentuser2');hide('agentuser1')">Show</button><button
+                            class="smallbtn1 wider" id="agentuser2"
+                            onclick="hide('useragentinfo');hide('agentuser2');show('agentuser1')">Hide</button></p>
+                </div>
+            </div>
+            <div id="manageacc" class="popup">
+                <div class="popup-header noselect">Account <button class="smallbtn1"
+                        onclick="hide('manageacc');">Hide</button>
+                </div>
+                <div class="paddedbox">
+                    <p>Note: Account management is not done at all and is buggy.</p>
+                    <p>Password</p>
+                    <input type="password" class="app textbox widertop wider" id="checkpin1"
+                        placeholder="Enter old PIN" />
+                    <input type="password" class="app textbox widerbottom wider" id="changepin"
+                        placeholder="Enter new PIN" />
+                    <button class="app widerbottom wider" onclick="checkpin1();">Unlock</button>
+                    <script>
+                        function checkpin1() {
+                            if (document.getElementById('checkpin1').value === pinvar) {
+                                pinvar === document.getElementById('changepin').value;
+                                show('successnotif');
+                                let text = censoredText;
+                                let censoredText = "";
+                                for (let i = 0; i < text.length; i++) {
+                                    if (i === 0 || i === text.length - 1) {
+                                        censoredText += text[i];
+                                    } else {
+                                        censoredText += "*";
+                                    }
+                                }
+                                document.getElementById("successtxt").innerHTML = "Changed PIN to " + censoredText;
+                            } else {
+                                show('wrongpin');
+                            }
+                        }
+                    </script>
+                    <p>Username</p>
+                    <p>Current username: <span class="name"></span></p>
+                </div>
+            </div>
+            <div class="popup" id="settings" onclick="focuswin('settings')">
+                <style>
+                    .fixpbug {
+                        max-width: 95% !important;
+                    }
+
+                    #sysinfo,
+                    #useragentinfo {
+                        width: 230px;
+                        display: none;
+                    }
+
+                    #agentuser2 {
+                        display: none;
+                    }
+
+                    #settings {
+                        width: 450px;
+                    }
+
+                    .paddedbox {
+                        padding: 8px;
+                        box-sizing: border-box;
+                    }
+
+                    .settingmenu {
+                        padding: 8px;
+                        display: none;
+                    }
+
+                    .red {
+                        background: rgba(var(--red), 1.0) !important;
+                    }
+
+                    .orange {
+                        background: rgba(var(--orange), 1.0) !important;
+                    }
+
+                    .yellow {
+                        background: rgba(var(--yellow), 1.0) !important;
+                    }
+
+                    .green {
+                        background: rgba(var(--green), 1.0) !important;
+                    }
+
+                    .mint {
+                        background: rgba(var(--mint), 1.0) !important;
+                    }
+
+                    .blue {
+                        background: rgba(var(--blue), 1.0) !important;
+                    }
+
+                    .indigo {
+                        background: rgba(var(--indigo), 1.0) !important;
+                    }
+
+                    .purple {
+                        background: rgba(var(--purple), 1.0) !important;
+                    }
+
+                    .pink {
+                        background: rgba(var(--pink), 1.0) !important;
+                    }
+
+                    .forcecolor:hover {
+                        opacity: 70%
+                    }
+
+                    .forcecolor:active {
+                        opacity: 40%
+                    }
+
+                    .accent {
+                        border-radius: 50%;
+                        width: 20px;
+                        height: 20px;
+                        border: none;
+                        transition: .1s;
+                    }
+
+                    .accent:hover {
+                        opacity: 70%;
+                    }
+
+                    .accent:active {
+                        opacity: 40%;
+                    }
+
+                    #mainsettings {
+                        display: block;
+                    }
+
+                    .themeimg:hover {
+                        opacity: 65%;
+                    }
+
+                    .themeimg:active {
+                        opacity: 35%;
+                    }
+
+                    .themeimg {
+                        width: 110px;
+                        height: 60px;
+                        border-radius: 8px;
+                        margin: 1px;
+                        transition: .1s;
+                    }
+
+                    #wallpapers,
+                    #wallpaperbtn2 {
+                        display: none;
+                    }
+
+                    .smallnavstrip {
+                        background: rgba(var(--accent), 0.4);
+                        -webkit-backdrop-filter: blur(8px);
+                        backdrop-filter: blur(8px);
+                        padding: 10px;
+                        border-radius: 8px;
+                        margin: 2px;
+                        width: 99%;
+                        color: var(--font);
+                    }
+
+                    .marginbottom {
+                        margin-bottom: 4px;
+                    }
+
+                    #about {
+                        background-color: var(--lightdarkb) !important;
+                        width: 200px;
+                    }
+
+                    #aboutimg {
+                        width: 120px;
+                        height: 120px;
+                        margin-top: 8px;
+                        border: 2px solid var(--lightdark);
+                        border-radius: 50%;
+                    }
+                </style>
+                <div class="popup-header noselect">Settings <button class="smallbtn1" onclick="hide('settings');"
+                        class="hidebtn">Hide</button><button class="smallbtn1" id="clrcmd"
+                        onclick="erase();">Erase</button><button class="smallbtn" id="run"
+                        onclick="show('about');focuswin('about');refreshinfo();">About</button>
+                </div>
+                <div id="mainsettings" class="settingmenu">
+                    <div class="smallnavstrip widertop">
+                        <span class="name" style="margin-right: 6px;">User</span><button class="smallbtn1"
+                            onclick="show('manageacc');">Manage...</button>
+                        <button class="smallbtn1" onclick="backup();">Back Up WebTopFile</button>
+                    </div>
+                    <button class="app wider" onclick="hide('mainsettings');showel('personalize');">Personalize</button>
+                    <button class="app wider" onclick="hide('mainsettings');showel('privacy');">Data
+                        & Privacy</button>
+                    <button class="app wider" onclick="hide('mainsettings');showel('WebTopset');">WebTop</button>
+                    <button class="app wider widerbottom" onclick="">Report Bug</button>
+                </div>
+                <div id="personalize" class="settingmenu">
+                    <p>Accent Color</p>
+                    <p><button class="accent red" onclick="ared();disablerainbow();"></button>
+                        <button class="accent orange" onclick="aorange();disablerainbow();"></button>
+                        <button class="accent yellow" onclick="ayellow();disablerainbow();"></button>
+                        <button class="accent green" onclick="agreen();disablerainbow();"></button>
+                        <button class="accent mint" onclick="amint();disablerainbow();"></button>
+                        <button class="accent blue" onclick="ablue();disablerainbow();"></button>
+                        <button class="accent indigo" onclick="aindigo();disablerainbow();"></button>
+                        <button class="accent purple" onclick="apurple();disablerainbow();"></button>
+                        <button class="accent pink" onclick="apink();disablerainbow();"></button>
+                    </p>
+                    <p>UI Color</p>
+                    <button class="app wider widertop" onclick="lightmode();">Enable light mode</button>
+                    <button class="app wider widerbottom" onclick="darkmode();">Enable dark mode</button>
+                    <p>Wallpapers</p>
+                    <button id="wallpaperbtn" class="app wider widers0" onclick="walltoggle();">Show Wallpapers
+                        (temporary slowdown)</button>
+                    <button id="wallpaperbtn2" class="app wider widers0" onclick="walltoggle();">Hide
+                        Wallpapers</button>
+                    <p id="wallpapers">
+                        <img class="themeimg" src="img/wr5.jpg" onclick="wr1();"></img>
+                        <img class="themeimg" src="img/wr2.jpg" onclick="wr2();"></img>
+                        <img class="themeimg" src="img/wr3.jpg" onclick="wr3();"></img>
+                        <img class="themeimg" src="img/wr4.jpg" onclick="wr4();"></img>
+                        <img class="themeimg" src="img/wr5.jpg" onclick="wr5();"></img>
+                    </p>
+                    <p>Others</p>
+                    <button class="app wider widertop" onclick="hide('personalize');showel('rainbowaccentopt');">Rainbow
+                        Accent...</button>
+                    <button class="app wider" onclick="hide('personalize');showel('setcustui');">UI
+                        Customizer...</button>
+                    <button class="app wider" onclick="toggleuisounds()">Toggle Tap/Click Sounds</button>
+                    <button class="app wider widerbottom"
+                        onclick="document.getElementById('mainsettings').style.display = 'block';hide('personalize').style.display = 'none'">Back</button>
+                </div>
+                <div id="setcustui" class="settingmenu">
+                    <p>Note: experimental and may cause issues, these changes only apply to some buttons and textboxes.
+                    </p>
+                    <input type="text" class="textbox wider wider0" id="hex-input"
+                        placeholder="Enter a hex code without the #." />
+                    <button class="app" id="submit-btn">Submit</button>
+                    <button class="app wider wider0"
+                        onclick="document.getElementById('personalize').style.display = 'block';hide('setcustui').style.display = 'none'">Back</button>
+                </div>
+                <div id="rainbowaccentopt" class="settingmenu">
+                    <p>Note: experimental and can cause issues.</p>
+                    <button class="app wider wider0" onclick="rainbowaccent()">Rainbow Accent Toggle</button>
+                    <p>Type how fast you want it to fade below.</p>
+                    <p>Note: In miliseconds. 1000ms = 1 second</p>
+                    <input type="number" class="textbox app wider wider0" placeholder="Type value here..."
+                        onfocus="disablerainbow();" id="rainbox" />
+                    <p>Note: If rainbow accent is on, it will be disabled when you type the value until you click
+                        "Apply
+                        Changes".</p>
+                    <button class="app wider widertop" onclick="changefadetime();">Apply Changes</button>
+                    <button class="app wider widerbottom"
+                        onclick="document.getElementById('personalize').style.display = 'block';hide('rainbowaccentopt').style.display = 'none'">Back</button>
+                </div>
+                <div id="privacy" class="settingmenu">
+                    <button class="app wider widertop" onclick="erase()">Erase WebTop</button>
+                    <button class="app wider widerbottom"
+                        onclick="document.getElementById('mainsettings').style.display = 'block';hide('privacy').style.display = 'none'">Back</button>
+                </div>
+                <div id="WebTopset" class="settingmenu">
+                    <button class="app wider wider0" onclick="enabledeveloper();">Enable Developer Mode</button>
+                    <p>Experiments</p>
+                    <p>Font size experiment</p>
+                    <script>
+                        function increaseFont(percentage) {
+                            let html = document.documentElement;
+                            let currentFontSize = parseFloat(window.getComputedStyle(html).fontSize);
+                            html.style.fontSize = (currentFontSize * (1 + percentage / 100)) + 'px';
+                        }
+
+                    </script>
+                    <button class="app wider widertop" onclick="increaseFont('1.0')">Normal</button>
+                    <button class="app wider" onclick="increaseFont('1.2')">Big</button>
+                    <button class="app wider" onclick="increaseFont('1.4')">Bigger</button>
+                    <button class="app wider widerbottom marginbottom" onclick="increaseFont('1.6')">Biggest</button>
+                    <button class="app wider wider0"
+                        onclick="document.getElementById('mainsettings').style.display = 'block';hide('WebTopset').style.display = 'none'">Back</button>
+                </div>
+                <script>
+                    var fadeaccenton = false;
+                    var fadetime = 500;
+                    var r = document.querySelector(':root');
+                    function ared() {
+                        r.style.setProperty('--accent', 'var(--red)');
+                        if (fadeaccenton == true) {
+                            setTimeout(aorange, fadetime);
+                        }
+                    }
+                    function aorange() {
+                        r.style.setProperty('--accent', 'var(--orange)');
+                        if (fadeaccenton == true) {
+                            setTimeout(ayellow, fadetime);
+                        }
+                    }
+                    function ayellow() {
+                        r.style.setProperty('--accent', 'var(--yellow)');
+                        if (fadeaccenton == true) {
+                            setTimeout(agreen, fadetime);
+                        }
+                    }
+                    function agreen() {
+                        r.style.setProperty('--accent', 'var(--green)')
+                        if (fadeaccenton == true) {
+                            setTimeout(amint, fadetime);
+                        }
+                    }
+                    function amint() {
+                        r.style.setProperty('--accent', 'var(--mint)');
+                        if (fadeaccenton == true) {
+                            setTimeout(ablue, fadetime);
+                        }
+                    }
+                    function ablue() {
+                        r.style.setProperty('--accent', 'var(--blue)');
+                        if (fadeaccenton == true) {
+                            setTimeout(aindigo, fadetime);
+                        }
+                    }
+                    function aindigo() {
+                        r.style.setProperty('--accent', 'var(--indigo)');
+                        if (fadeaccenton == true) {
+                            setTimeout(apurple, fadetime);
+                        }
+                    }
+                    function apurple() {
+                        r.style.setProperty('--accent', 'var(--purple)');
+                        if (fadeaccenton == true) {
+                            setTimeout(apink, fadetime);
+                        }
+                    }
+                    function aindigo() {
+                        r.style.setProperty('--accent', 'var(--indigo)');
+                        if (fadeaccenton == true) {
+                            setTimeout(apurple, fadetime);
+                        }
+                    }
+                    const hexInput = document.getElementById("hex-input");
+                    const submitBtn = document.getElementById("submit-btn");
+
+                    submitBtn.addEventListener("click", () => {
+                        const hexCode = hexInput.value;
+                        const rgb = hexToRgb(hexCode);
+                        document.documentElement.style.setProperty("--accent", `${rgb.r}, ${rgb.g}, ${rgb.b}`);
+                        const url = new URL(window.location.href);
+                        url.searchParams.set("accent", hexCode);
+                        window.history.replaceState(null, "", url);
+                    });
+
+                    function hexToRgb(hex) {
+                        const r = parseInt(hex.slice(0, 2), 16);
+                        const g = parseInt(hex.slice(2, 4), 16);
+                        const b = parseInt(hex.slice(4, 6), 16);
+                        return { r, g, b };
+                    }
+                    const elements = document.querySelectorAll('.app, .textbox');
+
+                    elements.forEach((element) => {
+                        const backgroundColor = window.getComputedStyle(element).getPropertyValue('background-color');
+                        const brightness = getBrightness(backgroundColor);
+
+                        if (brightness < 255 / 2) {
+                            elements.style.color = '#fff'; // set text color to white
+                        }
+                    });
+
+                    function getBrightness(backgroundColor) {
+                        // remove spaces, brackets, and commas from background color string
+                        backgroundColor = backgroundColor.replace(/ /g, '').replace(/\)/g, '').replace(/\(/g, '').replace(/,/g, '');
+
+                        // extract RGB values from the string
+                        const red = parseInt(backgroundColor.substring(0, 2), 16);
+                        const green = parseInt(backgroundColor.substring(2, 4), 16);
+                        const blue = parseInt(backgroundColor.substring(4, 6), 16);
+
+                        // calculate the brightness using the formula from W3C
+                        return (red * 299 + green * 587 + blue * 114) / 1000;
+                    }
+                    function lightmode() {
+                        r.style.setProperty('--lightdark', '#f2f2f2');
+                        r.style.setProperty('--lightdarkb', 'rgb(255, 255, 255, 0.2)');
+                        r.style.setProperty('--font', '#2a2a2a');
+                    }
+                    function darkmode() {
+                        r.style.setProperty('--lightdark', '#1a1a1a');
+                        r.style.setProperty('--lightdarkb', 'rgb(20, 20, 20, 0.5)');
+                        r.style.setProperty('--font', '#f2f2f2');
+                    }
+                    function changefadetime() {
+                        fadetime = document.getElementById("rainbox").value;
+                        disablerainbow(); rainbowaccent();
+                    }
+                    function disablerainbow() {
+                        fadeaccenton = false;
+                    }
+                    function rainbowaccent() {
+                        if (fadeaccenton == false) {
+                            tempuisounds();
+                            navsound();
+                            fadeaccenton = true;
+                            ared();
+                            tempuisounds();
+                        } else {
+                            tempuisounds();
+                            fadeaccenton = false;
+                            navsound3();
+                            tempuisounds();
+                            // Someone was DMing me saying they wanted to get
+                            // railed why I was writing this
+                        }
+                    }
+                    function tempuisounds() {
+                        if (navsounds == true) {
+                            navsounds = false;
+                        } else if (navsoundspref == true) {
+                            navsounds = true;
+                        }
+                    }
+                    function toggleuisounds() {
+                        if (navsounds == false) {
+                            navsound();
+                            navsounds = true;
+                            navsoundspref = true;
+                        } else {
+                            navsound3();
+                            navsounds = false;
+                            navsoundspref = false;
+                        }
+                    }
+
+                    function settings() {
+                        document.getElementById('settings').style.display = 'block';
+                    }
+
+                    function wr1() {
+                        document.body.style.backgroundImage = "url('img/wr5.jpg')";
+                    }
+                    function wr2() {
+                        document.body.style.backgroundImage = "url('img/wr2.jpg')";
+                    }
+                    function wr3() {
+                        document.body.style.backgroundImage = "url('img/wr3.jpg')";
+                    }
+                    function wr4() {
+                        document.body.style.backgroundImage = "url('img/wr4.jpg')";
+                    }
+                    function wr5() {
+                        document.body.style.backgroundImage = "url('img/wr5.jpg')";
+                    }
+                    function walltoggle() {
+                        if (document.getElementById('wallpaperbtn').style.display == 'block') {
+                            hide('wallpaperbtn').style.display = 'none';
+                            document.getElementById('wallpaperbtn2').style.display = 'block';
+                            document.getElementById('wallpapers').style.display = 'block'
+                        } else {
+                            document.getElementById('wallpaperbtn').style.display = 'block';
+                            hide('wallpaperbtn2').style.display = 'none';
+                            hide('wallpapers').style.display = 'none'
+                        }
+                    }
+                </script>
+            </div>
+            <!--END OF USERSPACE!-->
+            <!--END OF USERSPACE!-->
+            <!--END OF USERSPACE!-->
+            <!--I swear to God iconic put the windows in the right fucking spot-->
+        </div>
+        <script>
+            window.onload = function () {
+                initDragElement();
+                initResizeElement();
+            };
+
+            function initDragElement() {
+                var pos1 = 0,
+                    pos2 = 0,
+                    pos3 = 0,
+                    pos4 = 0;
+                var popups = document.getElementsByClassName("popup");
+                var elmnt = null;
+                var currentZIndex = 100; //TODO reset z index when a threshold is passed
+
+                for (var i = 0; i < popups.length; i++) {
+                    var popup = popups[i];
+                    var header = getHeader(popup);
+
+                    popup.onmousedown = function () {
+                        this.style.zIndex = "" + ++currentZIndex;
+                    };
+
+                    if (header) {
+                        header.parentPopup = popup;
+                        header.onmousedown = dragMouseDown;
+                    }
+                }
+
+                function dragMouseDown(e) {
+                    elmnt = this.parentPopup;
+                    elmnt.style.zIndex = "" + ++currentZIndex;
+
+                    e = e || window.event;
+                    // get the mouse cursor position at startup:
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    // call a function whenever the cursor moves:
+                    document.onmousemove = elementDrag;
+                    const isButton2 = event.target.nodeName === 'BUTTON';
+                    if (!isButton2) {
+                        if (navsounds == true) {
+                            navsound();
+                        }
+                    }
+                }
+
+                function elementDrag(e) {
+                    if (!elmnt) {
+                        return;
+                    }
+                    e = e || window.event;
+                    // calculate the new cursor position:
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    // set the element's new position:
+                    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+                    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+                }
+
+                function closeDragElement() {
+                    /* stop moving when mouse button is released:*/
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                    const isButton3 = event.target.nodeName === 'BUTTON';
+                    if (!isButton3) {
+                        if (navsounds == true) {
+                            navsound3();
+                        }
+                    }
+                }
+
+                function getHeader(element) {
+                    var headerItems = element.getElementsByClassName("popup-header");
+
+
+                    if (headerItems.length === 1) {
+                        return headerItems[0];
+                    }
+
+                    return null;
+                }
+            }
+            function initResizeElement() {
+                var popups = document.getElementsByClassName("resizeapp");
+                var element = null;
+                var startX, startY, startWidth, startHeight;
+
+                for (var i = 0; i < popups.length; i++) {
+                    var p = popups[i];
+
+                    var right = document.createElement("div");
+                    right.className = "resizer-right";
+                    p.appendChild(right);
+                    right.addEventListener("mousedown", initDrag, false);
+                    right.parentPopup = p;
+
+                    var bottom = document.createElement("div");
+                    bottom.className = "resizer-bottom";
+                    p.appendChild(bottom);
+                    bottom.addEventListener("mousedown", initDrag, false);
+                    bottom.parentPopup = p;
+
+                    var both = document.createElement("div");
+                    both.className = "resizer-both";
+                    p.appendChild(both);
+                    both.addEventListener("mousedown", initDrag, false);
+                    both.parentPopup = p;
+                }
+            }
+
+            function initDrag(e) {
+                element = this.parentPopup;
+
+                startX = e.clientX;
+                startY = e.clientY;
+                startWidth = parseInt(
+                    document.defaultView.getComputedStyle(element).width,
+                    10
+                );
+                startHeight = parseInt(
+                    document.defaultView.getComputedStyle(element).height,
+                    10
+                );
+                document.documentElement.addEventListener("mousemove", doDrag, false);
+                document.documentElement.addEventListener("mouseup", stopDrag, false);
+            }
+
+            function doDrag(e) {
+                element.style.width = startWidth + e.clientX - startX + "px";
+                element.style.height = startHeight + e.clientY - startY + "px";
+            }
+
+            function stopDrag() {
+                document.documentElement.removeEventListener("mousemove", doDrag, false);
+                document.documentElement.removeEventListener("mouseup", stopDrag, false);
+            }
+            // Thank you OpenAI, for you have saved me time by writing this code.
+
+            function recenterwin() {
+                let elements = document.querySelectorAll(".popup");
+                elements.forEach((element) => {
+                    element.style.left = "50%";
+                    element.style.top = "50%";
+                    element.style.transform = "translate(-50%, -50%)";
+                });
+            }
+            function focuswin(elementID) {
+                let elements = document.querySelectorAll(".focusedwin");
+                let highestZIndex = 0;
+
+                elements.forEach(function (element) {
+                    element.classList.remove("focusedwin");
+                    let elementZIndex = parseInt(window.getComputedStyle(element).getPropertyValue("z-index"));
+                    if (elementZIndex > highestZIndex) {
+                        highestZIndex = elementZIndex;
+                    }
+                });
+
+                let element = document.getElementById(elementID);
+                if (element) {
+                    hidewin = elementID;
+                    const str2 = elementID.charAt(0).toUpperCase() + elementID.slice(1);
+                    document.getElementById("focusedapp").innerHTML = str2;
+                    document.getElementById("rightmenup").innerHTML = str2;
+                    element.classList.add("focusedwin");
+                    element.style.zIndex = highestZIndex + 1;
+                }
+            }
+
+
+            function focuswinnohide(elementID) {
+                var element = document.getElementById(elementID);
+                if (element) {
+                    hidewin = "";
+                    const str2 = elementID.charAt(0).toUpperCase() + elementID.slice(1);
+                    document.getElementById("focusedapp").innerHTML = str2
+                    document.getElementById("rightmenup").innerHTML = str2
+                }
+            }
+            function showel(elementID) {
+                var element = document.getElementById(elementID);
+                if (element) {
+                    element.style.display = "block";
+                }
+            }
+            function dontallowclose(elementID) {
+
+            }
+            function newtxt(elementID, txtreplace) {
+                var element = document.getElementById(elementID);
+                if (element) {
+                    if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
+                        element.value = txtreplace;
+                    } else {
+                        element.innerHTML = txtreplace;
+                    }
+                }
+            }
+            function custompopupset() {
+                showel("custompopup");
+                document.getElementById("custompopuptxt").innerHTML = custompopupvalue;
+                menubg(); hidetaskbits();
+            }
+            function click(elementID) {
+                var element = document.getElementById(elementID);
+                if (element) {
+                    element.click();
+                }
+            }
+            function cleartxt(elementID) {
+                var element = document.getElementById(elementID);
+                if (element) {
+                    element.value = "";
+                    element.innerHTML = "";
+                }
+            }
+            function webuse(url) {
+                show("webview"); closemenubg(); closemenus();
+                var iframe = document.getElementById("webframe");
+                if (iframe) {
+                    iframe.src = url;
+                }
+            }
+    // penise in my fat man ass - My roomate, 2023.
+    // Yes, she actually typed this.
+        </script>
+        <script>
+            document.body.addEventListener("click", function (event) {
+                if (event.target.matches(".hidebtn")) {
+                    focuswinnohide("Desktop")
+                }
+            });
+            var popup = document.querySelectorAll('.popupalert');
+
+            var isDragging = false;
+            var currentX;
+            var currentY;
+            var initialX;
+            var initialY;
+            var xOffset = 0;
+            var yOffset = 0;
+
+            if (popup) {
+                popup.addEventListener("mousedown", dragStart);
+                popup.addEventListener("mouseup", dragEnd);
+                popup.addEventListener("mouseout", dragEnd);
+                popup.addEventListener("mousemove", drag);
+            }
+
+            function dragStart(e) {
+                initialX = e.clientX;
+                initialY = e.clientY;
+
+                xOffset = initialX - popup.offsetLeft;
+                yOffset = initialY - popup.offsetTop;
+
+                isDragging = true;
+            }
+
+            function dragEnd(e) {
+                initialX = currentX;
+                initialY = currentY;
+
+                isDragging = false;
+            }
+
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    currentX = e.clientX - xOffset;
+                    currentY = e.clientY - yOffset;
+
+                    popup.style.top = currentY + "px";
+                    popup.style.left = currentX + "px";
+                }
+            }
+        </script>
+        </div>
+</span>
+<div id="wrongpin" class="popup">
+    <div class="popup-header noselect">Error <button class="smallbtn1" onclick="hide('wrongpin');"
+            class="hidebtn">Hide</button></div>
+    <div class="paddedbox">
+        <p>Wrong PIN!</p>
+        <button class="app" onclick="hide('wrongpin')">Accept</button>
+    </div>
+</div>
+<div id="successnotif" class="popup">
+    <div class="popup-header noselect">Success <button class="smallbtn1" onclick="hide('successnotif');"
+            class="hidebtn">Hide</button></div>
+    <div class="paddedbox">
+        <p>Your action was successful. <span id="successtxt"></span></p>
+        <button class="app" onclick="hide('successnotif')">Accept</button>
+    </div>
+</div>
+<style>
+    #wrongpin,
+    #successnotif {
+        /* More lazy code, lmfao */
+        z-index: 999999999999999999999999999999;
+    }
+
+    #lockscreen {
+        position: fixed;
+        background: var(--lightdarkb);
+        left: 0px;
+        right: 0px;
+        z-index: 9;
+        bottom: 0px;
+        top: 0px;
+        display: none;
+        text-align: center !important;
+    }
+
+    #login {
+        display: block;
+    }
+
+    #loginbox {
+        padding: 8px;
+    }
+</style>
+<div id="lockscreen">
+    <div class="center popup" id="login">
+        <div class="popup-header noselect" id="loginheader">Login</div>
+        <div id="loginbox">
+            <p>Enter your PIN.</p>
+            <input type="password" class="app textbox widertop wider" id="pinlogon" placeholder="Enter PIN here" />
+            <button class="app widerbottom wider" onclick="unlock();">Unlock</button>
+        </div>
+    </div>
+</div>
+<style>
+    #crash {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        right: 0px;
+        z-index: 99;
+        display: none;
+        color: #fff;
+        text-align: center;
+    }
+
+    #nopermdev {
+        display: none;
+    }
+</style>
+<div id="crash">
+    <div class="center">
+        <div id="normalerror">
+            <p class="h2">Well, s*** hit the fan.</p>
+            <p>If you want to keep your data, reload or copy it to clipboard and paste it somewhere.</p>
+            <p><strong>Details: </strong><span id="errinfo">No details ):</span></p>
+            <button class="app">Copy my data to clipboard</button><button class="app"
+                onclick="window.location.reload();">Reload</button>
+        </div>
+    </div>
+</div>
+<script>
+    function crash() {
+        document.getElementById("crash").style.display = "block";
+        crashed = true; menubg(); nuke();
+        hide("everything")
+    }
+
+    function lock() {
+        menubg(); hidetaskbits();
+        hide("everything")
+        document.getElementById("lockscreen").style.display = "block";
+    }
+
+    function unlock() {
+        if (document.getElementById('pinlogon').value === pinvar) {
+            closemenubg(); show("taskbar")
+            show("everything");
+            hide("lockscreen");
+            cleartxt("pinlogon");
+        } else {
+            show("wrongpin");
+            cleartxt("pinlogon");
+        }
+    }
+</script>
+<div id="menubg"></div>
+<div id="menubgclose"></div>
+<!--<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>-->
+<!--Disabled for now, will be enabled if needed.-->
+</body>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="extra/WebTopui.js"></script>
+<script src="extra/restore.js"></script>
+<script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=gtElInit&amp;hl=en&amp;client=wt"
+    type="text/javascript"></script>

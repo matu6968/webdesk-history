@@ -1,0 +1,81 @@
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<style>
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  display: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+  display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+  display: none;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins';
+  height: 100%; width: 100%;
+  margin: 0; padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  user-select: none;
+  background-image: url('wr4.jpg');
+}
+
+#desktop {
+  position: absolute;
+  min-height: 100%; min-width: 100%;
+  z-index: 0; padding: 0; margin: 0;
+  top:0%; right:0%; 
+  bottom:0%; left:0%;
+  background: #1a1a1a;
+  color: #fff;
+}
+.app {
+  background-color: #1d1d1d;
+  border: none;
+  color: white;
+  padding: 9px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-family: 'Poppins';
+}
+
+.app:hover {
+  opacity: 65%;
+}
+
+.app:active {
+  opacity: 25%;
+}
+#center {
+  position: absolute;
+  top: 25%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+</style>
+<div id="desktop"><div id="center">
+<p style="margin-bottom:0;padding-bottom:0;">Privacy Error</p>
+<a href="privacyerror.html" target="_blank" class="app">More Info</a></div>
+</div>
